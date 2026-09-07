@@ -183,5 +183,3 @@ export function AuroraShowcase({ className }: { className?: string }) {
     </section>
   );
 }
-
-export default AuroraShowcase;

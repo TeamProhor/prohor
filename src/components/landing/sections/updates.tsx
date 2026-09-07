@@ -1,6 +1,7 @@
 "use client";
 
 import * as motion from "motion/react-client";
+import { ArrowUpRight, Sparkle, Server } from "reicon-react";
 import { UPDATES_CONTENT, ASSETS } from "@/lib/ui";
 
 export function Updates({
@@ -39,7 +40,7 @@ export function Updates({
           <div className="w-full lg:w-[65%] flex flex-col relative pb-10">
             <div className="flex justify-between items-center mb-3">
               <h3 className="text-xl sm:text-2xl text-neutral-100">{UPDATES_CONTENT.articleTitle}</h3>
-              <img src={ASSETS.icons.whiteArrowUpRight} alt="" width={18} height={18} />
+              <ArrowUpRight size={20} className="text-neutral-300 hover:text-white transition-colors" />
             </div>
             {UPDATES_CONTENT.paragraphs.map((p, i) => (
               <p key={i} className={`text-sm sm:text-base text-neutral-100 ${i === 2 ? "opacity-40" : "opacity-60"} leading-6 mb-3`}>

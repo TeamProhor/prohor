@@ -36,8 +36,7 @@ export function Hero({
   return (
     <section aria-label="Hero" className={`relative ${className ?? ""}`}>
       <div
-        className="relative mx-2 sm:mx-4 rounded-2xl overflow-hidden"
-        style={{ backgroundColor: "#0F0D0F" }}
+        className="relative mx-2 sm:mx-4 rounded-2xl overflow-hidden bg-card-dark"
       >
         <div className="relative">
           <div className="flex items-center px-4 py-4 sm:py-6">
@@ -91,7 +90,7 @@ export function Hero({
 
 function DashboardPreview({ heroReady }: { heroReady: boolean }) {
   return (
-    <div className="w-full max-w-[940px] h-[380px] sm:h-[460px] mx-auto bg-black rounded-xl outline outline-[1.4px] outline-neutral-100/10 flex overflow-hidden relative z-10 top-10 sm:top-20">
+    <div className="w-full max-w-5xl h-[380px] sm:h-[460px] mx-auto bg-black rounded-xl outline outline-[1.4px] outline-neutral-100/10 flex overflow-hidden relative z-10 top-10 sm:top-20">
       <aside
         aria-label="Layer panel"
         className="hidden sm:block w-40 md:w-44 shrink-0 h-full relative bg-black border-r border-white/10"
@@ -162,9 +161,9 @@ function DashboardPreview({ heroReady }: { heroReady: boolean }) {
         </div>
       </aside>
 
-      <div className="flex-1 p-3 sm:p-4 flex flex-wrap gap-3 sm:gap-4 content-start items-center justify-center sm:justify-start overflow-y-auto sm:overflow-visible">
+      <div className="flex-1 p-3 sm:p-4 grid grid-cols-1 sm:grid-cols-12 gap-3 sm:gap-4 content-start items-stretch overflow-y-auto sm:overflow-visible">
         {/* Card 1: Design Tokens & Live Chart */}
-        <article className="w-full max-w-[288px] sm:w-72 h-44 relative bg-[#D0C9B9] rounded-2xl overflow-hidden p-4 flex flex-col text-[#131113]">
+        <article className="sm:col-span-6 lg:col-span-5 h-44 relative bg-card-warm rounded-2xl overflow-hidden p-4 flex flex-col text-card-warm-foreground">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -249,27 +248,27 @@ function DashboardPreview({ heroReady }: { heroReady: boolean }) {
                 fill="none"
               >
                 <g opacity="0.12">
-                  <rect x="231" width="40" height="236" fill="#121012" />
+                  <rect x="231" width="40" height="236" fill="currentColor" />
                 </g>
                 <path
                   d="M1 180L18 178L23 172L27 168L32 157L39 159L42 166L46 154V147L52 145L54 139L58 137L62 133L67 137H71L76 133L82 128L87 133L92 137L99 142L101 157L105 160L107 168L111 171L116 174L120 188L127 191H130L139 188L145 190L150 191C151 192 153 193 154 194C155 194 158 195 160 195H170L177 194L182 195L184 186L189 182L190 177L192 171V164L198 160L201 154V145L207 142L210 137L213 130L217 128L226 141L233 147L236 151H239L241 138L246 137L255 138L259 137L261 127H266L270 120L275 119L282 125L284 130L290 133L294 141H300L303 151L309 132H314L321 114L329 115L333 155L340 164L343 174L349 164H357L362 174H364L367 155L371 158L384 163L401 160"
-                  stroke="#121012"
+                  stroke="currentColor"
                   strokeOpacity="0.18"
                   strokeWidth="1.5"
                 />
                 <path
                   d="M233 147L236 151H239L241 138L246 137L255 138L259 137L261 127H266L270 120"
-                  stroke="#121012"
+                  stroke="currentColor"
                   strokeWidth="2"
                 />
-                <circle cx="270" cy="120" r="3" fill="#121012" />
+                <circle cx="270" cy="120" r="3" fill="currentColor" />
               </svg>
             </motion.div>
           </motion.div>
         </article>
 
         {/* Card 2: Components Count & Pink Accent Card */}
-        <article className="w-28 h-44 relative rounded-2xl overflow-hidden flex flex-col justify-center items-center bg-[#E5D4F3]">
+        <article className="sm:col-span-6 lg:col-span-3 h-44 relative rounded-2xl overflow-hidden flex flex-col justify-center items-center bg-card-lavender text-card-lavender-foreground">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -280,7 +279,7 @@ function DashboardPreview({ heroReady }: { heroReady: boolean }) {
             <div className="absolute top-1.5 right-1.5 w-10 h-10 border-4 border-white/20 rotate-45 rounded-lg pointer-events-none" />
             <div className="absolute bottom-1.5 left-1.5 w-12 h-12 border-4 border-white/20 rotate-45 rounded-xl pointer-events-none" />
             <div className="relative z-10 flex flex-col items-center">
-              <span className="text-2xl font-semibold text-neutral-900 tracking-tight">
+              <span className="text-2xl sm:text-3xl font-semibold text-neutral-900 tracking-tight">
                 <CountUpInView
                   end={12000}
                   duration={1200}
@@ -304,7 +303,7 @@ function DashboardPreview({ heroReady }: { heroReady: boolean }) {
         </article>
 
         {/* Card 3: Tool Collaborations / Custom AI */}
-        <article className="w-52 h-44 rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-3.5 flex flex-col justify-between backdrop-blur-sm">
+        <article className="sm:col-span-12 lg:col-span-4 h-44 rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-3.5 flex flex-col justify-between backdrop-blur-sm">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

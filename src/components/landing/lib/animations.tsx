@@ -159,46 +159,8 @@ export function CountUpInView({
     const t = setTimeout(() => setStart(true), delay);
     return () => clearTimeout(t);
   }, [trigger, delay]);
-  return <span ref={ref}><CountUp end={end} duration={duration} active={start} format={format} /></span>;
-}
 
-export function Typewriter({
-  text,
-  className,
-  speed = 20,
-  delay = 0,
-}: {
-  text: string;
-  className?: string;
-  speed?: number;
-  delay?: number;
-}) {
-  const ref = useRef<HTMLPreElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
-  const [shown, setShown] = useState("");
-  useEffect(() => {
-    if (!inView) return;
-    let i = 0;
-    let raf = 0;
-    const start = setTimeout(() => {
-      const tick = () => {
-        i += 1;
-        setShown(text.slice(0, i));
-        if (i < text.length) raf = window.setTimeout(tick, speed) as unknown as number;
-      };
-      tick();
-    }, delay * 1000);
-    return () => {
-      clearTimeout(start);
-      clearTimeout(raf);
-    };
-  }, [inView, text, speed, delay]);
-  return (
-    <pre ref={ref} className={className}>
-      {shown}
-      <span className="inline-block w-[0.5ch] -mb-0.5 bg-white/60 animate-pulse" style={{ height: "1em" }} />
-    </pre>
-  );
+  return <span ref={ref}><CountUp end={end} duration={duration} active={start} format={format} /></span>;
 }
 
 export function TypingPlaceholderInput({
@@ -242,24 +204,5 @@ export function TypingPlaceholderInput({
       value={done ? placeholder : shown}
       className="flex-1 min-w-0 bg-transparent text-sm text-neutral-100 placeholder:text-transparent sm:placeholder:text-neutral-400 outline-none"
     />
-  );
-}
-
-export function ToolIcon({
-  src,
-  className,
-  style,
-}: {
-  src: string;
-  className?: string;
-  style?: React.CSSProperties;
-}) {
-  return (
-    <div
-      className={`size-9 relative bg-white/10 rounded-lg flex items-center justify-center ${className ?? ""}`}
-      style={style}
-    >
-      <img src={src} alt="" width={20} height={20} />
-    </div>
   );
 }

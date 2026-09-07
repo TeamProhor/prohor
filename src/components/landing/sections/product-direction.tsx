@@ -316,5 +316,3 @@ export function ProductDirectionSection({ className }: { className?: string }) {
     </section>
   );
 }
-
-export default ProductDirectionSection;

@@ -1,7 +1,66 @@
 "use client";
 
+import type { ReactNode } from "react";
 import * as motion from "motion/react-client";
-import { PILLS_CONTENT } from "@/lib/ui";
+import {
+  Profile2user,
+  Rocket,
+  CreditCard,
+  Server,
+  Database,
+  Puzzle,
+} from "reicon-react";
+
+const PILL_ITEMS: {
+  label: string;
+  icon: ReactNode;
+  bgClass: string;
+  iconBg: string;
+  delay: number;
+}[] = [
+  {
+    label: "ডিজাইনার ও ডেভেলপার ফ্রেন্ডলি",
+    icon: <Profile2user size={15} />,
+    bgClass: "bg-card-warm text-card-warm-foreground",
+    iconBg: "bg-black/10 text-neutral-900",
+    delay: 0.3,
+  },
+  {
+    label: "ওয়ান-ক্লিক এজ ডিপ্লয়মেন্ট",
+    icon: <Rocket size={15} />,
+    bgClass: "bg-card-dark text-foreground border border-white/10",
+    iconBg: "bg-white/10 text-white",
+    delay: 0.4,
+  },
+  {
+    label: "বিকাশ ও নগদ পেমেন্ট গেটওয়ে",
+    icon: <CreditCard size={15} />,
+    bgClass: "bg-card-lavender text-card-lavender-foreground",
+    iconBg: "bg-black/10 text-neutral-900",
+    delay: 0.5,
+  },
+  {
+    label: "বাংলাদেশি ক্লাউড ও ঢাকা রিজিয়ন",
+    icon: <Server size={15} />,
+    bgClass: "bg-card-dark text-foreground border border-white/10",
+    iconBg: "bg-white/10 text-white",
+    delay: 0.4,
+  },
+  {
+    label: "S3-কম্প্যাটিবল অবজেক্ট স্টোরেজ",
+    icon: <Database size={15} />,
+    bgClass: "bg-card-dark text-foreground border border-white/10",
+    iconBg: "bg-white/10 text-white",
+    delay: 0.5,
+  },
+  {
+    label: "মার্কেটপ্লেস ও প্লাগইন",
+    icon: <Puzzle size={15} />,
+    bgClass: "bg-card-dark text-foreground border border-white/10",
+    iconBg: "bg-white/10 text-white",
+    delay: 0.6,
+  },
+];
 
 function PillReveal({
   delay,
@@ -25,25 +84,20 @@ function PillReveal({
 function Pill({
   label,
   icon,
-  bg,
-  text,
+  bgClass,
   iconBg,
-  invertIcon = false,
 }: {
   label: string;
-  icon: string;
-  bg: string;
-  text: string;
+  icon: ReactNode;
+  bgClass: string;
   iconBg: string;
-  invertIcon?: boolean;
 }) {
   return (
     <div
-      style={{ backgroundColor: bg }}
-      className={`h-11 sm:h-12 w-full grow flex items-center gap-2.5 px-4 sm:px-5 rounded-xl cursor-pointer hover:scale-[1.02] transition-transform min-w-0 ${text}`}
+      className={`h-11 sm:h-12 w-full grow flex items-center gap-2.5 px-4 sm:px-5 rounded-xl cursor-pointer hover:scale-[1.02] transition-transform min-w-0 ${bgClass}`}
     >
       <div className={`size-6 sm:size-7 rounded-lg flex items-center justify-center shrink-0 ${iconBg}`}>
-        <img src={icon} alt="" width={14} height={14} style={invertIcon ? { filter: "brightness(0)" } : undefined} />
+        {icon}
       </div>
       <span className="text-xs sm:text-sm font-medium truncate">{label}</span>
     </div>
@@ -55,8 +109,8 @@ export function Pills({
 }: {
   className?: string;
 }) {
-  const row1 = PILLS_CONTENT.slice(0, 3);
-  const row2 = PILLS_CONTENT.slice(3, 6);
+  const row1 = PILL_ITEMS.slice(0, 3);
+  const row2 = PILL_ITEMS.slice(3, 6);
 
   return (
     <section aria-label="প্রহর ফিচারসমূহ" className={`bg-black pb-12 ${className ?? ""}`}>
@@ -67,10 +121,8 @@ export function Pills({
               <Pill
                 label={p.label}
                 icon={p.icon}
-                bg={p.bg}
-                text={p.text}
+                bgClass={p.bgClass}
                 iconBg={p.iconBg}
-                invertIcon={p.invertIcon}
               />
             </PillReveal>
           ))}
@@ -81,10 +133,8 @@ export function Pills({
               <Pill
                 label={p.label}
                 icon={p.icon}
-                bg={p.bg}
-                text={p.text}
+                bgClass={p.bgClass}
                 iconBg={p.iconBg}
-                invertIcon={p.invertIcon}
               />
             </PillReveal>
           ))}

@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import * as motion from "motion/react-client";
 import { useInView } from "motion/react";
+import { Cursor } from "reicon-react";
 import { CountNumber } from "../lib/animations";
-import { STATS_CONTENT, ASSETS } from "@/lib/ui";
+import { STATS_CONTENT } from "@/lib/ui";
 
 export function Stats({
   className,
@@ -94,7 +95,7 @@ export function Stats({
               animate={inView ? cursorKeyframes : { opacity: 0, x: 100, y: 100 }}
               transition={cursorTransition}
             >
-              <img src={ASSETS.icons.blueArrow} alt="" width={22} height={22} />
+              <Cursor size={22} className="text-blue-500 fill-blue-500" />
               <span className="absolute top-[18px] left-[14px] whitespace-nowrap bg-blue-500 text-white text-[10px] font-medium px-1.5 py-0.5 rounded-tr-md rounded-bl-md rounded-br-md">
                 {STATS_CONTENT.banner.roleBadge}
               </span>

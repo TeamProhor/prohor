@@ -59,3 +59,11 @@ export function WebflowLogo({ className = "w-5 h-5" }: { className?: string }) {
     </svg>
   );
 }
+
+export function UpsideLogo({ className = "h-[20px] fill-current text-white/70" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 40" className={className} fill="currentColor">
+      <text x="0" y="28" fontFamily="inherit" fontSize="22" fontWeight="700" letterSpacing="0.5">UPSIDE</text>
+    </svg>
+  );
+}

@@ -2,8 +2,8 @@
 
 import * as motion from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
-import { Sparkle, Star } from "reicon-react";
-import { IntelLogo, OracleLogo, GoFundMeLogo, NutanixLogo } from "../svgs/brand-logos";
+import { Sparkle, Star, User } from "reicon-react";
+import { IntelLogo, OracleLogo, GoFundMeLogo, NutanixLogo, UpsideLogo } from "../svgs/brand-logos";
 
 function AnimatedWords({
   text,
@@ -107,8 +107,7 @@ export function Showcase({ className }: { className?: string }) {
         <div className="grid md:grid-cols-2 gap-5">
           {/* LEFT INNER CARD */}
           <motion.div
-            className="relative min-h-[360px] rounded-[22px] p-6 md:p-7 text-white flex flex-col"
-            style={{ backgroundColor: "#1E1D19" }}
+            className="relative min-h-[360px] rounded-[22px] p-6 md:p-7 text-white flex flex-col bg-card-dark border border-white/10"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -163,15 +162,6 @@ export function Showcase({ className }: { className?: string }) {
                 className="w-full"
                 style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.45))" }}
               />
-              <div
-                className="absolute"
-                style={{ top: "40px", left: "1px", width: "8px", height: "8px" }}
-              >
-                <div
-                  className="w-[8px] h-[8px] rounded-full bg-white"
-                  style={{ border: "2px solid rgba(255,255,255,0.12)", content: "" }}
-                />
-              </div>
               <AnimatedDottedFrame startDelay={4200} />
             </div>
 
@@ -274,8 +264,7 @@ export function Showcase({ className }: { className?: string }) {
 
           {/* RIGHT INNER CARD */}
           <motion.div
-            className="relative min-h-[360px] rounded-[22px] p-6 md:p-7 border border-white/10 text-white flex flex-col"
-            style={{ backgroundColor: "#0F0D0F" }}
+            className="relative min-h-[360px] rounded-[22px] p-6 md:p-7 border border-white/10 text-white flex flex-col bg-card-dark"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -285,16 +274,11 @@ export function Showcase({ className }: { className?: string }) {
             }}
           >
             <div className="flex items-start justify-between gap-4">
-              <div className="flex items-start gap-2">
-                <img
-                  src={ASSETS.frame207}
-                  alt="Customers"
-                  className="h-[36px]"
-                />
-                <span className="text-[14px] font-medium text-neutral-200">
-                  {MESH_SHOWCASE_CONTENT.testimonial.title}
-                </span>
-              </div>
+              <img
+                src={ASSETS.frame207}
+                alt="Customers"
+                className="h-[36px]"
+              />
               <div className="flex flex-col gap-[4.34px]">
                 <div
                   className="rounded-[5.428px]"
@@ -308,61 +292,66 @@ export function Showcase({ className }: { className?: string }) {
                   className="rounded-[5.428px]"
                   style={{
                     width: "4.343px",
-                    height: "16.285px",
-                    backgroundColor: "rgba(255,255,255,0.25)",
+                    height: "43.425px",
+                    backgroundColor: "#8a8a8a",
                   }}
                 />
               </div>
             </div>
 
-            <p className="mt-12 text-[12px] text-neutral-400">
-              {MESH_SHOWCASE_CONTENT.testimonial.date}
-            </p>
-            <blockquote className="mt-2 max-w-[420px] text-[18px] font-medium leading-[1.4] tracking-tight">
-              <AnimatedWords
-                text={MESH_SHOWCASE_CONTENT.testimonial.quote1}
-                className="text-white"
-                delayStart={3.6}
-                stagger={0.04}
-              />
-              {" "}
-              <AnimatedWords
-                text={MESH_SHOWCASE_CONTENT.testimonial.quote2}
-                className="text-neutral-400"
-                delayStart={3.75}
-                stagger={0.04}
-              />
-            </blockquote>
+            <div className="my-auto py-6">
+              <p
+                className="text-[15px] md:text-[16px] font-normal leading-[24px] text-white/90"
+              >
+                &ldquo;{MESH_SHOWCASE_CONTENT.testimonial.quote1} {MESH_SHOWCASE_CONTENT.testimonial.quote2}&rdquo;
+              </p>
+              <div className="mt-4 flex items-center gap-3">
+                <div
+                  className="w-1.5 h-1.5 rounded-full"
+                  style={{ backgroundColor: "#3072B4" }}
+                />
+                <span className="text-[12px] font-medium text-neutral-400">
+                  {MESH_SHOWCASE_CONTENT.testimonial.author}
+                </span>
+                <span className="text-[12px] text-neutral-600">·</span>
+                <span className="text-[12px] text-neutral-400">
+                  {MESH_SHOWCASE_CONTENT.testimonial.date}
+                </span>
+              </div>
+            </div>
 
-            <div className="mt-auto pt-6 flex items-center justify-between">
-              <span className="text-xs font-semibold tracking-wide text-neutral-300">
-                {MESH_SHOWCASE_CONTENT.testimonial.author}
-              </span>
-              <div className="flex items-center gap-0.5">
-                {Array.from({ length: MESH_SHOWCASE_CONTENT.testimonial.rating }).map((_, i) => (
+            {/* Micro rating */}
+            <div className="flex items-center justify-between pt-4 border-t border-white/10 text-neutral-400 text-xs">
+              <span>রেটিং ও ফিডব্যাক</span>
+              <div className="flex items-center gap-1 text-amber-400">
+                {[1, 2, 3, 4, 5].map((i) => (
                   <Star
                     key={i}
-                    size={14}
-                    weight="Filled"
-                    color="#ffffff"
-                    className="text-white"
+                    size={13}
+                    className="fill-amber-400 text-amber-400"
                   />
                 ))}
+                <span className="ml-1 text-white font-medium">৫.০</span>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* TRUSTED-BY ROW */}
-        <div className="mt-7 px-1 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
-          <p className="max-w-md text-[13px] leading-[1.6] text-neutral-300 whitespace-pre-line">
+        {/* LOGO STRIP */}
+        <div className="mt-12 pt-8 border-t border-white/10">
+          <p className="text-center text-xs md:text-sm text-neutral-400 mb-6 max-w-xl mx-auto whitespace-pre-line leading-relaxed">
             {MESH_SHOWCASE_CONTENT.trustedByText}
           </p>
-          <div className="w-full md:max-w-[60%] md:ml-auto overflow-hidden">
+
+          <div className="relative overflow-hidden w-full max-w-[800px] mx-auto py-3">
             <div
-              className="flex"
+              className="absolute inset-0 pointer-events-none z-10"
               style={{
+                background:
+                  "linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%)",
                 maskImage:
+                  "linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%)",
+                WebkitMaskImage:
                   "linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%)",
               }}
             >
@@ -374,20 +363,12 @@ export function Showcase({ className }: { className?: string }) {
                 <OracleLogo />
                 <GoFundMeLogo />
                 <NutanixLogo />
-                <img
-                  src={ASSETS.upsideLogo}
-                  alt="Upside"
-                  className="h-[24px]"
-                />
+                <UpsideLogo />
                 <IntelLogo />
                 <OracleLogo />
                 <GoFundMeLogo />
                 <NutanixLogo />
-                <img
-                  src={ASSETS.upsideLogo}
-                  alt="Upside"
-                  className="h-[24px]"
-                />
+                <UpsideLogo />
               </div>
             </div>
           </div>
@@ -396,5 +377,3 @@ export function Showcase({ className }: { className?: string }) {
     </section>
   );
 }
-
-export default Showcase;

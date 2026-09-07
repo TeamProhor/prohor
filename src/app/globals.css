@@ -41,6 +41,12 @@
   --secondary-foreground: #131113;
   --accent: #3b82f6;
   --accent-foreground: #ffffff;
+  --card-warm: #d0c9b9;
+  --card-warm-foreground: #131113;
+  --card-lavender: #e5d4f3;
+  --card-lavender-foreground: #131113;
+  --card-dark: #0f0d0f;
+  --card-darker: #131113;
   --aurora-violet: #7c3aed;
   --aurora-violet-soft: #a78bfa;
   --aurora-purple-pink: #ec4899;
@@ -52,6 +58,12 @@
   --color-foreground: var(--foreground);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-card-warm: var(--card-warm);
+  --color-card-warm-foreground: var(--card-warm-foreground);
+  --color-card-lavender: var(--card-lavender);
+  --color-card-lavender-foreground: var(--card-lavender-foreground);
+  --color-card-dark: var(--card-dark);
+  --color-card-darker: var(--card-darker);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);

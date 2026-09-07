@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import * as motion from "motion/react-client";
+import { Text, ImagePlus, CursorSquare, MoreH } from "reicon-react";
 import { CountUp } from "../lib/animations";
 
 import { FEATURES_CONTENT, ASSETS } from "@/lib/ui";
@@ -60,7 +61,7 @@ function ListItem({
   label,
   active = false,
 }: {
-  icon: string;
+  icon: ReactNode;
   label: string;
   active?: boolean;
 }) {
@@ -74,16 +75,10 @@ function ListItem({
     >
       <div
         className={`size-7 rounded-md flex items-center justify-center ${
-          active ? "bg-white/80" : "bg-white/5 border border-white/10"
+          active ? "bg-white text-black" : "bg-white/5 border border-white/10 text-neutral-300"
         }`}
       >
-        <img
-          src={icon}
-          alt=""
-          width={14}
-          height={14}
-          style={active ? { filter: "invert(1)" } : undefined}
-        />
+        {icon}
       </div>
       <span
         className={`text-xs text-neutral-100 ${active ? "" : "opacity-60"}`}
@@ -138,9 +133,9 @@ function FeatureCards() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
         >
           {[
-            { icon: ASSETS.icons.type, label: FEATURES_CONTENT.card1.items[0].label, active: FEATURES_CONTENT.card1.items[0].active },
-            { icon: ASSETS.icons.imagePlus, label: FEATURES_CONTENT.card1.items[1].label },
-            { icon: ASSETS.icons.square, label: FEATURES_CONTENT.card1.items[2].label },
+            { icon: <Text size={14} />, label: FEATURES_CONTENT.card1.items[0].label, active: FEATURES_CONTENT.card1.items[0].active },
+            { icon: <ImagePlus size={14} />, label: FEATURES_CONTENT.card1.items[1].label },
+            { icon: <CursorSquare size={14} />, label: FEATURES_CONTENT.card1.items[2].label },
           ].map((it) => (
             <motion.div
               key={it.label}
@@ -210,8 +205,7 @@ function FeatureCards() {
       <motion.article
         {...cardAnim(0.5)}
         onViewportEnter={() => setCountActive(true)}
-        className="relative h-[380px] rounded-2xl overflow-hidden"
-        style={{ backgroundColor: "#D0C9B9" }}
+        className="relative h-[380px] rounded-2xl overflow-hidden bg-card-warm text-card-warm-foreground"
       >
         <div className="flex items-start justify-between p-5 pb-0">
           <div>
@@ -219,7 +213,7 @@ function FeatureCards() {
               {FEATURES_CONTENT.card3.title}
             </h3>
           </div>
-          <img src={ASSETS.icons.threeDot} alt="" className="mt-2 shrink-0" />
+          <MoreH size={20} className="mt-2 shrink-0 text-neutral-800" />
         </div>
         <motion.div
           className="absolute bottom-14 left-0 w-full h-[140px] px-5 flex items-end justify-between gap-2 overflow-hidden"

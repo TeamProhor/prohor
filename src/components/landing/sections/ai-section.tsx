@@ -1,7 +1,20 @@
 "use client";
 
 import * as motion from "motion/react-client";
-import { ChevronRight, Check, Paperclip, Globe, Lightbulb, Sparkle } from "reicon-react";
+import {
+  ChevronRight,
+  Check,
+  Paperclip,
+  Globe,
+  Lightbulb,
+  Sparkle,
+  Cpu,
+  Mobile,
+  Bell,
+  Link,
+  User,
+  CheckCircle,
+} from "reicon-react";
 import { AI_SECTION_CONTENT, ASSETS } from "@/lib/ui";
 
 export function AISection({ className }: { className?: string }) {
@@ -138,7 +151,7 @@ export function AISection({ className }: { className?: string }) {
                 </p>
                 <div className="bg-card/50 border border-border rounded-2xl p-5">
                   <div className="flex items-center gap-2 mb-5">
-                    <Sparkle size={16} className="text-muted-foreground" />
+                    <Sparkle size={16} className="text-accent" />
                     <span className="text-muted-foreground text-sm">
                       <span className="text-foreground font-medium">{AI_SECTION_CONTENT.operations.smartTriage}</span>
                     </span>
@@ -146,48 +159,56 @@ export function AISection({ className }: { className?: string }) {
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-muted-foreground text-sm w-20">পরামর্শ</span>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-sm bg-accent text-accent-foreground">
-                        <span className="w-3 h-3 bg-white/40 rounded-full" />
+                      <span className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-sm bg-accent text-accent-foreground font-medium shadow-xs">
+                        <Cpu size={14} className="shrink-0 text-white" />
                         <span>কোর ইঞ্জিন</span>
                       </span>
-                      <span className="flex items-center gap-1.5 bg-muted/60 border border-border rounded-lg px-2 py-1 text-sm text-muted-foreground">
-                        <span className="w-3 h-3 border border-border rounded" />
-                        মোবাইল সাইট অপ্টিমাইজেশন
+                      <span className="flex items-center gap-1.5 bg-muted/60 border border-border rounded-lg px-2.5 py-1 text-sm text-muted-foreground">
+                        <Mobile size={14} className="shrink-0 text-muted-foreground" />
+                        <span>মোবাইল সাইট অপ্টিমাইজেশন</span>
                       </span>
-                      <span className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                        <span className="w-2 h-2 bg-muted-foreground/60 rounded-full" />
-                        নোটিফিকেশন
+                      <span className="flex items-center gap-1.5 text-sm text-muted-foreground px-1.5 py-1">
+                        <Bell size={14} className="shrink-0 text-muted-foreground" />
+                        <span>নোটিফিকেশন</span>
                       </span>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 mb-3">
                     <span className="text-muted-foreground text-sm w-20">স্ট্যাটাস</span>
-                    <span className="text-xs text-neutral-300">যাচাইকৃত সমাধান</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-medium bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md">
+                      <CheckCircle size={13} className="shrink-0 text-emerald-400" />
+                      যাচাইকৃত সমাধান
+                    </span>
                   </div>
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-muted-foreground text-sm w-20">সংযুক্ত</span>
-                    <span className="text-xs text-neutral-300">ক্লাউড ডিপ্লয়মেন্ট পাইপলাইন</span>
+                    <span className="inline-flex items-center gap-1.5 text-xs text-neutral-300 bg-muted/50 border border-border px-2 py-0.5 rounded-md">
+                      <Link size={13} className="shrink-0 text-muted-foreground" />
+                      ক্লাউড ডিপ্লয়মেন্ট পাইপলাইন
+                    </span>
                   </div>
                   <div className="bg-card border border-border/80 rounded-xl p-4 ml-0 md:ml-4">
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="w-5 h-5 bg-muted rounded-full border border-border" />
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <div className="w-6 h-6 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center text-accent">
+                        <User size={13} />
+                      </div>
                       <span className="text-foreground text-sm font-medium">{AI_SECTION_CONTENT.operations.leadName}</span>
                     </div>
-                    <p className="text-muted-foreground text-xs mb-2">পরামর্শের যুক্তি</p>
-                    <p className="text-muted-foreground text-sm mb-4">
+                    <p className="text-muted-foreground text-xs mb-1.5 font-medium">পরামর্শের যুক্তি</p>
+                    <p className="text-neutral-300 text-sm mb-4 leading-relaxed bg-muted/30 p-3 rounded-lg border border-border/50">
                       {AI_SECTION_CONTENT.operations.reasoning}
                     </p>
-                    <p className="text-muted-foreground text-xs mb-2">বিকল্প ডেভেলপার</p>
-                    <div className="flex items-center gap-2 mb-4">
+                    <p className="text-muted-foreground text-xs mb-2 font-medium">বিকল্প ডেভেলপার</p>
+                    <div className="flex items-center gap-2 mb-4 flex-wrap">
                       {AI_SECTION_CONTENT.operations.backupDevelopers.map((dev) => (
-                        <span key={dev} className="flex items-center gap-1.5 bg-muted/80 border border-border rounded-md px-2 py-1 text-sm">
-                          <span className="w-4 h-4 bg-muted-foreground/40 rounded-full" />
-                          <span className="text-muted-foreground">{dev}</span>
+                        <span key={dev} className="flex items-center gap-1.5 bg-muted/80 border border-border rounded-md px-2.5 py-1 text-sm text-foreground">
+                          <User size={13} className="text-muted-foreground" />
+                          <span>{dev}</span>
                         </span>
                       ))}
                     </div>
-                    <button className="w-full flex items-center justify-center gap-2 bg-muted hover:bg-muted/80 border border-border text-foreground text-sm py-2.5 rounded-xl transition-colors cursor-pointer">
-                      <Check className="w-4 h-4 text-accent" /> {AI_SECTION_CONTENT.operations.acceptSuggestionCta}
+                    <button className="w-full flex items-center justify-center gap-2 bg-white text-black hover:bg-neutral-200 font-medium text-sm py-2.5 rounded-xl transition-colors cursor-pointer shadow-sm">
+                      <Check size={16} className="text-black stroke-[2.5]" /> {AI_SECTION_CONTENT.operations.acceptSuggestionCta}
                     </button>
                   </div>
                 </div>
@@ -201,9 +222,9 @@ export function AISection({ className }: { className?: string }) {
                 <p className="text-muted-foreground text-base mb-8 leading-relaxed">
                   {AI_SECTION_CONTENT.mcp.description}
                 </p>
-                <div className="bg-card/50 border border-border rounded-2xl p-5 font-mono text-sm">
-                  <p className="text-muted-foreground/60 mb-3">{AI_SECTION_CONTENT.mcp.endpoint}</p>
-                  <div className="space-y-1 mb-6">
+                <div className="bg-card/50 border border-border rounded-2xl p-5 text-sm">
+                  <p className="font-mono text-muted-foreground/60 mb-3">{AI_SECTION_CONTENT.mcp.endpoint}</p>
+                  <div className="space-y-1 mb-6 font-mono">
                     <p>
                       <span className="text-secondary">&quot;mcpServers&quot;</span>
                       <span className="text-muted-foreground">: {"{"}</span>
@@ -218,7 +239,7 @@ export function AISection({ className }: { className?: string }) {
                       <span className="text-accent">&quot;npx prohor-mcp&quot;</span>
                     </p>
                   </div>
-                  <div className="bg-card border border-border/80 rounded-xl p-4">
+                  <div className="bg-card border border-border/80 rounded-xl p-4 font-sans">
                     <div className="flex items-center gap-2 mb-4">
                       <span className="w-0.5 h-5 bg-muted-foreground/50" />
                       <span className="text-muted-foreground">{AI_SECTION_CONTENT.mcp.placeholderInput}</span>
@@ -244,5 +265,3 @@ export function AISection({ className }: { className?: string }) {
     </section>
   );
 }
-
-export default AISection;

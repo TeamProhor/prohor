@@ -18,8 +18,8 @@ export function Navbar({
 
   return (
     <>
-      <header className={`sticky top-4 z-50 px-4 ${className ?? ""}`}>
-        <div className="mx-auto max-w-6xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl px-5 py-3 flex items-center shadow-lg shadow-black/20">
+      <header className={`sticky top-4 z-[100] px-4 ${className ?? ""}`}>
+        <div className="mx-auto max-w-6xl backdrop-blur-2xl bg-black/60 border border-white/10 rounded-2xl px-5 py-3 flex items-center shadow-lg shadow-black/40">
           <a href={logoHref} className="shrink-0 flex items-center">
             <img src="/prohor.webp" alt="প্রহর" className="h-7 w-auto object-contain" />
           </a>
@@ -58,7 +58,7 @@ export function Navbar({
 
       {menuOpen && (
         <motion.div
-          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl md:hidden flex flex-col p-6"
+          className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-xl md:hidden flex flex-col p-6"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}

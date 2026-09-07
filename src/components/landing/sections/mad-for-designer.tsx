@@ -1,7 +1,7 @@
 "use client";
 
 import * as motion from "motion/react-client";
-import { ToolIcon } from "../lib/animations";
+import { Copy, Plus, Cursor } from "reicon-react";
 import { MAD_FOR_DESIGNER_CONTENT, ASSETS } from "@/lib/ui";
 
 export function MadForDesigner({
@@ -30,13 +30,20 @@ export function MadForDesigner({
         </div>
 
         <div
-          className="rounded-2xl border border-white/10 overflow-hidden flex flex-col"
-          style={{ backgroundColor: "#0F0D0F" }}
+          className="rounded-2xl border border-white/10 overflow-hidden flex flex-col bg-card-dark"
         >
           <div className="flex justify-between items-center px-4 py-3 border-b border-white/5">
-            <img src={ASSETS.icons.macDot} alt="" width={48} height={10} />
+            <div className="flex items-center gap-1.5" aria-hidden="true">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/80 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/80 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500/80 inline-block" />
+            </div>
             <div className="flex gap-2">
-              {[ASSETS.icons.whiteCursor, ASSETS.icons.copy, ASSETS.icons.plus].map((src, i) => (
+              {[
+                <Cursor key="cursor" size={14} className="text-white" />,
+                <Copy key="copy" size={14} className="text-white" />,
+                <Plus key="plus" size={14} className="text-white" />,
+              ].map((icon, i) => (
                 <motion.div
                   key={i}
                   variants={{
@@ -44,8 +51,9 @@ export function MadForDesigner({
                     visible: { opacity: 1, y: 0 },
                   }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="size-7 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors"
                 >
-                  <ToolIcon src={src} />
+                  {icon}
                 </motion.div>
               ))}
             </div>
@@ -63,10 +71,10 @@ export function MadForDesigner({
                   {MAD_FOR_DESIGNER_CONTENT.codeTitle}
                 </h3>
                 <button
-                  className="size-7 bg-zinc-800 rounded-lg flex items-center justify-center shrink-0 mt-1 cursor-pointer hover:bg-zinc-700 transition-colors"
+                  className="size-7 bg-zinc-800 rounded-lg flex items-center justify-center shrink-0 mt-1 cursor-pointer hover:bg-zinc-700 transition-colors text-neutral-300 hover:text-white"
                   aria-label="কোড কপি করুন"
                 >
-                  <img src={ASSETS.icons.copy} alt="" width={12} height={12} />
+                  <Copy size={13} />
                 </button>
               </div>
               <pre className="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed whitespace-pre-wrap font-mono bg-black/40 p-3 rounded-lg border border-white/5">

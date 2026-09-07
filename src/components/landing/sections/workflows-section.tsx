@@ -274,5 +274,3 @@ export function WorkflowsSection({ className }: { className?: string }) {
     </section>
   );
 }
-
-export default WorkflowsSection;

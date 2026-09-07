@@ -13,22 +13,6 @@ export const ASSETS = {
   browserMockup: "https://qclay.design/lovable/nixole/browser-mockup.png",
   frame207: "https://qclay.design/lovable/nixole/frame-207.svg",
   upsideLogo: "https://qclay.design/lovable/nixole/upside-logo.svg",
-  icons: {
-    type: "https://qclay.design/lovable/codeba/icons/type.svg",
-    imagePlus: "https://qclay.design/lovable/codeba/icons/image-plus.svg",
-    square: "https://qclay.design/lovable/codeba/icons/square.svg",
-    threeDot: "https://qclay.design/lovable/codeba/icons/ThreeDot.svg",
-    blueArrow: "https://qclay.design/lovable/codeba/icons/blueArrow.svg",
-    usersRound: "https://qclay.design/lovable/codeba/icons/users-round.svg",
-    copy: "https://qclay.design/lovable/codeba/icons/Copy.svg",
-    codeXml: "https://qclay.design/lovable/codeba/icons/code-xml.svg",
-    webhook: "https://qclay.design/lovable/codeba/icons/webhook.svg",
-    macDot: "https://qclay.design/lovable/codeba/icons/MacDot.svg",
-    whiteCursor: "https://qclay.design/lovable/codeba/icons/WhiteCursor.svg",
-    plus: "https://qclay.design/lovable/codeba/icons/plus.svg",
-    whiteArrowUpRight: "https://qclay.design/lovable/codeba/icons/WhiteArrowUpRight.svg",
-    checkMark: "https://qclay.design/lovable/codeba/icons/CheckMark.svg",
-  },
 };
 
 export interface NavItem {
@@ -247,15 +231,6 @@ export const STATS_CONTENT = {
     roleBadge: "ডেভেলপার",
   },
 };
-
-export const PILLS_CONTENT = [
-  { label: "ডিজাইনার ও ডেভেলপার ফ্রেন্ডলি", icon: ASSETS.icons.usersRound, bg: "#D0C9B9", text: "text-neutral-900", iconBg: "bg-black/5", invertIcon: true, delay: 0.3 },
-  { label: "ওয়ান-ক্লিক এজ ডিপ্লয়মেন্ট", icon: ASSETS.icons.imagePlus, bg: "#131113", text: "text-white", iconBg: "bg-white/10", delay: 0.4 },
-  { label: "বিকাশ ও নগদ পেমেন্ট গেটওয়ে", icon: ASSETS.icons.copy, bg: "#F7C8FF", text: "text-neutral-900", iconBg: "bg-black/5", invertIcon: true, delay: 0.5 },
-  { label: "বাংলাদেশি ক্লাউড ও ঢাকা রিজিয়ন", icon: ASSETS.icons.usersRound, bg: "#131113", text: "text-white", iconBg: "bg-white/10", delay: 0.4 },
-  { label: "S3-কম্প্যাটিবল অবজেক্ট স্টোরেজ", icon: ASSETS.icons.codeXml, bg: "#131113", text: "text-white", iconBg: "bg-white/10", delay: 0.5 },
-  { label: "মার্কেটপ্লেস ও প্লাগইন", icon: ASSETS.icons.webhook, bg: "#81FFBD", text: "text-neutral-900", iconBg: "bg-black/5", invertIcon: true, delay: 0.6 },
-];
 
 export const MAD_FOR_DESIGNER_CONTENT = {
   title: "ডিজাইনার ও ডেভেলপারদের জন্য উন্মুক্ত স্বাধীনতা",

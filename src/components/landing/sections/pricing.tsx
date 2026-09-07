@@ -1,7 +1,8 @@
 "use client";
 
 import * as motion from "motion/react-client";
-import { PRICING_CONTENT, ASSETS, PricingPlan } from "@/lib/ui";
+import { Check } from "reicon-react";
+import { PRICING_CONTENT, PricingPlan } from "@/lib/ui";
 
 export function Pricing({ className }: { className?: string }) {
   return (
@@ -45,11 +46,7 @@ function PricingCard({
   };
   return (
     <motion.article
-      className="flex flex-col mt-10 rounded-2xl border-white/10 border p-6"
-      style={{
-        backgroundColor: "#0F0D0D",
-        boxShadow: "0 20px 50px -20px rgba(0,0,0,0.8)",
-      }}
+      className="flex flex-col mt-10 rounded-2xl border-white/10 border p-6 bg-card-dark shadow-2xl"
       initial="hidden"
       animate="visible"
       transition={{ staggerChildren: 0.12, delayChildren: 0.2 }}
@@ -85,14 +82,11 @@ function PricingCard({
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
             <div
-              className={`size-4 bg-white/10 rounded-full flex justify-center items-center shrink-0 ${f.dim ? "opacity-40" : ""}`}
+              className={`size-4 bg-white/10 rounded-full flex justify-center items-center shrink-0 ${f.dim ? "opacity-30" : "text-emerald-400"}`}
             >
-              <img
-                src={ASSETS.icons.checkMark}
-                alt=""
-                width={12}
-                height={12}
-                className="opacity-80"
+              <Check
+                size={10}
+                className={f.dim ? "text-neutral-500" : "text-emerald-400 stroke-[3]"}
               />
             </div>
             <span
