@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 
 export function ProductDirectionSection({ className }: { className?: string }) {
   return (
-    <section className={`relative py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-background ${className ?? ""}`}>
+    <section className={`relative py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-background overflow-hidden ${className ?? ""}`}>
       <div
         className="absolute inset-x-0 top-0 pointer-events-none"
         style={{
@@ -13,11 +13,6 @@ export function ProductDirectionSection({ className }: { className?: string }) {
         }}
       />
       <div className="max-w-6xl mx-auto">
-        <div className="flex items-center gap-2 mb-6">
-          <div className="w-2.5 h-2.5 rounded-full bg-success" />
-          <span className="text-muted-foreground text-sm">Project and long-term planning</span>
-          <ChevronRight className="w-4 h-4 text-muted-foreground/60" />
-        </div>
         <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-8 max-w-3xl">
           Set the product direction
         </h2>

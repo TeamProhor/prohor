@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  Reveal,
   Card,
   SectionHeader,
 } from "@/components/landing/ui/primitives";
@@ -44,15 +43,12 @@ export function AuroraShowcase({ className }: { className?: string }) {
       className={`relative px-6 lg:px-10 py-24 lg:py-32 bg-background aurora-glow-strong ${className ?? ""}`}
     >
       <div className="mx-auto max-w-7xl">
-        <Reveal>
-          <SectionHeader
-            eyebrow="The studio"
-            title="A canvas for everything you ship."
-            subtitle="Components, workflows, data, deployments — laid out in one calm surface. Reach for what you need, ignore the rest."
-          />
-        </Reveal>
+        <SectionHeader
+          title="A canvas for everything you ship."
+          subtitle="Components, workflows, data, deployments — laid out in one calm surface. Reach for what you need, ignore the rest."
+        />
 
-        <Reveal delay={150} className="mt-16">
+        <div className="mt-16">
           <Card className="p-3 lg:p-4 border-border bg-card">
             {/* Window chrome */}
             <div className="flex items-center justify-between px-2 pb-3">
@@ -209,7 +205,7 @@ export function AuroraShowcase({ className }: { className?: string }) {
               </div>
             </div>
           </Card>
-        </Reveal>
+        </div>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import * as motion from "motion/react-client";
-import { WordsReveal } from "../lib/animations";
 
 const ICONS = "https://qclay.design/lovable/codeba/icons/";
 const checkMarkUrl = ICONS + "CheckMark.svg";
@@ -13,13 +12,9 @@ export function Pricing({ className }: { className?: string }) {
       className={`bg-black px-5 py-16 ${className ?? ""}`}
     >
       <div className="max-w-6xl mx-auto">
-        <WordsReveal
-          as="h2"
-          className="text-2xl sm:text-3xl lg:text-4xl text-white text-center mb-10"
-          text="Plans and Pricing"
-          step={0.1}
-          duration={0.6}
-        />
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white text-center mb-10">
+          Plans and Pricing
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <PricingCard
@@ -104,8 +99,7 @@ function PricingCard({
         boxShadow: "0 20px 50px -20px rgba(0,0,0,0.8)",
       }}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      animate="visible"
       transition={{ staggerChildren: 0.12, delayChildren: 0.2 }}
     >
       <motion.div

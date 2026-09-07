@@ -14,7 +14,7 @@ const agents = [
 
 export function AISection({ className }: { className?: string }) {
   return (
-    <section className={`relative z-20 py-24 md:py-32 bg-background ${className ?? ""}`}>
+    <section className={`relative z-20 py-24 md:py-32 bg-background overflow-hidden ${className ?? ""}`}>
       <div
         className="absolute top-0 left-0 right-0 pointer-events-none"
         style={{
@@ -24,22 +24,9 @@ export function AISection({ className }: { className?: string }) {
       />
       <div className="w-full flex justify-center px-6">
         <div className="w-full max-w-5xl">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="flex items-center gap-2 mb-6"
-          >
-            <div className="w-2 h-2 rounded-full bg-accent" />
-            <span className="text-muted-foreground text-sm">Artificial intelligence</span>
-            <ChevronRight className="w-4 h-4 text-muted-foreground/60" />
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-5xl font-medium tracking-tight text-foreground max-w-3xl mb-8"
           >
@@ -48,8 +35,7 @@ export function AISection({ className }: { className?: string }) {
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-muted-foreground max-w-md mb-8"
           >
@@ -58,8 +44,7 @@ export function AISection({ className }: { className?: string }) {
 
           <motion.button
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="px-5 py-2.5 bg-card text-foreground rounded-xl border border-border hover:bg-muted/80 transition-colors text-sm flex items-center gap-2 mb-16 cursor-pointer"
           >
@@ -68,8 +53,7 @@ export function AISection({ className }: { className?: string }) {
 
           <motion.div
             initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex justify-center mb-24"
           >
@@ -154,8 +138,7 @@ export function AISection({ className }: { className?: string }) {
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mt-16"
           >

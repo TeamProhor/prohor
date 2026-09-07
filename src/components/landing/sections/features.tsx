@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import * as motion from "motion/react-client";
-import { WordsReveal, CountUp } from "../lib/animations";
+import { CountUp } from "../lib/animations";
 
 const ICONS = "https://qclay.design/lovable/codeba/icons/";
 const MEDIA = "https://qclay.design/lovable/codeba/";
@@ -31,16 +31,13 @@ function SectionHeader() {
     <header className="flex flex-col md:flex-row items-start justify-between mb-12 gap-6">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col gap-6 w-full md:max-w-[600px]"
       >
-        <WordsReveal
-          as="h2"
-          className="text-2xl sm:text-3xl leading-tight text-neutral-100 font-normal"
-          text="Create space for tools that matters. now create designs from scratch to stunning design with code in few seconds"
-        />
+        <h2 className="text-2xl sm:text-3xl leading-tight text-neutral-100 font-normal">
+          Create space for tools that matters. now create designs from scratch to stunning design with code in few seconds
+        </h2>
         <div className="flex items-center gap-3">
           <button className="bg-white text-black rounded-xl px-4 py-3 text-sm font-medium hover:bg-neutral-200 transition-colors cursor-pointer">
             Join beta now
@@ -52,8 +49,7 @@ function SectionHeader() {
       </motion.div>
       <motion.p
         initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
         className="hidden md:block text-base text-neutral-500 text-right shrink-0"
       >
@@ -106,8 +102,7 @@ function FeatureCards() {
   const [countActive, setCountActive] = useState(false);
   const cardAnim = (delay: number) => ({
     initial: { opacity: 0, y: 50 },
-    whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: "-80px" },
+    animate: { opacity: 1, y: 0 },
     transition: { duration: 0.7, delay, ease: "easeOut" as const },
   });
 
@@ -121,26 +116,16 @@ function FeatureCards() {
             "radial-gradient(ellipse at 31% -7%, rgba(255,255,255,0.05), transparent)",
         }}
       >
-        <WordsReveal
-          as="h3"
-          className="text-xl sm:text-2xl text-neutral-100 leading-tight"
-          text="An assistant to create your design"
-          delay={0.2}
-        />
+        <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight">
+          An assistant to create your design
+        </h3>
         <p className="mt-4 text-xs sm:text-sm opacity-40 text-neutral-100 max-w-[280px]">
-          <WordsReveal
-            as="span"
-            text="Insert blocks, perform powerful actions and leverage the limitless power of AI - all without leaving your keyboard"
-            delay={0.5}
-            step={0.04}
-            duration={0.6}
-          />
+          Insert blocks, perform powerful actions and leverage the limitless power of AI - all without leaving your keyboard
         </p>
         <motion.div
           className="absolute bottom-0 left-4 right-4 bg-white/5 border border-white/5 rounded-t-2xl p-2.5 pt-5 flex flex-col gap-1"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          animate="visible"
           variants={{
             hidden: { opacity: 0, y: 60 },
             visible: {
@@ -179,26 +164,16 @@ function FeatureCards() {
         {...cardAnim(0.3)}
         className="relative h-[380px] rounded-2xl overflow-hidden bg-neutral-900 flex flex-col items-center text-center pt-8 px-5"
       >
-        <WordsReveal
-          as="h3"
-          className="text-xl sm:text-2xl text-neutral-100 leading-tight"
-          text="AI helps generate images for free"
-          delay={0.4}
-        />
+        <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight">
+          AI helps generate images for free
+        </h3>
         <p className="mt-4 text-xs sm:text-sm opacity-40 text-neutral-100 max-w-[300px]">
-          <WordsReveal
-            as="span"
-            text="With endless, all it takes to create professional-grade images is a browser and a story to tell—no experience required."
-            delay={0.7}
-            step={0.04}
-            duration={0.6}
-          />
+          With endless, all it takes to create professional-grade images is a browser and a story to tell—no experience required.
         </p>
         <motion.div
           className="mt-3 flex justify-center gap-1.5"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          animate="visible"
           transition={{ staggerChildren: 0.12, delayChildren: 1.0 }}
         >
           {["V1.0", "v2.0", "Remaster"].map((t) => (
@@ -218,8 +193,7 @@ function FeatureCards() {
         <motion.div
           className="absolute bottom-0 w-1/2 left-1/2 h-[180px]"
           initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
           style={{ x: "-50%" }}
         >
@@ -245,22 +219,16 @@ function FeatureCards() {
       >
         <div className="flex items-start justify-between p-5 pb-0">
           <div>
-            {/* <WordsReveal as="p" className="text-[10px] opacity-40 text-neutral-900" text="Get audience" delay={0.6} step={0.08} /> */}
-            <WordsReveal
-              as="h3"
-              className="mt-0.5 text-center text-neutral-900 leading-tight text-xl sm:text-2xl font-normal"
-              text="Our search engine optimization"
-              delay={0.85}
-              step={0.07}
-            />
+            <h3 className="mt-0.5 text-center text-neutral-900 leading-tight text-xl sm:text-2xl font-normal">
+              Our search engine optimization
+            </h3>
           </div>
           <img src={threeDotUrl} alt="" className="mt-2 shrink-0" />
         </div>
         <motion.div
           className="absolute bottom-14 left-0 w-full h-[140px] px-5 flex items-end justify-between gap-2 overflow-hidden"
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          animate="visible"
           transition={{ staggerChildren: 0.1, delayChildren: 0.7 }}
         >
           {["33%", "16%", "72%", "36%", "88%", "22%"].map((h, i) => (

@@ -34,8 +34,7 @@ export function Stats({
         <motion.div
           className="flex flex-col items-center text-center gap-3"
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
         >
           <span className="text-4xl sm:text-5xl text-neutral-100">
@@ -49,8 +48,7 @@ export function Stats({
         <motion.div
           className="flex flex-col items-center text-center gap-3"
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
         >
           <span className="text-4xl sm:text-5xl text-neutral-100">
@@ -64,8 +62,7 @@ export function Stats({
         <article className="relative bg-neutral-900 rounded-2xl p-6 sm:p-8 w-full max-w-[480px] overflow-hidden">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
           >
             <p className="text-xl sm:text-2xl md:text-3xl text-white leading-snug">
