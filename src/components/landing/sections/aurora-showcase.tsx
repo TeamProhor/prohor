@@ -4,7 +4,7 @@ import {
   Reveal,
   Card,
   SectionHeader,
-} from "@/components/templates/aurora/ui/primitives";
+} from "@/components/landing/ui/primitives";
 
 const SIDEBAR_ITEMS = [
   "Overview",
@@ -41,7 +41,7 @@ export function AuroraShowcase({ className }: { className?: string }) {
   return (
     <section
       id="showcase"
-      className={`relative px-6 lg:px-10 py-28 lg:py-32 bg-[oklch(0.04_0.004_240)] aurora-glow-strong ${className ?? ""}`}
+      className={`relative px-6 lg:px-10 py-24 lg:py-32 bg-background aurora-glow-strong ${className ?? ""}`}
     >
       <div className="mx-auto max-w-7xl">
         <Reveal>
@@ -53,31 +53,31 @@ export function AuroraShowcase({ className }: { className?: string }) {
         </Reveal>
 
         <Reveal delay={150} className="mt-16">
-          <Card className="p-3 lg:p-4">
+          <Card className="p-3 lg:p-4 border-border bg-card">
             {/* Window chrome */}
             <div className="flex items-center justify-between px-2 pb-3">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-white/15" />
-                <span className="w-3 h-3 rounded-full bg-white/15" />
-                <span className="w-3 h-3 rounded-full bg-white/15" />
+                <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+                <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
+                <span className="w-3 h-3 rounded-full bg-muted-foreground/30" />
               </div>
-              <div className="hidden sm:flex items-center gap-2 h-7 px-3 rounded-full bg-black border border-white/[0.06] text-xs text-white/40">
+              <div className="hidden sm:flex items-center gap-2 h-7 px-3 rounded-full bg-background border border-border text-xs text-muted-foreground">
                 aurora.studio / acme / production
               </div>
-              <div className="text-xs text-white/30 tabular-nums">12:48</div>
+              <div className="text-xs text-muted-foreground/60 tabular-nums">12:48</div>
             </div>
 
             {/* App body */}
             <div className="grid grid-cols-12 gap-3">
               {/* Sidebar */}
-              <div className="hidden lg:flex col-span-2 flex-col gap-1 rounded-2xl bg-black border border-white/[0.06] p-3">
+              <div className="hidden lg:flex col-span-2 flex-col gap-1 rounded-2xl bg-background border border-border p-3">
                 {SIDEBAR_ITEMS.map((s, i) => (
                   <div
                     key={s}
                     className={`px-3 h-9 rounded-xl flex items-center text-sm ${
                       i === 3
-                        ? "bg-white/20 text-white font-medium"
-                        : "text-white/55 hover:text-white cursor-pointer transition-colors"
+                        ? "bg-muted text-foreground font-medium border border-border"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/40 cursor-pointer transition-colors"
                     }`}
                   >
                     {s}
@@ -86,21 +86,21 @@ export function AuroraShowcase({ className }: { className?: string }) {
               </div>
 
               {/* Canvas */}
-              <div className="col-span-12 lg:col-span-7 rounded-2xl bg-black border border-white/[0.06] p-5 min-h-[460px] relative overflow-hidden">
+              <div className="col-span-12 lg:col-span-7 rounded-2xl bg-background border border-border p-5 min-h-[460px] relative overflow-hidden">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-xs text-white/40 uppercase tracking-widest">
+                    <div className="text-xs text-muted-foreground/70 uppercase tracking-widest">
                       Workflow · checkout_v3
                     </div>
-                    <div className="mt-1 text-xl font-medium tracking-tight text-white">
+                    <div className="mt-1 text-xl font-medium tracking-tight text-foreground">
                       Order pipeline
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <button className="h-8 px-3 rounded-lg bg-white/[0.04] border border-white/10 text-xs text-white/70 hover:bg-white/10 transition-colors cursor-pointer">
+                    <button className="h-8 px-3 rounded-lg bg-card border border-border text-xs text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors cursor-pointer">
                       Preview
                     </button>
-                    <button className="h-8 px-3 rounded-lg bg-white/[0.08] text-white border border-white/20 text-xs font-medium hover:bg-white/[0.12] transition-colors cursor-pointer">
+                    <button className="h-8 px-3 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:opacity-90 transition-opacity cursor-pointer">
                       Deploy
                     </button>
                   </div>
@@ -116,20 +116,23 @@ export function AuroraShowcase({ className }: { className?: string }) {
                   >
                     <path
                       d="M90 60 C160 60, 200 140, 280 140"
-                      stroke="white"
-                      strokeOpacity=".25"
+                      stroke="currentColor"
+                      className="text-border"
+                      strokeWidth="1.5"
                       strokeDasharray="3 4"
                     />
                     <path
                       d="M280 140 C360 140, 400 60, 480 60"
-                      stroke="white"
-                      strokeOpacity=".25"
+                      stroke="currentColor"
+                      className="text-border"
+                      strokeWidth="1.5"
                       strokeDasharray="3 4"
                     />
                     <path
                       d="M280 140 C360 140, 400 220, 480 220"
-                      stroke="white"
-                      strokeOpacity=".25"
+                      stroke="currentColor"
+                      className="text-border"
+                      strokeWidth="1.5"
                       strokeDasharray="3 4"
                     />
                   </svg>
@@ -142,13 +145,13 @@ export function AuroraShowcase({ className }: { className?: string }) {
                       <div
                         className={`rounded-xl border p-3 ${
                           n.active
-                            ? "bg-[rgba(124,58,237,0.15)] text-white border-[rgba(124,58,237,0.35)]"
-                            : "bg-[oklch(0.13_0.005_240)] border-white/10 text-white"
+                            ? "bg-accent/10 text-foreground border-accent/40"
+                            : "bg-card border-border text-foreground"
                         }`}
                       >
-                        <div className="text-xs font-medium text-white">{n.t}</div>
+                        <div className="text-xs font-medium text-foreground">{n.t}</div>
                         <div
-                          className={`text-[11px] mt-0.5 ${n.active ? "text-purple-300" : "text-white/40"}`}
+                          className={`text-[11px] mt-0.5 ${n.active ? "text-accent" : "text-muted-foreground"}`}
                         >
                           {n.sub}
                         </div>
@@ -157,21 +160,21 @@ export function AuroraShowcase({ className }: { className?: string }) {
                   ))}
                 </div>
 
-                <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-[11px] text-white/40">
+                <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-[11px] text-muted-foreground">
                   <span>4 nodes · 3 edges · v3.14</span>
                   <span className="inline-flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                    Healthy
+                    <span className="w-1.5 h-1.5 rounded-full bg-success" />
+                    <span className="text-foreground font-medium">Healthy</span>
                   </span>
                 </div>
               </div>
 
               {/* Inspector */}
-              <div className="col-span-12 lg:col-span-3 rounded-2xl bg-black border border-white/[0.06] p-5">
-                <div className="text-xs text-white/40 uppercase tracking-widest">
+              <div className="col-span-12 lg:col-span-3 rounded-2xl bg-background border border-border p-5">
+                <div className="text-xs text-muted-foreground/70 uppercase tracking-widest">
                   Inspector
                 </div>
-                <div className="mt-3 text-base font-medium tracking-tight text-white">
+                <div className="mt-3 text-base font-medium tracking-tight text-foreground">
                   Webhook
                 </div>
                 <div className="mt-4 space-y-3">
@@ -180,13 +183,13 @@ export function AuroraShowcase({ className }: { className?: string }) {
                       key={k}
                       className="flex items-center justify-between text-xs"
                     >
-                      <span className="text-white/40">{k}</span>
-                      <span className="text-white font-medium">{v}</span>
+                      <span className="text-muted-foreground">{k}</span>
+                      <span className="text-foreground font-medium">{v}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-5 pt-5 border-t border-white/[0.06]">
-                  <div className="text-xs text-white/40 uppercase tracking-widest">
+                <div className="mt-5 pt-5 border-t border-border">
+                  <div className="text-xs text-muted-foreground/70 uppercase tracking-widest">
                     Last 24h
                   </div>
                   <div className="mt-3 flex items-end gap-[3px] h-16">
@@ -194,13 +197,13 @@ export function AuroraShowcase({ className }: { className?: string }) {
                       <span
                         key={k}
                         style={{ height: `${20 + ((k * 13) % 70)}%` }}
-                        className={`flex-1 rounded-sm ${k === 33 ? "bg-white" : "bg-white/[0.12]"}`}
+                        className={`flex-1 rounded-sm ${k === 33 ? "bg-accent" : "bg-muted"}`}
                       />
                     ))}
                   </div>
-                  <div className="mt-3 flex items-center justify-between text-[11px] text-white/40">
+                  <div className="mt-3 flex items-center justify-between text-[11px] text-muted-foreground">
                     <span>14,221 events</span>
-                    <span className="text-emerald-400">+12%</span>
+                    <span className="text-success font-medium">+12%</span>
                   </div>
                 </div>
               </div>

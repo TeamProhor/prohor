@@ -64,7 +64,7 @@ export function Eyebrow({
 }) {
   return (
     <span
-      className={`inline-flex items-center gap-2 h-7 px-3 rounded-full bg-white/[0.06] border border-white/10 text-[11px] uppercase tracking-[0.18em] text-white/60 ${className}`}
+      className={`inline-flex items-center gap-2 h-7 px-3 rounded-full bg-card border border-border text-[11px] uppercase tracking-[0.18em] text-muted-foreground ${className}`}
     >
       <span className="aurora-eyebrow-dot inline-block w-1.5 h-1.5 rounded-full" />
       {children}
@@ -84,7 +84,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`relative rounded-3xl bg-[oklch(0.1_0.005_240)] border border-white/[0.06] overflow-hidden ${hover ? "aurora-card-accent" : ""} ${className}`}
+      className={`relative rounded-3xl bg-card border border-border overflow-hidden ${hover ? "aurora-card-accent" : ""} ${className}`}
     >
       {children}
     </div>
@@ -107,18 +107,18 @@ export function StepItem({
     <div
       className={`flex items-center gap-3 w-full rounded-xl px-4 py-3 transition-colors ${
         active
-          ? "bg-white/[0.08] text-white border border-white/20"
-          : "bg-[oklch(0.1_0.005_240)] text-white border border-transparent"
+          ? "bg-accent/15 text-foreground border border-accent/30"
+          : "bg-card text-muted-foreground border border-border"
       } ${className}`}
     >
       <span
         className={`inline-flex items-center justify-center w-7 h-7 rounded-lg text-xs font-medium ${
-          active ? "aurora-step-active text-white" : "bg-white/10 text-white/40"
+          active ? "bg-accent text-accent-foreground" : "bg-muted text-muted-foreground"
         }`}
       >
         {number}
       </span>
-      <span className="text-sm font-medium tracking-tight">{text}</span>
+      <span className="text-sm font-medium tracking-tight text-foreground">{text}</span>
     </div>
   );
 }
@@ -142,11 +142,11 @@ export function SectionHeader({
       className={`flex flex-col ${a} gap-5 max-w-3xl ${align === "center" ? "mx-auto" : ""}`}
     >
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05]">
+      <h2 className="text-4xl lg:text-5xl font-medium tracking-tight leading-[1.05] text-foreground">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-white/55 text-base lg:text-lg leading-relaxed max-w-2xl">
+        <p className="text-muted-foreground text-base lg:text-lg leading-relaxed max-w-2xl">
           {subtitle}
         </p>
       )}

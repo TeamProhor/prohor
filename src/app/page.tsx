@@ -1,16 +1,17 @@
-import { Navbar } from "@/components/templates/endless/sections/navbar";
-import { Hero } from "@/components/templates/endless/sections/hero";
-import { Features } from "@/components/templates/endless/sections/features";
-import { Showcase } from "@/components/templates/endless/sections/showcase";
-import { AISection } from "@/components/templates/endless/sections/ai-section";
-import { ProductDirectionSection } from "@/components/templates/endless/sections/product-direction";
-import { WorkflowsSection } from "@/components/templates/endless/sections/workflows-section";
-import { Stats } from "@/components/templates/endless/sections/stats";
-import { Pills } from "@/components/templates/endless/sections/pills";
-import { MadForDesigner } from "@/components/templates/endless/sections/mad-for-designer";
-import { Pricing } from "@/components/templates/endless/sections/pricing";
-import { Updates } from "@/components/templates/endless/sections/updates";
-import { Footer } from "@/components/templates/endless/sections/footer";
+import { Navbar } from "@/components/landing/sections/navbar";
+import { Hero } from "@/components/landing/sections/hero";
+import { Features } from "@/components/landing/sections/features";
+import { Showcase } from "@/components/landing/sections/mesh-showcase";
+import { AuroraShowcase } from "@/components/landing/sections/aurora-showcase";
+import { AISection } from "@/components/landing/sections/ai-section";
+import { ProductDirectionSection } from "@/components/landing/sections/product-direction";
+import { WorkflowsSection } from "@/components/landing/sections/workflows-section";
+import { Stats } from "@/components/landing/sections/stats";
+import { Pills } from "@/components/landing/sections/pills";
+import { MadForDesigner } from "@/components/landing/sections/mad-for-designer";
+import { Pricing } from "@/components/landing/sections/pricing";
+import { Updates } from "@/components/landing/sections/updates";
+import { Footer } from "@/components/landing/sections/footer";
 
 export default function EndlessPage() {
   return (
@@ -19,6 +20,7 @@ export default function EndlessPage() {
       <Hero />
       <Features />
       <Showcase />
+      <AuroraShowcase />
       <AISection />
       <ProductDirectionSection />
       <WorkflowsSection />
