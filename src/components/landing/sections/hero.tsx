@@ -47,17 +47,17 @@ export function Hero({
   return (
     <section aria-label="Hero" className={`relative ${className ?? ""}`}>
       <div
-        className="relative mx-4 rounded-2xl overflow-hidden"
+        className="relative mx-2 sm:mx-4 rounded-2xl overflow-hidden"
         style={{ backgroundColor: "#0F0D0F" }}
       >
         <div className="relative">
-          <div className="flex items-center px-4 py-6">
+          <div className="flex items-center px-4 py-4 sm:py-6">
             <div className="flex-1 flex items-center justify-end gap-3">
               <div className="flex items-center space-x-[-8px]"></div>
             </div>
           </div>
 
-          <div className="relative overflow-hidden mx-3 mb-0 border border-white/10 rounded-2xl flex flex-col items-center text-center pt-16 px-6 pb-0">
+          <div className="relative overflow-hidden mx-1.5 sm:mx-3 mb-0 border border-white/10 rounded-2xl flex flex-col items-center text-center pt-12 sm:pt-16 px-4 sm:px-6 pb-0">
             <img
               src={bgAsset.url}
               alt=""
@@ -66,25 +66,24 @@ export function Hero({
             />
             <div className="absolute inset-0 bg-black/80 z-0" />
             <h1
-              className={`relative z-10 text-4xl sm:text-5xl lg:text-6xl font-medium text-neutral-100 max-w-4xl tracking-tight leading-[1.1] mb-6 mt-15 text-balance ${headingClassName ?? ""}`}
+              className={`relative z-10 text-3xl sm:text-5xl lg:text-6xl font-medium text-neutral-100 max-w-4xl tracking-tight leading-[1.1] mb-5 sm:mb-6 mt-10 sm:mt-15 text-balance ${headingClassName ?? ""}`}
             >
               <StaggeredWords text={heading} baseDelay={300} step={54} />
             </h1>
             <p
-              className={`relative z-10 text-base text-balance sm:text-lg opacity-60 text-neutral-100 max-w-3xl leading-relaxed mb-8 ${subtitleClassName ?? ""}`}
+              className={`relative z-10 text-sm sm:text-lg text-balance opacity-60 text-neutral-100 max-w-3xl leading-relaxed mb-6 sm:mb-8 ${subtitleClassName ?? ""}`}
             >
               <StaggeredWords text={subtitle} baseDelay={900} step={33} />
             </p>
-            <div className="relative z-10 w-full max-w-md h-12 mb-6 my-4">
-              <div className="absolute inset-0 bg-neutral-900 outline outline-[1.30px] outline-white/10 rounded-xl flex items-center px-4 gap-3 ">
-                <div className="w-5 shrink-0" />
+            <div className="relative z-10 w-full max-w-md h-12 mb-6 my-2 sm:my-4">
+              <div className="absolute inset-0 bg-neutral-900 outline outline-[1.30px] outline-white/10 rounded-xl flex items-center pl-10 pr-1.5 sm:px-4 gap-2 sm:gap-3">
                 <TypingPlaceholderInput
                   placeholder={placeholderText}
                   startDelay={2040}
                   speed={70}
                 />
                 <button
-                  className="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium rounded-lg h-8 px-4 transition-colors cursor-pointer"
+                  className="bg-blue-500 hover:bg-blue-600 text-white text-xs sm:text-sm font-medium rounded-lg h-8 px-3 sm:px-4 transition-colors cursor-pointer shrink-0"
                   aria-label="Generate design"
                 >
                   Generate
@@ -95,7 +94,7 @@ export function Hero({
                 alt=""
                 width={18}
                 height={18}
-                className="absolute left-4 top-1/2 -translate-y-1/2 z-20"
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 z-20 pointer-events-none"
               />
             </div>
             <DashboardPreview heroReady={heroReady} />
@@ -109,10 +108,10 @@ export function Hero({
 
 function DashboardPreview({ heroReady }: { heroReady: boolean }) {
   return (
-    <div className="w-full  max-w-[940px] h-[460px] mx-auto bg-black rounded-xl outline outline-[1.4px] outline-neutral-100/10 flex overflow-hidden relative z-10 top-20">
+    <div className="w-full max-w-[940px] h-[380px] sm:h-[460px] mx-auto bg-black rounded-xl outline outline-[1.4px] outline-neutral-100/10 flex overflow-hidden relative z-10 top-10 sm:top-20">
       <aside
         aria-label="Layer panel"
-        className="w-44 shrink-0 h-full relative bg-black"
+        className="hidden sm:block w-40 md:w-44 shrink-0 h-full relative bg-black border-r border-white/10"
       >
         <motion.div
           className="flex items-center gap-4 px-3 py-3"
@@ -221,8 +220,8 @@ function DashboardPreview({ heroReady }: { heroReady: boolean }) {
         </div>
       </aside>
 
-      <div className="flex-1 p-3 flex flex-wrap gap-x-3 gap-y-3 content-start">
-        <article className="w-72 h-44 relative bg-[#D0C9B9] rounded-2xl overflow-hidden p-4 flex flex-col text-[#131113]">
+      <div className="flex-1 p-2 sm:p-3 flex flex-wrap gap-x-3 gap-y-3 content-start justify-center sm:justify-start">
+        <article className="w-full max-w-[288px] sm:w-72 h-44 relative bg-[#D0C9B9] rounded-2xl overflow-hidden p-4 flex flex-col text-[#131113]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}

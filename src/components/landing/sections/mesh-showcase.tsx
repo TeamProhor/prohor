@@ -389,12 +389,12 @@ export function Showcase({ className }: { className?: string }) {
             <br />
             but define how the industry moves forward.
           </p>
-          <div className="md:max-w-[60%] md:ml-auto overflow-hidden">
+          <div className="w-full md:max-w-[60%] md:ml-auto overflow-hidden">
             <div
               className="flex"
               style={{
                 maskImage:
-                  "linear-gradient(to right, transparent 0, #000 80px, #000 calc(100% - 80px), transparent 100%)",
+                  "linear-gradient(to right, transparent 0, #000 32px, #000 calc(100% - 32px), transparent 100%)",
               }}
             >
               <div

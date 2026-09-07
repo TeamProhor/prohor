@@ -4,7 +4,7 @@ import { ChevronRight } from "lucide-react";
 
 export function ProductDirectionSection({ className }: { className?: string }) {
   return (
-    <section className={`relative py-24 md:py-32 px-6 md:px-12 lg:px-24 bg-background overflow-hidden ${className ?? ""}`}>
+    <section className={`relative py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-background overflow-hidden ${className ?? ""}`}>
       <div
         className="absolute inset-x-0 top-0 pointer-events-none"
         style={{
@@ -13,90 +13,93 @@ export function ProductDirectionSection({ className }: { className?: string }) {
         }}
       />
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-8 max-w-3xl">
+        <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-6 sm:mb-8 max-w-3xl">
           Set the product direction
         </h2>
-        <p className="text-muted-foreground text-lg max-w-md mb-16">
+        <p className="text-muted-foreground text-base sm:text-lg max-w-md mb-10 sm:mb-16">
           <span className="text-foreground font-medium">Align your team around a unified product timeline.</span> Plan, manage, and track all product initiatives with Triggerly&apos;s visual planning tools.
         </p>
 
-        <div className="relative w-full mb-16" style={{ perspective: "1200px" }}>
-          <div
-            className="relative"
-            style={{
-              transform: "rotateX(50deg) rotateZ(-35deg)",
-              transformStyle: "preserve-3d",
-              transformOrigin: "center center",
-            }}
-          >
-            <div className="relative h-[400px]">
-              <div
-                className="absolute w-[1px] bg-zinc-600/50"
-                style={{
-                  height: "600px",
-                  left: "55%",
-                  top: "-100px",
-                  transform: "rotate(0deg)",
-                  backgroundImage:
-                    "repeating-linear-gradient(to bottom, transparent, transparent 4px, rgba(113, 113, 122, 0.5) 4px, rgba(113, 113, 122, 0.5) 8px)",
-                }}
-              />
-              <div className="absolute top-0 left-0 right-0 flex items-end">
-                <div className="flex items-end gap-[3px] absolute bottom-0 left-[5%] right-0">
-                  {Array.from({ length: 60 }).map((_, i) => (
-                    <div
-                      key={i}
-                      className="bg-zinc-600/60"
-                      style={{ width: "1px", height: i % 7 === 0 ? "16px" : "8px" }}
-                    />
-                  ))}
-                </div>
-              </div>
-              <div className="absolute text-zinc-500 text-sm" style={{ left: "8%", top: "80px" }}>30</div>
-              <div className="absolute text-zinc-500 text-sm" style={{ left: "18%", top: "55px" }}>AUG 3</div>
-              <div className="absolute text-zinc-500 text-sm" style={{ left: "32%", top: "35px" }}>10</div>
-              <div className="absolute text-zinc-500 text-sm" style={{ left: "48%", top: "15px" }}>17</div>
-              <div className="absolute px-3 py-1 rounded-md bg-zinc-700/80 text-zinc-300 text-sm font-medium" style={{ left: "58%", top: "-10px" }}>AUG 22</div>
-              <div className="absolute text-muted-foreground text-sm" style={{ left: "70%", top: "-5px" }}>24</div>
-              <div className="absolute text-muted-foreground/50 text-sm" style={{ left: "88%", top: "-25px" }}>SEP</div>
-
-              <div
-                className="absolute rounded-xl bg-card border border-border px-4 py-3 flex items-center gap-3"
-                style={{ left: "5%", top: "100px", width: "45%", height: "48px" }}
-              >
-                <div className="w-4 h-4 rotate-45 bg-muted" />
-                <span className="text-foreground text-sm font-medium">Realtime inference</span>
+        <div className="sm:hidden text-center text-xs text-muted-foreground/60 mb-2">← Swipe to explore timeline →</div>
+        <div className="relative w-full mb-16 overflow-x-auto aurora-no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0" style={{ perspective: "1200px" }}>
+          <div className="min-w-[560px] sm:min-w-0">
+            <div
+              className="relative"
+              style={{
+                transform: "rotateX(42deg) rotateZ(-28deg)",
+                transformStyle: "preserve-3d",
+                transformOrigin: "center center",
+              }}
+            >
+              <div className="relative h-[380px] sm:h-[400px]">
                 <div
-                  className="absolute w-5 h-5 rotate-45 border-2 border-success bg-transparent"
-                  style={{ right: "15%", top: "50%", transform: "translateY(-50%) rotate(45deg)" }}
+                  className="absolute w-[1px] bg-zinc-600/50"
+                  style={{
+                    height: "600px",
+                    left: "55%",
+                    top: "-100px",
+                    transform: "rotate(0deg)",
+                    backgroundImage:
+                      "repeating-linear-gradient(to bottom, transparent, transparent 4px, rgba(113, 113, 122, 0.5) 4px, rgba(113, 113, 122, 0.5) 8px)",
+                  }}
                 />
-              </div>
-              <div
-                className="absolute rounded-xl bg-card/70 border border-border/60 px-4 py-3 flex items-center gap-3"
-                style={{ left: "15%", top: "155px", width: "25%", height: "44px" }}
-              >
-                <div className="w-3 h-3 rotate-45 bg-muted" />
-                <span className="text-muted-foreground text-sm">Prototype</span>
-              </div>
-              <div
-                className="absolute rounded-xl bg-card border border-border px-4 py-3 flex items-center justify-between"
-                style={{ left: "45%", top: "155px", width: "45%", height: "48px" }}
-              >
-                <span className="text-muted-foreground text-sm">Beta</span>
-                <div className="flex gap-0.5">
-                  <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
-                  <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
-                  <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
+                <div className="absolute top-0 left-0 right-0 flex items-end">
+                  <div className="flex items-end gap-[3px] absolute bottom-0 left-[5%] right-0">
+                    {Array.from({ length: 60 }).map((_, i) => (
+                      <div
+                        key={i}
+                        className="bg-zinc-600/60"
+                        style={{ width: "1px", height: i % 7 === 0 ? "16px" : "8px" }}
+                      />
+                    ))}
+                  </div>
                 </div>
-              </div>
-              <div
-                className="absolute rounded-xl bg-card/70 border border-border/60 px-4 py-3 flex items-center justify-between"
-                style={{ left: "35%", top: "240px", width: "28%", height: "48px" }}
-              >
-                <span className="text-muted-foreground text-sm">RLHF fine tuning</span>
-                <div className="flex gap-0.5">
-                  <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
-                  <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
+                <div className="absolute text-zinc-500 text-sm" style={{ left: "8%", top: "80px" }}>30</div>
+                <div className="absolute text-zinc-500 text-sm" style={{ left: "18%", top: "55px" }}>AUG 3</div>
+                <div className="absolute text-zinc-500 text-sm" style={{ left: "32%", top: "35px" }}>10</div>
+                <div className="absolute text-zinc-500 text-sm" style={{ left: "48%", top: "15px" }}>17</div>
+                <div className="absolute px-3 py-1 rounded-md bg-zinc-700/80 text-zinc-300 text-sm font-medium" style={{ left: "58%", top: "-10px" }}>AUG 22</div>
+                <div className="absolute text-muted-foreground text-sm" style={{ left: "70%", top: "-5px" }}>24</div>
+                <div className="absolute text-muted-foreground/50 text-sm" style={{ left: "88%", top: "-25px" }}>SEP</div>
+
+                <div
+                  className="absolute rounded-xl bg-card border border-border px-4 py-3 flex items-center gap-3"
+                  style={{ left: "5%", top: "100px", width: "45%", height: "48px" }}
+                >
+                  <div className="w-4 h-4 rotate-45 bg-muted" />
+                  <span className="text-foreground text-sm font-medium truncate">Realtime inference</span>
+                  <div
+                    className="absolute w-5 h-5 rotate-45 border-2 border-success bg-transparent"
+                    style={{ right: "15%", top: "50%", transform: "translateY(-50%) rotate(45deg)" }}
+                  />
+                </div>
+                <div
+                  className="absolute rounded-xl bg-card/70 border border-border/60 px-4 py-3 flex items-center gap-3"
+                  style={{ left: "15%", top: "155px", width: "25%", height: "44px" }}
+                >
+                  <div className="w-3 h-3 rotate-45 bg-muted" />
+                  <span className="text-muted-foreground text-sm truncate">Prototype</span>
+                </div>
+                <div
+                  className="absolute rounded-xl bg-card border border-border px-4 py-3 flex items-center justify-between"
+                  style={{ left: "45%", top: "155px", width: "45%", height: "48px" }}
+                >
+                  <span className="text-muted-foreground text-sm truncate">Beta</span>
+                  <div className="flex gap-0.5">
+                    <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
+                    <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
+                    <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
+                  </div>
+                </div>
+                <div
+                  className="absolute rounded-xl bg-card/70 border border-border/60 px-4 py-3 flex items-center justify-between"
+                  style={{ left: "35%", top: "240px", width: "32%", height: "48px" }}
+                >
+                  <span className="text-muted-foreground text-sm truncate">RLHF tuning</span>
+                  <div className="flex gap-0.5">
+                    <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
+                    <div className="w-2.5 h-2.5 rotate-45 bg-muted" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -104,7 +107,7 @@ export function ProductDirectionSection({ className }: { className?: string }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
-          <div className="border-t border-r border-b border-border pt-10 pr-6 md:pr-10 pb-16">
+          <div className="border-t border-b border-border border-r-0 md:border-r pt-10 pr-0 md:pr-10 pb-16">
             <h3 className="text-xl font-medium text-foreground mb-3">Manage projects end-to-end</h3>
             <p className="text-muted-foreground text-base leading-relaxed mb-8">
               Consolidate specs, milestones, tasks, and other documentation in one centralized location.
@@ -161,7 +164,7 @@ export function ProductDirectionSection({ className }: { className?: string }) {
             </div>
           </div>
 
-          <div className="border-t border-b border-border pt-10 pl-0 md:pl-10 pb-16">
+          <div className="md:border-t border-b border-border pt-10 pl-0 md:pl-10 pb-16">
             <h3 className="text-xl font-medium text-foreground mb-3">Project updates</h3>
             <p className="text-muted-foreground text-base leading-relaxed mb-8">
               Communicate progress and project health with built-in project updates.
@@ -203,7 +206,7 @@ export function ProductDirectionSection({ className }: { className?: string }) {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 border-b border-border">
-          <div className="border-r border-border pt-16 pr-6 md:pr-10 pb-16 flex flex-col justify-center">
+          <div className="border-b md:border-b-0 border-r-0 md:border-r border-border pt-16 pr-0 md:pr-10 pb-16 flex flex-col justify-center">
             <h3 className="text-2xl font-medium text-foreground mb-8 leading-tight">
               Ideate and specify
               <br />

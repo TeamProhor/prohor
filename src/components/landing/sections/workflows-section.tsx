@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Plus, ArrowRight, MessageSquare, GitBranch, X, Puzzle, Sigma } from "lucide-react";
 
 const carouselCards = [
@@ -168,9 +168,33 @@ function CardMockup({ type }: { type: string }) {
 }
 
 export function WorkflowsSection({ className }: { className?: string }) {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const scrollLeft = () => setScrollPosition(Math.max(0, scrollPosition - 1));
-  const scrollRight = () => setScrollPosition(Math.min(carouselCards.length - 4, scrollPosition + 1));
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScroll = () => {
+    const el = containerRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 10);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 10);
+  };
+
+  useEffect(() => {
+    checkScroll();
+    window.addEventListener("resize", checkScroll);
+    return () => window.removeEventListener("resize", checkScroll);
+  }, []);
+
+  const scroll = (direction: "left" | "right") => {
+    const el = containerRef.current;
+    if (!el) return;
+    const cardWidth = el.querySelector<HTMLElement>(":scope > div")?.offsetWidth || 300;
+    const scrollAmount = cardWidth + 16;
+    el.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <section className={`relative py-24 bg-background ${className ?? ""}`}>
@@ -181,8 +205,8 @@ export function WorkflowsSection({ className }: { className?: string }) {
           background: "linear-gradient(to bottom, rgba(255,255,255,0.03), transparent)",
         }}
       />
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-16">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-12 sm:mb-16">
           <div className="lg:max-w-xl">
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground">
               Collaborate across
@@ -190,18 +214,22 @@ export function WorkflowsSection({ className }: { className?: string }) {
               tools and teams
             </h2>
           </div>
-          <p className="text-muted-foreground lg:max-w-sm lg:pt-12">
+          <p className="text-muted-foreground lg:max-w-sm lg:pt-12 text-sm sm:text-base">
             Expand the capabilities of the Triggerly system with a wide variety of integrations that keep everyone in your organization aligned and focused.
           </p>
         </div>
 
-        <div className="relative overflow-hidden">
+        <div className="relative -mx-5 px-5 sm:mx-0 sm:px-0">
           <div
-            className="flex gap-4 transition-transform duration-300 ease-out"
-            style={{ transform: `translateX(-${scrollPosition * (100 / 4)}%)` }}
+            ref={containerRef}
+            onScroll={checkScroll}
+            className="flex gap-4 overflow-x-auto aurora-no-scrollbar snap-x snap-mandatory scroll-smooth pb-2 pt-1 px-1"
           >
             {carouselCards.map((card) => (
-              <div key={card.id} className="flex-shrink-0 w-[calc(25%-12px)] min-w-[280px]">
+              <div
+                key={card.id}
+                className="flex-shrink-0 w-[82vw] max-w-[320px] sm:w-[280px] lg:w-[calc(25%-12px)] snap-start"
+              >
                 <div className="bg-card/70 border border-border rounded-2xl overflow-hidden h-[340px] flex flex-col">
                   <div className="flex-1 relative overflow-hidden">
                     <CardMockup type={card.mockup} />
@@ -214,7 +242,7 @@ export function WorkflowsSection({ className }: { className?: string }) {
                     <div className="flex items-center justify-between gap-3">
                       <div className="flex-1 min-w-0">
                         <p className="text-xs text-muted-foreground mb-1">{card.category}</p>
-                        <p className="text-sm text-foreground font-medium leading-snug">{card.title}</p>
+                        <p className="text-sm text-foreground font-medium leading-snug truncate">{card.title}</p>
                       </div>
                       <button className="flex-shrink-0 w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors cursor-pointer">
                         <card.icon className="w-4 h-4" />
@@ -227,17 +255,19 @@ export function WorkflowsSection({ className }: { className?: string }) {
           </div>
         </div>
 
-        <div className="flex items-center justify-center gap-2 mt-8">
+        <div className="flex items-center justify-center gap-3 mt-8">
           <button
-            onClick={scrollLeft}
-            disabled={scrollPosition === 0}
+            onClick={() => scroll("left")}
+            disabled={!canScrollLeft}
+            aria-label="Previous workflows"
             className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
           <button
-            onClick={scrollRight}
-            disabled={scrollPosition >= carouselCards.length - 4}
+            onClick={() => scroll("right")}
+            disabled={!canScrollRight}
+            aria-label="Next workflows"
             className="w-10 h-10 rounded-full border border-border bg-card flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
           >
             <ChevronRight className="w-5 h-5" />

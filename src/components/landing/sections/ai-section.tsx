@@ -68,10 +68,11 @@ export function AISection({ className }: { className?: string }) {
               }}
             >
               <div
+                className="scale-100 sm:scale-[1.12]"
                 style={{
                   transformOrigin: "top",
                   willChange: "transform",
-                  transform: "translateY(0%) rotateX(30deg) scale(1.15)",
+                  transform: "translateY(0%) rotateX(25deg)",
                   position: "relative",
                 }}
               >
@@ -83,7 +84,7 @@ export function AISection({ className }: { className?: string }) {
                   }}
                 />
                 <div
-                  className="absolute left-[-180px] right-[-180px] bottom-[-2px] h-[80%] pointer-events-none z-11"
+                  className="absolute left-[-40px] right-[-40px] sm:left-[-180px] sm:right-[-180px] bottom-[-2px] h-[80%] pointer-events-none z-11"
                   style={{
                     background: "linear-gradient(180deg, transparent 0%, var(--background) 100%)",
                   }}
@@ -143,7 +144,7 @@ export function AISection({ className }: { className?: string }) {
             className="mt-16"
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="border-t border-r border-b border-border pt-12 pr-6 md:pr-12 pb-16">
+              <div className="border-t border-b border-border border-r-0 md:border-r pt-12 pr-0 md:pr-12 pb-16">
                 <h3 className="text-foreground font-medium text-xl mb-3">Self-driving product operations</h3>
                 <p className="text-muted-foreground text-base mb-8">
                   Streamline your product development workflows with AI assistance for routine, manual tasks.
@@ -207,7 +208,7 @@ export function AISection({ className }: { className?: string }) {
                 </div>
               </div>
 
-              <div className="border-t border-b border-border pt-12 pl-0 md:pl-12 pb-16">
+              <div className="md:border-t border-b border-border pt-12 pl-0 md:pl-12 pb-16">
                 <h3 className="text-foreground font-medium text-xl mb-3">Triggerly MCP</h3>
                 <p className="text-muted-foreground text-base mb-8">
                   Connect Triggerly to your favorite tools including Cursor, Claude, ChatGPT, and more.

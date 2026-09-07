@@ -103,61 +103,64 @@ export function AuroraShowcase({ className }: { className?: string }) {
                 </div>
 
                 {/* Node graph */}
-                <div className="relative mt-8 h-72">
-                  <svg
-                    className="absolute inset-0 w-full h-full"
-                    viewBox="0 0 600 280"
-                    fill="none"
-                    preserveAspectRatio="none"
-                  >
-                    <path
-                      d="M90 60 C160 60, 200 140, 280 140"
-                      stroke="currentColor"
-                      className="text-border"
-                      strokeWidth="1.5"
-                      strokeDasharray="3 4"
-                    />
-                    <path
-                      d="M280 140 C360 140, 400 60, 480 60"
-                      stroke="currentColor"
-                      className="text-border"
-                      strokeWidth="1.5"
-                      strokeDasharray="3 4"
-                    />
-                    <path
-                      d="M280 140 C360 140, 400 220, 480 220"
-                      stroke="currentColor"
-                      className="text-border"
-                      strokeWidth="1.5"
-                      strokeDasharray="3 4"
-                    />
-                  </svg>
-                  {NODES.map((n, i) => (
-                    <div
-                      key={i}
-                      style={{ left: n.x, top: n.y }}
-                      className="absolute w-44"
+                <div className="overflow-x-auto aurora-no-scrollbar -mx-5 px-5 sm:mx-0 sm:px-0">
+                  <div className="relative mt-8 h-72 min-w-[520px] sm:min-w-0">
+                    <svg
+                      className="absolute inset-0 w-full h-full"
+                      viewBox="0 0 600 280"
+                      fill="none"
+                      preserveAspectRatio="none"
                     >
+                      <path
+                        d="M90 60 C160 60, 200 140, 280 140"
+                        stroke="currentColor"
+                        className="text-border"
+                        strokeWidth="1.5"
+                        strokeDasharray="3 4"
+                      />
+                      <path
+                        d="M280 140 C360 140, 400 60, 480 60"
+                        stroke="currentColor"
+                        className="text-border"
+                        strokeWidth="1.5"
+                        strokeDasharray="3 4"
+                      />
+                      <path
+                        d="M280 140 C360 140, 400 220, 480 220"
+                        stroke="currentColor"
+                        className="text-border"
+                        strokeWidth="1.5"
+                        strokeDasharray="3 4"
+                      />
+                    </svg>
+                    {NODES.map((n, i) => (
                       <div
-                        className={`rounded-xl border p-3 ${
-                          n.active
-                            ? "bg-accent/10 text-foreground border-accent/40"
-                            : "bg-card border-border text-foreground"
-                        }`}
+                        key={i}
+                        style={{ left: n.x, top: n.y }}
+                        className="absolute w-44"
                       >
-                        <div className="text-xs font-medium text-foreground">{n.t}</div>
                         <div
-                          className={`text-[11px] mt-0.5 ${n.active ? "text-accent" : "text-muted-foreground"}`}
+                          className={`rounded-xl border p-3 ${
+                            n.active
+                              ? "bg-accent/10 text-foreground border-accent/40"
+                              : "bg-card border-border text-foreground"
+                          }`}
                         >
-                          {n.sub}
+                          <div className="text-xs font-medium text-foreground">{n.t}</div>
+                          <div
+                            className={`text-[11px] mt-0.5 ${n.active ? "text-accent" : "text-muted-foreground"}`}
+                          >
+                            {n.sub}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
 
-                <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between text-[11px] text-muted-foreground">
+                <div className="mt-4 flex items-center justify-between text-[11px] text-muted-foreground">
                   <span>4 nodes · 3 edges · v3.14</span>
+                  <span className="sm:hidden text-[10px] text-muted-foreground/60">← Scroll canvas →</span>
                   <span className="inline-flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-success" />
                     <span className="text-foreground font-medium">Healthy</span>
@@ -188,7 +191,7 @@ export function AuroraShowcase({ className }: { className?: string }) {
                   <div className="text-xs text-muted-foreground/70 uppercase tracking-widest">
                     Last 24h
                   </div>
-                  <div className="mt-3 flex items-end gap-[3px] h-16">
+                  <div className="mt-3 flex items-end gap-[1.5px] sm:gap-[3px] h-16">
                     {Array.from({ length: 36 }).map((_, k) => (
                       <span
                         key={k}
