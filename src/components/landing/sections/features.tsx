@@ -4,17 +4,12 @@ import { useState } from "react";
 import * as motion from "motion/react-client";
 import { CountUp } from "../lib/animations";
 
-const ICONS = "https://qclay.design/lovable/codeba/icons/";
-const MEDIA = "https://qclay.design/lovable/codeba/";
-const typeUrl = ICONS + "type.svg";
-const imagePlusUrl = ICONS + "image-plus.svg";
-const squareUrl = ICONS + "square.svg";
-const threeDotUrl = ICONS + "ThreeDot.svg";
-const womanAsset = { url: MEDIA + "woman.png" };
+import { FEATURES_CONTENT, ASSETS } from "@/lib/ui";
 
 export function Features({ className }: { className?: string }) {
   return (
     <section
+      id="features"
       aria-label="Features"
       className={`px-5 pt-16 pb-16 ${className ?? ""}`}
     >
@@ -36,14 +31,14 @@ function SectionHeader() {
         className="flex flex-col gap-6 w-full md:max-w-[640px]"
       >
         <h2 className="text-2xl sm:text-3xl lg:text-4xl leading-snug text-neutral-100 font-normal">
-          ডিজাইন থেকে ডিপ্লয় — সবই এখন এক ছাদের নিচে নিমিষে। প্রহর ইকোসিস্টেমে আপনার সব ডিজিটাল কাজ হবে দ্রুততম সময়ে।
+          {FEATURES_CONTENT.headerTitle}
         </h2>
         <div className="flex items-center gap-3">
           <button className="bg-white text-black rounded-xl px-5 py-3 text-sm font-medium hover:bg-neutral-200 transition-colors cursor-pointer">
-            বিনামূল্যে শুরু করুন
+            {FEATURES_CONTENT.ctaText}
           </button>
           <span className="hidden md:block text-sm text-neutral-400">
-            দেশীয় ক্লাউড ও সর্বোচ্চ গতি
+            {FEATURES_CONTENT.badgeText}
           </span>
         </div>
       </motion.div>
@@ -53,8 +48,8 @@ function SectionHeader() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
         className="hidden md:flex items-center gap-2 text-base text-neutral-400 text-right shrink-0"
       >
-        <img src="/prohor.webp" alt="প্রহর" className="h-5 w-auto object-contain" />
-        <span>ক্লাউড ইনফ্রাস্ট্রাকচার</span>
+        <img src={ASSETS.logo} alt="প্রহর" className="h-5 w-auto object-contain" />
+        <span>{FEATURES_CONTENT.tagline}</span>
       </motion.p>
     </header>
   );
@@ -118,10 +113,10 @@ function FeatureCards() {
         }}
       >
         <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight font-medium">
-          ডিজাইন ও ইউআই
+          {FEATURES_CONTENT.card1.title}
         </h3>
         <p className="mt-4 text-xs sm:text-sm opacity-70 text-neutral-200 max-w-[280px] leading-relaxed">
-          ওয়েবসাইট ও UI/UX ডিজাইন করুন কোনো কোডিং জটিলতা ছাড়াই। রেডিমেড লেআউট ও কালার প্যালেট সুবিধা।
+          {FEATURES_CONTENT.card1.description}
         </p>
         <motion.div
           className="absolute bottom-0 left-4 right-4 bg-white/5 border border-white/5 rounded-t-2xl p-2.5 pt-5 flex flex-col gap-1"
@@ -143,9 +138,9 @@ function FeatureCards() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
         >
           {[
-            { icon: typeUrl, label: "টাইপোগ্রাফি ও বাংলা ফন্ট", active: true },
-            { icon: imagePlusUrl, label: "ইমেজ ও কালার সিস্টেম" },
-            { icon: squareUrl, label: "ডিজাইন কিট" },
+            { icon: ASSETS.icons.type, label: FEATURES_CONTENT.card1.items[0].label, active: FEATURES_CONTENT.card1.items[0].active },
+            { icon: ASSETS.icons.imagePlus, label: FEATURES_CONTENT.card1.items[1].label },
+            { icon: ASSETS.icons.square, label: FEATURES_CONTENT.card1.items[2].label },
           ].map((it) => (
             <motion.div
               key={it.label}
@@ -166,10 +161,10 @@ function FeatureCards() {
         className="relative h-[380px] rounded-2xl overflow-hidden bg-neutral-900 flex flex-col items-center text-center pt-8 px-5"
       >
         <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight font-medium">
-          স্টুডিও ও কোড
+          {FEATURES_CONTENT.card2.title}
         </h3>
         <p className="mt-4 text-xs sm:text-sm opacity-70 text-neutral-200 max-w-[300px] leading-relaxed">
-          বাংলা নির্দেশনায় স্বয়ংক্রিয়ভাবে ক্লিন কোড জেনারেট করুন এবং লাইভ টেস্ট করে এক ক্লিকে সাইট ডিপ্লয় করুন।
+          {FEATURES_CONTENT.card2.description}
         </p>
         <motion.div
           className="mt-3 flex justify-center gap-1.5"
@@ -177,7 +172,7 @@ function FeatureCards() {
           animate="visible"
           transition={{ staggerChildren: 0.12, delayChildren: 1.0 }}
         >
-          {["Next.js", "React", "টেইলউইন্ড"].map((t) => (
+          {FEATURES_CONTENT.card2.techStack.map((t) => (
             <motion.span
               key={t}
               variants={{
@@ -199,7 +194,7 @@ function FeatureCards() {
           style={{ x: "-50%" }}
         >
           <img
-            src={womanAsset.url}
+            src={ASSETS.woman}
             alt="AI generated preview"
             className="w-full h-full object-cover object-top rounded-t-2xl"
           />
@@ -207,7 +202,7 @@ function FeatureCards() {
             className="absolute top-6 -right-5 bg-white text-black text-xs font-medium rounded-lg px-2.5 py-1 shadow-lg cursor-pointer"
             aria-label="Regenerate code"
           >
-            পুনরায় জেনারেট
+            {FEATURES_CONTENT.card2.regenerateCta}
           </button>
         </motion.div>
       </motion.article>
@@ -221,10 +216,10 @@ function FeatureCards() {
         <div className="flex items-start justify-between p-5 pb-0">
           <div>
             <h3 className="mt-0.5 text-neutral-900 leading-tight text-xl sm:text-2xl font-medium">
-              অ্যানালিটিক্স ও এসইও
+              {FEATURES_CONTENT.card3.title}
             </h3>
           </div>
-          <img src={threeDotUrl} alt="" className="mt-2 shrink-0" />
+          <img src={ASSETS.icons.threeDot} alt="" className="mt-2 shrink-0" />
         </div>
         <motion.div
           className="absolute bottom-14 left-0 w-full h-[140px] px-5 flex items-end justify-between gap-2 overflow-hidden"
@@ -286,10 +281,10 @@ function FeatureCards() {
         </motion.div>
         <div className="absolute bottom-0 left-0 w-full h-14 flex items-end pb-3 px-5 gap-2">
           <span className="text-2xl sm:text-3xl text-neutral-900 font-bold leading-none">
-            <CountUp end={98000} duration={3200} active={countActive} />+
+            <CountUp end={FEATURES_CONTENT.card3.visitorCount} duration={3200} active={countActive} />+
           </span>
           <span className="text-xs sm:text-sm text-neutral-900 font-medium leading-none pb-0.5">
-            মাসিক ভিজিটর ও সার্চ গ্রোথ
+            {FEATURES_CONTENT.card3.visitorLabel}
           </span>
         </div>
       </motion.article>

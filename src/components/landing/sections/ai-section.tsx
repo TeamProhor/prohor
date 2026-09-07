@@ -2,18 +2,11 @@
 
 import * as motion from "motion/react-client";
 import { ChevronRight, Check, Paperclip, Globe, Lightbulb, Sparkle } from "reicon-react";
-
-const agents = [
-  { name: "৫.১ ফ্ল্যাশ (Flash)", isAgent: true, selected: true, version: "v5.1" },
-  { name: "প্রো (Pro)", isAgent: true, selected: false, version: "v5.0" },
-  { name: "এক্সটেন্ডেড (Extended)", isAgent: true, selected: false, version: "v4.5" },
-  { name: "ফ্ল্যাশ লাইট (Flash Lite)", isAgent: true, selected: false, version: "v3.2" },
-  { name: "প্রো ম্যাক্স (Pro Max)", isAgent: true, selected: false, version: "v5.1" },
-];
+import { AI_SECTION_CONTENT, ASSETS } from "@/lib/ui";
 
 export function AISection({ className }: { className?: string }) {
   return (
-    <section className={`relative z-20 py-24 md:py-32 bg-background overflow-hidden ${className ?? ""}`}>
+    <section id="ai" className={`relative z-20 py-24 md:py-32 bg-background overflow-hidden ${className ?? ""}`}>
       <div
         className="absolute top-0 left-0 right-0 pointer-events-none"
         style={{
@@ -29,7 +22,7 @@ export function AISection({ className }: { className?: string }) {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-5xl font-medium tracking-tight text-foreground max-w-3xl mb-8 leading-tight"
           >
-            এআই-চালিত ওয়েব ও প্রোডাক্ট ডেভেলপমেন্ট
+            {AI_SECTION_CONTENT.title}
           </motion.h2>
 
           <motion.p
@@ -39,10 +32,10 @@ export function AISection({ className }: { className?: string }) {
             className="text-muted-foreground max-w-lg mb-8 leading-relaxed"
           >
             <span className="text-foreground font-medium inline-flex items-center gap-1.5 align-middle">
-              <img src="/prohor.webp" alt="প্রহর" className="h-5 w-auto object-contain inline-block" />
-              <span>অ্যাপস ও এজেন্টস।</span>
+              <img src={ASSETS.logo} alt="প্রহর" className="h-5 w-auto object-contain inline-block" />
+              <span>{AI_SECTION_CONTENT.subtitleHighlight}</span>
             </span>{" "}
-            স্মার্ট এআই এজেন্টের সাহায্যে ডিজাইন থেকে কোড রূপান্তর এবং ক্লাউড ম্যানেজমেন্টের কাজ সম্পন্ন করুন পলকে।
+            {AI_SECTION_CONTENT.subtitle}
           </motion.p>
 
           <motion.button
@@ -51,7 +44,7 @@ export function AISection({ className }: { className?: string }) {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="px-5 py-2.5 bg-card text-foreground rounded-xl border border-border hover:bg-muted/80 transition-colors text-sm flex items-center gap-2 mb-16 cursor-pointer"
           >
-            বিস্তারিত জানুন <ChevronRight className="w-4 h-4" />
+            {AI_SECTION_CONTENT.ctaText} <ChevronRight className="w-4 h-4" />
           </motion.button>
 
           <motion.div
@@ -91,19 +84,14 @@ export function AISection({ className }: { className?: string }) {
                   <span className="text-muted-foreground/60 italic text-xs sm:text-sm">মডেল নির্বাচন করুন...</span>
                 </div>
                 <div className="bg-card/90 border border-t-0 border-border rounded-b-xl py-1">
-                  {agents.map((agent, index) => (
+                  {AI_SECTION_CONTENT.agents.map((agent, index) => (
                     <div
                       key={agent.name}
                       style={
                         agent.selected
                           ? {
-                              transform: "scale(1.02) sm:scale(1.04) rotateX(17deg)",
-                              borderRadius: "8px",
+                              opacity: 1,
                               height: "48px",
-                              position: "relative",
-                              boxShadow:
-                                "inset 0 -2.75px 4.75px rgba(255, 255, 255, 0.1), inset 0 -0.75px 0.75px rgba(255, 255, 255, 0.08), 0 30px 60px rgba(0, 0, 0, 0.6)",
-                              zIndex: 20,
                               marginLeft: "-6px",
                               marginRight: "-6px",
                             }
@@ -116,7 +104,7 @@ export function AISection({ className }: { className?: string }) {
                       >
                         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
                           <img
-                            src="/prohor.webp"
+                            src={ASSETS.logo}
                             alt="প্রহর"
                             className="h-3.5 sm:h-4 w-auto object-contain shrink-0 inline-block"
                           />
@@ -144,15 +132,15 @@ export function AISection({ className }: { className?: string }) {
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="border-t border-b border-border border-r-0 md:border-r pt-12 pr-0 md:pr-12 pb-16">
-                <h3 className="text-foreground font-medium text-xl mb-3">স্বয়ংক্রিয় প্রোডাক্ট অপারেশন</h3>
+                <h3 className="text-foreground font-medium text-xl mb-3">{AI_SECTION_CONTENT.operations.title}</h3>
                 <p className="text-muted-foreground text-base mb-8 leading-relaxed">
-                  রুটিনমাফিক কোড রিভিউ, বাগ ফিক্সিং এবং ডিপ্লয়মেন্ট নিশ্চিত করুন প্রহর ইন্টেলিজেন্সের সহায়তায়।
+                  {AI_SECTION_CONTENT.operations.description}
                 </p>
                 <div className="bg-card/50 border border-border rounded-2xl p-5">
                   <div className="flex items-center gap-2 mb-5">
                     <Sparkle size={16} className="text-muted-foreground" />
                     <span className="text-muted-foreground text-sm">
-                      <span className="text-foreground font-medium">স্মার্ট ট্রায়াজ</span>
+                      <span className="text-foreground font-medium">{AI_SECTION_CONTENT.operations.smartTriage}</span>
                     </span>
                   </div>
                   <div className="flex items-center gap-3 mb-3">
@@ -183,25 +171,23 @@ export function AISection({ className }: { className?: string }) {
                   <div className="bg-card border border-border/80 rounded-xl p-4 ml-0 md:ml-4">
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-5 h-5 bg-muted rounded-full border border-border" />
-                      <span className="text-foreground text-sm font-medium">তানভীর আহমেদ (টিম লিড)</span>
+                      <span className="text-foreground text-sm font-medium">{AI_SECTION_CONTENT.operations.leadName}</span>
                     </div>
                     <p className="text-muted-foreground text-xs mb-2">পরামর্শের যুক্তি</p>
                     <p className="text-muted-foreground text-sm mb-4">
-                      পূর্ববর্তী ডেটা অনুযায়ী এই অপ্টিমাইজেশনটি বাংলাদেশি মোবাইল নেটওয়ার্কে লোডিং স্পিড ৪৫% বাড়াবে।
+                      {AI_SECTION_CONTENT.operations.reasoning}
                     </p>
                     <p className="text-muted-foreground text-xs mb-2">বিকল্প ডেভেলপার</p>
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="flex items-center gap-1.5 bg-muted/80 border border-border rounded-md px-2 py-1 text-sm">
-                        <span className="w-4 h-4 bg-muted-foreground/40 rounded-full" />
-                        <span className="text-muted-foreground">নিলয়</span>
-                      </span>
-                      <span className="flex items-center gap-1.5 bg-muted/80 border border-border rounded-md px-2 py-1 text-sm">
-                        <span className="w-4 h-4 bg-muted-foreground/40 rounded-full" />
-                        <span className="text-muted-foreground">ফারহান</span>
-                      </span>
+                      {AI_SECTION_CONTENT.operations.backupDevelopers.map((dev) => (
+                        <span key={dev} className="flex items-center gap-1.5 bg-muted/80 border border-border rounded-md px-2 py-1 text-sm">
+                          <span className="w-4 h-4 bg-muted-foreground/40 rounded-full" />
+                          <span className="text-muted-foreground">{dev}</span>
+                        </span>
+                      ))}
                     </div>
                     <button className="w-full flex items-center justify-center gap-2 bg-muted hover:bg-muted/80 border border-border text-foreground text-sm py-2.5 rounded-xl transition-colors cursor-pointer">
-                      <Check className="w-4 h-4 text-accent" /> পরামর্শ গ্রহণ করুন
+                      <Check className="w-4 h-4 text-accent" /> {AI_SECTION_CONTENT.operations.acceptSuggestionCta}
                     </button>
                   </div>
                 </div>
@@ -209,14 +195,14 @@ export function AISection({ className }: { className?: string }) {
 
               <div className="md:border-t border-b border-border pt-12 pl-0 md:pl-12 pb-16">
                 <h3 className="text-foreground font-medium text-xl mb-3 flex items-center gap-2">
-                  <img src="/prohor.webp" alt="প্রহর" className="h-5 w-auto object-contain" />
-                  <span>এমসিপি (MCP)</span>
+                  <img src={ASSETS.logo} alt="প্রহর" className="h-5 w-auto object-contain" />
+                  <span>{AI_SECTION_CONTENT.mcp.title}</span>
                 </h3>
                 <p className="text-muted-foreground text-base mb-8 leading-relaxed">
-                  Cursor, Claude, ChatGPT এবং অন্যান্য এডিটর থেকে সরাসরি প্রহর ক্লাউড ও ডাটাবেস পরিচালনা করুন।
+                  {AI_SECTION_CONTENT.mcp.description}
                 </p>
                 <div className="bg-card/50 border border-border rounded-2xl p-5 font-mono text-sm">
-                  <p className="text-muted-foreground/60 mb-3">//mcp.prohor.dev/sse</p>
+                  <p className="text-muted-foreground/60 mb-3">{AI_SECTION_CONTENT.mcp.endpoint}</p>
                   <div className="space-y-1 mb-6">
                     <p>
                       <span className="text-secondary">&quot;mcpServers&quot;</span>
@@ -235,7 +221,7 @@ export function AISection({ className }: { className?: string }) {
                   <div className="bg-card border border-border/80 rounded-xl p-4">
                     <div className="flex items-center gap-2 mb-4">
                       <span className="w-0.5 h-5 bg-muted-foreground/50" />
-                      <span className="text-muted-foreground">যেকোনো প্রশ্ন বা নির্দেশ লিখুন...</span>
+                      <span className="text-muted-foreground">{AI_SECTION_CONTENT.mcp.placeholderInput}</span>
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
                       <button className="flex items-center gap-1.5 border border-border text-muted-foreground text-sm px-3 py-1.5 rounded-full hover:bg-muted/60 hover:text-foreground transition-colors cursor-pointer">

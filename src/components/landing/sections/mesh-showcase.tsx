@@ -89,13 +89,7 @@ function AnimatedDottedFrame({ startDelay = 4200 }: { startDelay?: number }) {
   );
 }
 
-const keyFeatures = [
-  { label: "ডিজাইন ও UI", active: false },
-  { label: "ওয়েব স্টুডিও", active: false },
-  { label: "ওয়ান-ক্লিক ডিপ্লয়মেন্ট", active: true },
-  { label: "দেশীয় ক্লাউড সার্ভার", active: false },
-  { label: "বিকাশ ও নগদ গেটওয়ে", active: false },
-];
+import { MESH_SHOWCASE_CONTENT, ASSETS } from "@/lib/ui";
 
 export function Showcase({ className }: { className?: string }) {
   return (
@@ -134,20 +128,20 @@ export function Showcase({ className }: { className?: string }) {
                   delay: 3.45,
                 }}
               >
-                <img src="/prohor.webp" alt="প্রহর" className="h-3.5 w-auto object-contain inline-block" />
-                <span>প্রো</span>
+                <img src={ASSETS.logo} alt="প্রহর" className="h-3.5 w-auto object-contain inline-block" />
+                <span>{MESH_SHOWCASE_CONTENT.badge}</span>
               </motion.div>
             </div>
 
             <h2 className="mt-5 text-[24px] font-medium leading-[1.2] tracking-tight text-white">
               <AnimatedWords
-                text="অল-ইন-ওয়ান ডিজিটাল"
+                text={MESH_SHOWCASE_CONTENT.headlineLine1}
                 delayStart={3.6}
                 stagger={0.05}
               />
               <br />
               <AnimatedWords
-                text="বিজনেস ইকোসিস্টেম"
+                text={MESH_SHOWCASE_CONTENT.headlineLine2}
                 delayStart={3.75}
                 stagger={0.05}
               />
@@ -155,18 +149,16 @@ export function Showcase({ className }: { className?: string }) {
 
             <div className="mt-auto pt-6">
               <p
-                className="text-[14px] font-normal leading-[22px] text-neutral-300"
+                className="text-[14px] font-normal leading-[22px] text-neutral-300 whitespace-pre-line"
               >
-                ডিজাইন থেকে শুরু করে ক্লাউড হোস্টিং ও লোকাল পেমেন্ট,
-                <br />
-                আপনার পুরো ব্যবসা পরিচালিত হবে প্রহরের একক প্ল্যাটফর্মে।
+                {MESH_SHOWCASE_CONTENT.description}
               </p>
             </div>
 
             {/* Browser mockup — md+ only */}
             <div className="hidden md:block absolute bottom-0 right-0 w-[330px]">
               <img
-                src="https://qclay.design/lovable/nixole/browser-mockup.png"
+                src={ASSETS.browserMockup}
                 alt="Medical.AI browser"
                 className="w-full"
                 style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.45))" }}
@@ -205,7 +197,7 @@ export function Showcase({ className }: { className?: string }) {
               <div className="flex items-center gap-1.5 mb-2">
                 <Sparkle size={14} className="text-white" />
                 <span className="text-[12px] font-medium text-white">
-                  মূল ফিচারসমূহ
+                  {MESH_SHOWCASE_CONTENT.featuresTitle}
                 </span>
               </div>
               <div
@@ -229,7 +221,7 @@ export function Showcase({ className }: { className?: string }) {
                 />
               </div>
               <div className="flex flex-col gap-1">
-                {keyFeatures.map((feat) => (
+                {MESH_SHOWCASE_CONTENT.features.map((feat) => (
                   <div
                     key={feat.label}
                     className={`flex items-center gap-2 px-1.5 py-1.5 ${
@@ -295,12 +287,12 @@ export function Showcase({ className }: { className?: string }) {
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-start gap-2">
                 <img
-                  src="https://qclay.design/lovable/nixole/frame-207.svg"
+                  src={ASSETS.frame207}
                   alt="Customers"
                   className="h-[36px]"
                 />
                 <span className="text-[14px] font-medium text-neutral-200">
-                  উদ্যোক্তাদের অভিজ্ঞতা
+                  {MESH_SHOWCASE_CONTENT.testimonial.title}
                 </span>
               </div>
               <div className="flex flex-col gap-[4.34px]">
@@ -324,18 +316,18 @@ export function Showcase({ className }: { className?: string }) {
             </div>
 
             <p className="mt-12 text-[12px] text-neutral-400">
-              ০২ ফেব্রুয়ারি, ২০২৬
+              {MESH_SHOWCASE_CONTENT.testimonial.date}
             </p>
             <blockquote className="mt-2 max-w-[420px] text-[18px] font-medium leading-[1.4] tracking-tight">
               <AnimatedWords
-                text="প্রহর ডিপ্লয় ব্যবহারের পর আমাদের ই-কমার্সের"
+                text={MESH_SHOWCASE_CONTENT.testimonial.quote1}
                 className="text-white"
                 delayStart={3.6}
                 stagger={0.04}
               />
               {" "}
               <AnimatedWords
-                text="লোডিং স্পিড বহুগুণ বেড়েছে এবং সেলস বেড়েছে ৬০%।"
+                text={MESH_SHOWCASE_CONTENT.testimonial.quote2}
                 className="text-neutral-400"
                 delayStart={3.75}
                 stagger={0.04}
@@ -344,10 +336,10 @@ export function Showcase({ className }: { className?: string }) {
 
             <div className="mt-auto pt-6 flex items-center justify-between">
               <span className="text-xs font-semibold tracking-wide text-neutral-300">
-                ঢাকা স্টার্টআপ হাব
+                {MESH_SHOWCASE_CONTENT.testimonial.author}
               </span>
               <div className="flex items-center gap-0.5">
-                {[1, 2, 3, 4, 5].map((i) => (
+                {Array.from({ length: MESH_SHOWCASE_CONTENT.testimonial.rating }).map((_, i) => (
                   <Star
                     key={i}
                     size={14}
@@ -363,10 +355,8 @@ export function Showcase({ className }: { className?: string }) {
 
         {/* TRUSTED-BY ROW */}
         <div className="mt-7 px-1 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
-          <p className="max-w-md text-[13px] leading-[1.6] text-neutral-300">
-            বাংলাদেশের শীর্ষস্থানীয় উদ্ভাবক, স্টার্টআপ এবং সফটওয়্যার টিমসমূহের বিশ্বস্ত সঙ্গী —
-            <br />
-            ডিজিটাল বাংলাদেশের রূপান্তরে এক নির্ভরযোগ্য প্ল্যাটফর্ম।
+          <p className="max-w-md text-[13px] leading-[1.6] text-neutral-300 whitespace-pre-line">
+            {MESH_SHOWCASE_CONTENT.trustedByText}
           </p>
           <div className="w-full md:max-w-[60%] md:ml-auto overflow-hidden">
             <div
@@ -385,7 +375,7 @@ export function Showcase({ className }: { className?: string }) {
                 <GoFundMeLogo />
                 <NutanixLogo />
                 <img
-                  src="https://qclay.design/lovable/nixole/upside-logo.svg"
+                  src={ASSETS.upsideLogo}
                   alt="Upside"
                   className="h-[24px]"
                 />
@@ -394,7 +384,7 @@ export function Showcase({ className }: { className?: string }) {
                 <GoFundMeLogo />
                 <NutanixLogo />
                 <img
-                  src="https://qclay.design/lovable/nixole/upside-logo.svg"
+                  src={ASSETS.upsideLogo}
                   alt="Upside"
                   className="h-[24px]"
                 />

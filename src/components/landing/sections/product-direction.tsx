@@ -1,10 +1,11 @@
 "use client";
 
 import { ChevronRight, Check, Document, User, Target, Globe, Chart, Flag, AlertTriangle } from "reicon-react";
+import { PRODUCT_DIRECTION_CONTENT, ASSETS } from "@/lib/ui";
 
 export function ProductDirectionSection({ className }: { className?: string }) {
   return (
-    <section className={`relative py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-background overflow-hidden ${className ?? ""}`}>
+    <section id="teams" className={`relative py-20 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 lg:px-24 bg-background overflow-hidden ${className ?? ""}`}>
       <div
         className="absolute inset-x-0 top-0 pointer-events-none"
         style={{
@@ -14,11 +15,11 @@ export function ProductDirectionSection({ className }: { className?: string }) {
       />
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-6 sm:mb-8 max-w-3xl flex items-center gap-3 flex-wrap">
-          <img src="/prohor.webp" alt="প্রহর" className="h-8 md:h-11 w-auto object-contain inline-block" />
-          <span>টিমস: দলগত কাজের রোডম্যাপ</span>
+          <img src={ASSETS.logo} alt="প্রহর" className="h-8 md:h-11 w-auto object-contain inline-block" />
+          <span>{PRODUCT_DIRECTION_CONTENT.title}</span>
         </h2>
         <p className="text-muted-foreground text-base sm:text-lg max-w-lg mb-10 sm:mb-16 leading-relaxed">
-          <span className="text-foreground font-medium">একই প্ল্যাটফর্মে পুরো টিমকে রাখুন সারিবদ্ধ।</span> ডিজাইন, ডেভেলপমেন্ট এবং বিজনেস উদ্যোগের অগ্রগতি ট্র্যাক করুন প্রহর টিমস-এর মাধ্যমে।
+          <span className="text-foreground font-medium">{PRODUCT_DIRECTION_CONTENT.subtitleHighlight}</span> {PRODUCT_DIRECTION_CONTENT.subtitle}
         </p>
 
         <div className="sm:hidden text-center text-xs text-muted-foreground/60 mb-2">← টাইমলাইন স্ক্রল করে দেখুন →</div>

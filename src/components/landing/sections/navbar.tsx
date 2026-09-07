@@ -3,23 +3,12 @@
 import { useState } from "react";
 import * as motion from "motion/react-client";
 
-interface NavItem {
-  label: string;
-  active?: boolean;
-}
-
-const defaultNavItems: NavItem[] = [
-  { label: "ইকোসিস্টেম", active: true },
-  { label: "ডিজাইন ও স্টুডিও" },
-  { label: "ক্লাউড ও ডিপ্লয়" },
-  { label: "মূল্যতালিকা" },
-  { label: "মার্কেটপ্লেস" },
-];
+import { NAVBAR_ITEMS, NavItem, ASSETS } from "@/lib/ui";
 
 export function Navbar({
   className,
   logoHref = "/",
-  navItems = defaultNavItems,
+  navItems = NAVBAR_ITEMS,
 }: {
   className?: string;
   logoHref?: string;
@@ -38,7 +27,7 @@ export function Navbar({
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href="#"
+                href={item.href}
                 className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                   item.active
                     ? "text-white bg-white/10"
@@ -49,9 +38,12 @@ export function Navbar({
               </a>
             ))}
           </nav>
-          <button className="hidden md:block bg-white text-black text-sm font-medium rounded-lg px-4 py-2 hover:bg-neutral-200 transition-colors cursor-pointer shrink-0">
+          <a
+            href="#pricing"
+            className="hidden md:inline-flex items-center justify-center bg-white text-black text-sm font-medium rounded-lg px-4 py-2 hover:bg-neutral-200 transition-colors cursor-pointer shrink-0"
+          >
             শুরু করুন
-          </button>
+          </a>
           <button
             aria-label="Open menu"
             onClick={() => setMenuOpen(true)}
@@ -90,7 +82,7 @@ export function Navbar({
             {navItems.map((item) => (
               <a
                 key={item.label}
-                href="#"
+                href={item.href}
                 onClick={() => setMenuOpen(false)}
                 className={`text-lg font-medium px-4 py-3 rounded-xl transition-colors ${
                   item.active ? "text-white bg-white/10" : "text-neutral-400 hover:text-white hover:bg-white/5"
@@ -100,9 +92,13 @@ export function Navbar({
               </a>
             ))}
           </nav>
-          <button className="mt-auto bg-white text-black rounded-xl py-3 text-sm font-medium">
+          <a
+            href="#pricing"
+            onClick={() => setMenuOpen(false)}
+            className="mt-auto text-center bg-white text-black rounded-xl py-3 text-sm font-medium"
+          >
             শুরু করুন
-          </button>
+          </a>
         </motion.div>
       )}
     </>

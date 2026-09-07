@@ -4,9 +4,7 @@ import { useRef } from "react";
 import * as motion from "motion/react-client";
 import { useInView } from "motion/react";
 import { CountNumber } from "../lib/animations";
-
-const ICONS = "https://qclay.design/lovable/codeba/icons/";
-const blueArrowUrl = ICONS + "blueArrow.svg";
+import { STATS_CONTENT, ASSETS } from "@/lib/ui";
 
 export function Stats({
   className,
@@ -38,10 +36,10 @@ export function Stats({
           transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
         >
           <span className="text-4xl sm:text-5xl text-neutral-100 font-semibold">
-            <CountNumber to={85} start={inView} />%
+            <CountNumber to={STATS_CONTENT.stat1.number} start={inView} />{STATS_CONTENT.stat1.unit}
           </span>
           <p className="text-sm sm:text-base text-neutral-100 opacity-60 max-w-[220px]">
-            লোকাল এজ ক্যাশিংয়ে দ্রুততর পেজ লোডিং স্পিড
+            {STATS_CONTENT.stat1.label}
           </p>
         </motion.div>
 
@@ -52,10 +50,10 @@ export function Stats({
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
         >
           <span className="text-4xl sm:text-5xl text-neutral-100 font-semibold">
-            <CountNumber to={99} start={inView} />.৯%
+            <CountNumber to={STATS_CONTENT.stat2.number} start={inView} />{STATS_CONTENT.stat2.decimal}
           </span>
           <p className="text-sm sm:text-base text-neutral-100 opacity-60 max-w-[300px]">
-            বাংলাদেশি স্টার্টআপ ও ব্যবসার নির্ভরযোগ্য আপটাইম
+            {STATS_CONTENT.stat2.label}
           </p>
         </motion.div>
 
@@ -66,7 +64,7 @@ export function Stats({
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
           >
             <p className="text-xl sm:text-2xl md:text-3xl text-white leading-snug">
-              আমরা তৈরি করেছি{" "}
+              {STATS_CONTENT.banner.prefix}
               <span className="relative inline-block align-baseline px-1.5 py-0.5">
                 <motion.span
                   aria-hidden
@@ -76,7 +74,7 @@ export function Stats({
                   transition={{ duration: 0.91, delay: 1.55, ease: "linear" }}
                   style={{ transformOrigin: "left center" }}
                 />
-                <span className="relative font-medium text-white">দেশীয় ক্লাউড</span>
+                <span className="relative font-medium text-white">{STATS_CONTENT.banner.highlight}</span>
                 <motion.span
                   aria-hidden
                   className="absolute inset-0 px-1.5 py-0.5 font-medium text-stone-950 whitespace-nowrap"
@@ -84,10 +82,10 @@ export function Stats({
                   animate={inView ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }}
                   transition={{ duration: 0.91, delay: 1.55, ease: "linear" }}
                 >
-                  দেশীয় ক্লাউড
+                  {STATS_CONTENT.banner.highlight}
                 </motion.span>
-              </span>{" "}
-              ও ডিজিটাল ইকোসিস্টেম
+              </span>
+              {STATS_CONTENT.banner.suffix}
             </p>
             <motion.div
               className="absolute pointer-events-none"
@@ -96,9 +94,9 @@ export function Stats({
               animate={inView ? cursorKeyframes : { opacity: 0, x: 100, y: 100 }}
               transition={cursorTransition}
             >
-              <img src={blueArrowUrl} alt="" width={22} height={22} />
+              <img src={ASSETS.icons.blueArrow} alt="" width={22} height={22} />
               <span className="absolute top-[18px] left-[14px] whitespace-nowrap bg-blue-500 text-white text-[10px] font-medium px-1.5 py-0.5 rounded-tr-md rounded-bl-md rounded-br-md">
-                ডেভেলপার
+                {STATS_CONTENT.banner.roleBadge}
               </span>
             </motion.div>
           </motion.div>

@@ -2,16 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Plus, ArrowRight, MessageSquare, BranchUp, X, Puzzle, Figma, Calendar } from "reicon-react";
-
-const carouselCards = [
-  { id: 1, category: "কাস্টমার রিকোয়েস্ট", title: "গ্রাহকরা যা চান ঠিক তা-ই তৈরি করুন", icon: ArrowRight, mockup: "intercom" },
-  { id: 2, category: "শক্তিশালী গিট ওয়ার্কফ্লো", title: "পুল রিকোয়েস্ট ও কমিট ওয়ার্কফ্লো অটোমেট করুন", icon: Plus, mockup: "github" },
-  { id: 3, category: "প্রহর মোবাইল", title: "যেকোনো প্রান্ত থেকে প্রজেক্টের কাজ এগিয়ে নিন", icon: ArrowRight, mockup: "mobile" },
-  { id: 4, category: "প্রহর আস্কস", title: "কাজের রিকোয়েস্টগুলোকে সমাধানযোগ্য ইস্যুতে রূপান্তর করুন", icon: ArrowRight, mockup: "asks" },
-  { id: 5, category: "প্রহর ইন্টিগ্রেশনস", title: "১০০+ উপায়ে বৃদ্ধি করুন প্রহরের অভিজ্ঞতা", icon: ArrowRight, mockup: "integrations" },
-  { id: 6, category: "ফিগমা ইন্টিগ্রেশন", title: "ইঞ্জিনিয়ারিং ও ডিজাইনের দূরত্ব দূর করুন", icon: ArrowRight, mockup: "figma" },
-  { id: 7, category: "ডেভেলপারদের জন্য নির্মিত", title: "প্রহর এপিআই দিয়ে তৈরি করুন নিজস্ব অ্যাড-অন", icon: ArrowRight, mockup: "api" },
-];
+import { WORKFLOWS_CONTENT } from "@/lib/ui";
 
 function IntercomMockup() {
   return (
@@ -197,7 +188,7 @@ export function WorkflowsSection({ className }: { className?: string }) {
   };
 
   return (
-    <section className={`relative py-24 bg-background ${className ?? ""}`}>
+    <section id="workflows" className={`relative py-24 bg-background ${className ?? ""}`}>
       <div
         className="absolute top-0 left-0 right-0 pointer-events-none"
         style={{
@@ -210,17 +201,15 @@ export function WorkflowsSection({ className }: { className?: string }) {
           <div className="lg:max-w-xl">
             <div className="flex items-center gap-2 mb-6">
               <div className="w-2 h-2 rounded-full bg-secondary" />
-              <span className="text-sm text-muted-foreground">ওয়ার্কফ্লো ও ইন্টিগ্রেশন</span>
+              <span className="text-sm text-muted-foreground">{WORKFLOWS_CONTENT.badge}</span>
               <ChevronRight className="w-4 h-4 text-muted-foreground/60" />
             </div>
-            <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground">
-              টুলস ও টিমের নির্বিঘ্ন
-              <br />
-              কোলাবোরেশন
+            <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground whitespace-pre-line">
+              {WORKFLOWS_CONTENT.title}
             </h2>
           </div>
           <p className="text-muted-foreground lg:max-w-sm lg:pt-12 text-sm sm:text-base leading-relaxed">
-            সিস্টেমের সক্ষমতা বৃদ্ধি করুন বিস্তৃত ইন্টিগ্রেশনের মাধ্যমে, যা আপনার প্রতিষ্ঠানের সবাইকে এক সূত্রে সংযুক্ত এবং লক্ষ্যমুখী রাখবে।
+            {WORKFLOWS_CONTENT.subtitle}
           </p>
         </div>
 
@@ -230,7 +219,7 @@ export function WorkflowsSection({ className }: { className?: string }) {
             onScroll={checkScroll}
             className="flex gap-4 overflow-x-auto aurora-no-scrollbar snap-x snap-mandatory scroll-smooth pb-2 pt-1 px-1"
           >
-            {carouselCards.map((card) => (
+            {WORKFLOWS_CONTENT.cards.map((card) => (
               <div
                 key={card.id}
                 className="flex-shrink-0 w-[82vw] max-w-[320px] sm:w-[280px] lg:w-[calc(25%-12px)] snap-start"
@@ -253,7 +242,7 @@ export function WorkflowsSection({ className }: { className?: string }) {
                         aria-label={card.title}
                         className="flex-shrink-0 w-8 h-8 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted-foreground/50 transition-colors cursor-pointer"
                       >
-                        <card.icon className="w-4 h-4" />
+                        <ArrowRight className="w-4 h-4" />
                       </button>
                     </div>
                   </div>

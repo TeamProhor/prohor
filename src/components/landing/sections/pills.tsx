@@ -1,13 +1,7 @@
 "use client";
 
 import * as motion from "motion/react-client";
-
-const ICONS = "https://qclay.design/lovable/codeba/icons/";
-const usersRoundUrl = ICONS + "users-round.svg";
-const imagePlusUrl = ICONS + "image-plus.svg";
-const copyUrl = ICONS + "Copy.svg";
-const codeXmlUrl = ICONS + "code-xml.svg";
-const webhookUrl = ICONS + "webhook.svg";
+import { PILLS_CONTENT } from "@/lib/ui";
 
 function PillReveal({
   delay,
@@ -61,30 +55,39 @@ export function Pills({
 }: {
   className?: string;
 }) {
+  const row1 = PILLS_CONTENT.slice(0, 3);
+  const row2 = PILLS_CONTENT.slice(3, 6);
+
   return (
     <section aria-label="প্রহর ফিচারসমূহ" className={`bg-black pb-12 ${className ?? ""}`}>
       <div className="max-w-6xl mx-auto px-5 flex flex-col gap-2 lg:gap-2">
         <div className="flex flex-col lg:flex-row w-full gap-2 lg:gap-3">
-          <PillReveal delay={0.3}>
-            <Pill label="ডিজাইনার ও ডেভেলপার ফ্রেন্ডলি" icon={usersRoundUrl} bg="#D0C9B9" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
-          </PillReveal>
-          <PillReveal delay={0.4}>
-            <Pill label="ওয়ান-ক্লিক এজ ডিপ্লয়মেন্ট" icon={imagePlusUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
-          </PillReveal>
-          <PillReveal delay={0.5}>
-            <Pill label="বিকাশ ও নগদ পেমেন্ট গেটওয়ে" icon={copyUrl} bg="#F7C8FF" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
-          </PillReveal>
+          {row1.map((p) => (
+            <PillReveal key={p.label} delay={p.delay}>
+              <Pill
+                label={p.label}
+                icon={p.icon}
+                bg={p.bg}
+                text={p.text}
+                iconBg={p.iconBg}
+                invertIcon={p.invertIcon}
+              />
+            </PillReveal>
+          ))}
         </div>
         <div className="flex flex-col lg:flex-row w-full gap-2 lg:gap-3">
-          <PillReveal delay={0.4}>
-            <Pill label="বাংলাদেশি ক্লাউড ও ঢাকা রিজিয়ন" icon={usersRoundUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
-          </PillReveal>
-          <PillReveal delay={0.5}>
-            <Pill label="S3-কম্প্যাটিবল অবজেক্ট স্টোরেজ" icon={codeXmlUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
-          </PillReveal>
-          <PillReveal delay={0.6}>
-            <Pill label="মার্কেটপ্লেস ও প্লাগইন" icon={webhookUrl} bg="#81FFBD" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
-          </PillReveal>
+          {row2.map((p) => (
+            <PillReveal key={p.label} delay={p.delay}>
+              <Pill
+                label={p.label}
+                icon={p.icon}
+                bg={p.bg}
+                text={p.text}
+                iconBg={p.iconBg}
+                invertIcon={p.invertIcon}
+              />
+            </PillReveal>
+          ))}
         </div>
       </div>
     </section>

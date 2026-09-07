@@ -10,14 +10,15 @@ import {
   CountUpInView,
   TypingPlaceholderInput,
 } from "../lib/animations";
+import { HERO_CONTENT } from "@/lib/ui";
 
 export function Hero({
   className,
-  heading = "ওয়েবসাইট ও ডিজিটাল প্রোডাক্ট তৈরির সম্পূর্ণ ইকোসিস্টেম।",
+  heading = HERO_CONTENT.heading,
   headingClassName,
-  subtitle = "প্রহর — বাংলাদেশের ক্রিয়েটর, ডেভেলপার এবং ব্যবসার জন্য ডিজাইন, ডেভেলপমেন্ট, ক্লাউড ও ডিপ্লয়মেন্টের সমন্বিত প্ল্যাটফর্ম।",
+  subtitle = HERO_CONTENT.subtitle,
   subtitleClassName,
-  placeholderText = "আপনার কাঙ্ক্ষিত ওয়েবসাইটের ভাবনা লিখুন.../",
+  placeholderText = HERO_CONTENT.placeholderText,
 }: {
   className?: string;
   heading?: string;
