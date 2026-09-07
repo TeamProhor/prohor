@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes"
 import { Toaster as Sonner, type ToasterProps } from "sonner"
-import { CircleCheckIcon, InfoIcon, TriangleAlertIcon, OctagonXIcon, Loader2Icon } from "lucide-react"
+import { CheckCircle as CircleCheckIcon, CircleInfo as InfoIcon, AlertTriangle as TriangleAlertIcon, CloseCircle as OctagonXIcon, Loader as Loader2Icon } from "reicon-react"
 
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = "system" } = useTheme()

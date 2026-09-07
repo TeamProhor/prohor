@@ -29,7 +29,7 @@ export function Stats({
   };
 
   return (
-    <section aria-label="Statistics" ref={ref} className={`bg-black py-16 ${className ?? ""}`}>
+    <section aria-label="পরিসংখ্যান" ref={ref} className={`bg-black py-16 ${className ?? ""}`}>
       <div className="max-w-6xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-10">
         <motion.div
           className="flex flex-col items-center text-center gap-3"
@@ -37,11 +37,11 @@ export function Stats({
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0 }}
         >
-          <span className="text-4xl sm:text-5xl text-neutral-100">
-            <CountNumber to={47} start={inView} />%
+          <span className="text-4xl sm:text-5xl text-neutral-100 font-semibold">
+            <CountNumber to={85} start={inView} />%
           </span>
-          <p className="text-sm sm:text-base text-neutral-100 opacity-40 max-w-[220px]">
-            of designs build with E-endless Designer
+          <p className="text-sm sm:text-base text-neutral-100 opacity-60 max-w-[220px]">
+            লোকাল এজ ক্যাশিংয়ে দ্রুততর পেজ লোডিং স্পিড
           </p>
         </motion.div>
 
@@ -51,11 +51,11 @@ export function Stats({
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
         >
-          <span className="text-4xl sm:text-5xl text-neutral-100">
-            <CountNumber to={63} start={inView} />%
+          <span className="text-4xl sm:text-5xl text-neutral-100 font-semibold">
+            <CountNumber to={99} start={inView} />.৯%
           </span>
-          <p className="text-sm sm:text-base text-neutral-100 opacity-40 max-w-[300px]">
-            of the top AI startups use E-Endless Designer
+          <p className="text-sm sm:text-base text-neutral-100 opacity-60 max-w-[300px]">
+            বাংলাদেশি স্টার্টআপ ও ব্যবসার নির্ভরযোগ্য আপটাইম
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ export function Stats({
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
           >
             <p className="text-xl sm:text-2xl md:text-3xl text-white leading-snug">
-              We helped{" "}
+              আমরা তৈরি করেছি{" "}
               <span className="relative inline-block align-baseline px-1.5 py-0.5">
                 <motion.span
                   aria-hidden
@@ -76,7 +76,7 @@ export function Stats({
                   transition={{ duration: 0.91, delay: 1.55, ease: "linear" }}
                   style={{ transformOrigin: "left center" }}
                 />
-                <span className="relative font-medium text-white">build marketing</span>
+                <span className="relative font-medium text-white">দেশীয় ক্লাউড</span>
                 <motion.span
                   aria-hidden
                   className="absolute inset-0 px-1.5 py-0.5 font-medium text-stone-950 whitespace-nowrap"
@@ -84,10 +84,10 @@ export function Stats({
                   animate={inView ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }}
                   transition={{ duration: 0.91, delay: 1.55, ease: "linear" }}
                 >
-                  build marketing
+                  দেশীয় ক্লাউড
                 </motion.span>
               </span>{" "}
-              and portfolio products
+              ও ডিজিটাল ইকোসিস্টেম
             </p>
             <motion.div
               className="absolute pointer-events-none"
@@ -98,7 +98,7 @@ export function Stats({
             >
               <img src={blueArrowUrl} alt="" width={22} height={22} />
               <span className="absolute top-[18px] left-[14px] whitespace-nowrap bg-blue-500 text-white text-[10px] font-medium px-1.5 py-0.5 rounded-tr-md rounded-bl-md rounded-br-md">
-                Manager
+                ডেভেলপার
               </span>
             </motion.div>
           </motion.div>

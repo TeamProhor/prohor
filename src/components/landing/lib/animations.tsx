@@ -87,11 +87,14 @@ export function StaggeredWords({
   );
 }
 
+const toBengaliDigits = (val: number | string) =>
+  String(val).replace(/[0-9]/g, (d) => "০১২৩৪৫৬৭৮৯"[Number(d)]);
+
 export function CountUp({
   end,
   duration = 1500,
   active,
-  format = (n: number) => n.toLocaleString("en-US"),
+  format = (n: number) => toBengaliDigits(n.toLocaleString("en-US")),
 }: {
   end: number;
   duration?: number;
@@ -125,7 +128,7 @@ export function CountNumber({
   start: boolean;
 }) {
   const mv = useMotionValue(0);
-  const rounded = useTransform(mv, (v) => Math.round(v).toString());
+  const rounded = useTransform(mv, (v) => toBengaliDigits(Math.round(v)));
   useEffect(() => {
     if (!start) return;
     const controls = animate(mv, to, { duration, ease: "easeOut" });

@@ -62,28 +62,28 @@ export function Pills({
   className?: string;
 }) {
   return (
-    <section aria-label="Feature tags" className={`bg-black pb-12 ${className ?? ""}`}>
+    <section aria-label="প্রহর ফিচারসমূহ" className={`bg-black pb-12 ${className ?? ""}`}>
       <div className="max-w-6xl mx-auto px-5 flex flex-col gap-2 lg:gap-2">
         <div className="flex flex-col lg:flex-row w-full gap-2 lg:gap-3">
           <PillReveal delay={0.3}>
-            <Pill label="Developer and Designer" icon={usersRoundUrl} bg="#D0C9B9" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
+            <Pill label="ডিজাইনার ও ডেভেলপার ফ্রেন্ডলি" icon={usersRoundUrl} bg="#D0C9B9" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
           </PillReveal>
           <PillReveal delay={0.4}>
-            <Pill label="Export ({ image})" icon={imagePlusUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
+            <Pill label="ওয়ান-ক্লিক এজ ডিপ্লয়মেন্ট" icon={imagePlusUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
           </PillReveal>
           <PillReveal delay={0.5}>
-            <Pill label="Copy code" icon={copyUrl} bg="#F7C8FF" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
+            <Pill label="বিকাশ ও নগদ পেমেন্ট গেটওয়ে" icon={copyUrl} bg="#F7C8FF" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
           </PillReveal>
         </div>
         <div className="flex flex-col lg:flex-row w-full gap-2 lg:gap-3">
           <PillReveal delay={0.4}>
-            <Pill label="Engineers" icon={usersRoundUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
+            <Pill label="বাংলাদেশি ক্লাউড ও ঢাকা রিজিয়ন" icon={usersRoundUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
           </PillReveal>
           <PillReveal delay={0.5}>
-            <Pill label="View source code" icon={codeXmlUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
+            <Pill label="S3-কম্প্যাটিবল অবজেক্ট স্টোরেজ" icon={codeXmlUrl} bg="#131113" text="text-white" iconBg="bg-white/10" />
           </PillReveal>
           <PillReveal delay={0.6}>
-            <Pill label="Punch data" icon={webhookUrl} bg="#81FFBD" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
+            <Pill label="মার্কেটপ্লেস ও প্লাগইন" icon={webhookUrl} bg="#81FFBD" text="text-neutral-900" iconBg="bg-black/5" invertIcon />
           </PillReveal>
         </div>
       </div>

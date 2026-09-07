@@ -33,17 +33,17 @@ function SectionHeader() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="flex flex-col gap-6 w-full md:max-w-[600px]"
+        className="flex flex-col gap-6 w-full md:max-w-[640px]"
       >
-        <h2 className="text-2xl sm:text-3xl leading-tight text-neutral-100 font-normal">
-          Create space for tools that matters. now create designs from scratch to stunning design with code in few seconds
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl leading-snug text-neutral-100 font-normal">
+          ডিজাইন থেকে ডিপ্লয় — সবই এখন এক ছাদের নিচে নিমিষে। প্রহর ইকোসিস্টেমে আপনার সব ডিজিটাল কাজ হবে দ্রুততম সময়ে।
         </h2>
         <div className="flex items-center gap-3">
-          <button className="bg-white text-black rounded-xl px-4 py-3 text-sm font-medium hover:bg-neutral-200 transition-colors cursor-pointer">
-            Join beta now
+          <button className="bg-white text-black rounded-xl px-5 py-3 text-sm font-medium hover:bg-neutral-200 transition-colors cursor-pointer">
+            বিনামূল্যে শুরু করুন
           </button>
-          <span className="hidden md:block text-sm text-neutral-500">
-            Make things fast
+          <span className="hidden md:block text-sm text-neutral-400">
+            দেশীয় ক্লাউড ও সর্বোচ্চ গতি
           </span>
         </div>
       </motion.div>
@@ -51,9 +51,10 @@ function SectionHeader() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
-        className="hidden md:block text-base text-neutral-500 text-right shrink-0"
+        className="hidden md:flex items-center gap-2 text-base text-neutral-400 text-right shrink-0"
       >
-        Make things fast
+        <img src="/prohor.webp" alt="প্রহর" className="h-5 w-auto object-contain" />
+        <span>ক্লাউড ইনফ্রাস্ট্রাকচার</span>
       </motion.p>
     </header>
   );
@@ -116,11 +117,11 @@ function FeatureCards() {
             "radial-gradient(ellipse at 31% -7%, rgba(255,255,255,0.05), transparent)",
         }}
       >
-        <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight">
-          An assistant to create your design
+        <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight font-medium">
+          ডিজাইন ও ইউআই
         </h3>
-        <p className="mt-4 text-xs sm:text-sm opacity-40 text-neutral-100 max-w-[280px]">
-          Insert blocks, perform powerful actions and leverage the limitless power of AI - all without leaving your keyboard
+        <p className="mt-4 text-xs sm:text-sm opacity-70 text-neutral-200 max-w-[280px] leading-relaxed">
+          ওয়েবসাইট ও UI/UX ডিজাইন করুন কোনো কোডিং জটিলতা ছাড়াই। রেডিমেড লেআউট ও কালার প্যালেট সুবিধা।
         </p>
         <motion.div
           className="absolute bottom-0 left-4 right-4 bg-white/5 border border-white/5 rounded-t-2xl p-2.5 pt-5 flex flex-col gap-1"
@@ -142,9 +143,9 @@ function FeatureCards() {
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.3 }}
         >
           {[
-            { icon: typeUrl, label: "Headlines", active: true },
-            { icon: imagePlusUrl, label: "Images and fill" },
-            { icon: squareUrl, label: "Tools" },
+            { icon: typeUrl, label: "টাইপোগ্রাফি ও বাংলা ফন্ট", active: true },
+            { icon: imagePlusUrl, label: "ইমেজ ও কালার সিস্টেম" },
+            { icon: squareUrl, label: "ডিজাইন কিট" },
           ].map((it) => (
             <motion.div
               key={it.label}
@@ -164,11 +165,11 @@ function FeatureCards() {
         {...cardAnim(0.3)}
         className="relative h-[380px] rounded-2xl overflow-hidden bg-neutral-900 flex flex-col items-center text-center pt-8 px-5"
       >
-        <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight">
-          AI helps generate images for free
+        <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight font-medium">
+          স্টুডিও ও কোড
         </h3>
-        <p className="mt-4 text-xs sm:text-sm opacity-40 text-neutral-100 max-w-[300px]">
-          With endless, all it takes to create professional-grade images is a browser and a story to tell—no experience required.
+        <p className="mt-4 text-xs sm:text-sm opacity-70 text-neutral-200 max-w-[300px] leading-relaxed">
+          বাংলা নির্দেশনায় স্বয়ংক্রিয়ভাবে ক্লিন কোড জেনারেট করুন এবং লাইভ টেস্ট করে এক ক্লিকে সাইট ডিপ্লয় করুন।
         </p>
         <motion.div
           className="mt-3 flex justify-center gap-1.5"
@@ -176,7 +177,7 @@ function FeatureCards() {
           animate="visible"
           transition={{ staggerChildren: 0.12, delayChildren: 1.0 }}
         >
-          {["V1.0", "v2.0", "Remaster"].map((t) => (
+          {["Next.js", "React", "টেইলউইন্ড"].map((t) => (
             <motion.span
               key={t}
               variants={{
@@ -184,7 +185,7 @@ function FeatureCards() {
                 visible: { opacity: 1, y: 0 },
               }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-white/10 text-neutral-100 text-[10px] opacity-40 rounded-md px-2 py-0.5"
+              className="bg-white/10 text-neutral-100 text-[10px] opacity-70 rounded-md px-2 py-0.5"
             >
               {t}
             </motion.span>
@@ -199,14 +200,14 @@ function FeatureCards() {
         >
           <img
             src={womanAsset.url}
-            alt="AI generated image preview"
+            alt="AI generated preview"
             className="w-full h-full object-cover object-top rounded-t-2xl"
           />
           <button
-            className="absolute top-6 -right-5 bg-white text-black text-xs font-medium rounded-lg px-2 py-1 shadow-lg cursor-pointer"
-            aria-label="Regenerate image"
+            className="absolute top-6 -right-5 bg-white text-black text-xs font-medium rounded-lg px-2.5 py-1 shadow-lg cursor-pointer"
+            aria-label="Regenerate code"
           >
-            Regenerate
+            পুনরায় জেনারেট
           </button>
         </motion.div>
       </motion.article>
@@ -219,8 +220,8 @@ function FeatureCards() {
       >
         <div className="flex items-start justify-between p-5 pb-0">
           <div>
-            <h3 className="mt-0.5 text-center text-neutral-900 leading-tight text-xl sm:text-2xl font-normal">
-              Our search engine optimization
+            <h3 className="mt-0.5 text-neutral-900 leading-tight text-xl sm:text-2xl font-medium">
+              অ্যানালিটিক্স ও এসইও
             </h3>
           </div>
           <img src={threeDotUrl} alt="" className="mt-2 shrink-0" />
@@ -284,11 +285,11 @@ function FeatureCards() {
           ))}
         </motion.div>
         <div className="absolute bottom-0 left-0 w-full h-14 flex items-end pb-3 px-5 gap-2">
-          <span className="text-2xl sm:text-3xl text-neutral-900 leading-none">
-            <CountUp end={27000} duration={3200} active={countActive} />
+          <span className="text-2xl sm:text-3xl text-neutral-900 font-bold leading-none">
+            <CountUp end={98000} duration={3200} active={countActive} />+
           </span>
-          <span className="text-xs sm:text-sm text-neutral-900/80 leading-none pb-0.5">
-            new visitors
+          <span className="text-xs sm:text-sm text-neutral-900 font-medium leading-none pb-0.5">
+            মাসিক ভিজিটর ও সার্চ গ্রোথ
           </span>
         </div>
       </motion.article>

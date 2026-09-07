@@ -2,6 +2,7 @@
 
 import * as motion from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
+import { Sparkle, Star } from "reicon-react";
 import { IntelLogo, OracleLogo, GoFundMeLogo, NutanixLogo } from "../svgs/brand-logos";
 
 function AnimatedWords({
@@ -89,11 +90,11 @@ function AnimatedDottedFrame({ startDelay = 4200 }: { startDelay?: number }) {
 }
 
 const keyFeatures = [
-  { label: "AI Sales Agent", active: false },
-  { label: "Lead Capture & Forms", active: false },
-  { label: "Payments & Subscriptions", active: true },
-  { label: "Automated Follow-ups", active: false },
-  { label: "CRM for Academies", active: false },
+  { label: "ডিজাইন ও UI", active: false },
+  { label: "ওয়েব স্টুডিও", active: false },
+  { label: "ওয়ান-ক্লিক ডিপ্লয়মেন্ট", active: true },
+  { label: "দেশীয় ক্লাউড সার্ভার", active: false },
+  { label: "বিকাশ ও নগদ গেটওয়ে", active: false },
 ];
 
 export function Showcase({ className }: { className?: string }) {
@@ -124,8 +125,7 @@ export function Showcase({ className }: { className?: string }) {
           >
             <div className="flex items-center justify-between">
               <motion.div
-                className="w-[36px] h-[22px] rounded-[6px] bg-white flex items-center justify-center text-[11px] font-medium"
-                style={{ color: "#111114" }}
+                className="px-2.5 h-[24px] rounded-[6px] bg-white flex items-center justify-center gap-1.5 text-[11px] font-semibold text-black"
                 initial={{ scale: 2.4, opacity: 0.2 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{
@@ -134,19 +134,20 @@ export function Showcase({ className }: { className?: string }) {
                   delay: 3.45,
                 }}
               >
-                Pro
+                <img src="/prohor.webp" alt="প্রহর" className="h-3.5 w-auto object-contain inline-block" />
+                <span>প্রো</span>
               </motion.div>
             </div>
 
-            <h2 className="mt-5 text-[24px] font-medium leading-[1.15] tracking-tight text-white">
+            <h2 className="mt-5 text-[24px] font-medium leading-[1.2] tracking-tight text-white">
               <AnimatedWords
-                text="All-in-One"
+                text="অল-ইন-ওয়ান ডিজিটাল"
                 delayStart={3.6}
                 stagger={0.05}
               />
               <br />
               <AnimatedWords
-                text="Enrollment Platform"
+                text="বিজনেস ইকোসিস্টেম"
                 delayStart={3.75}
                 stagger={0.05}
               />
@@ -154,12 +155,11 @@ export function Showcase({ className }: { className?: string }) {
 
             <div className="mt-auto pt-6">
               <p
-                className="text-[14px] font-normal leading-[19px]"
-                style={{ color: "rgba(255,255,255,0.36)" }}
+                className="text-[14px] font-normal leading-[22px] text-neutral-300"
               >
-                From lead capture to recurring payments,
+                ডিজাইন থেকে শুরু করে ক্লাউড হোস্টিং ও লোকাল পেমেন্ট,
                 <br />
-                We run your enrollment with AI.
+                আপনার পুরো ব্যবসা পরিচালিত হবে প্রহরের একক প্ল্যাটফর্মে।
               </p>
             </div>
 
@@ -202,13 +202,10 @@ export function Showcase({ className }: { className?: string }) {
                 delay: 3.95,
               }}
             >
-              <div className="flex items-center gap-1 mb-2">
-                <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" className="text-white">
-                  <path d="M8 0L9.6 5.6L16 6.4L11.2 10.4L12.8 16L8 12.8L3.2 16L4.8 10.4L0 6.4L6.4 5.6L8 0Z" />
-                  <path d="M8 2L9 6L13 6.5L9.5 9.5L10.5 13.5L8 11L5.5 13.5L6.5 9.5L3 6.5L7 6L8 2Z" />
-                </svg>
+              <div className="flex items-center gap-1.5 mb-2">
+                <Sparkle size={14} className="text-white" />
                 <span className="text-[12px] font-medium text-white">
-                  Key Features
+                  মূল ফিচারসমূহ
                 </span>
               </div>
               <div
@@ -303,7 +300,7 @@ export function Showcase({ className }: { className?: string }) {
                   className="h-[36px]"
                 />
                 <span className="text-[14px] font-medium text-neutral-200">
-                  What our customers say
+                  উদ্যোক্তাদের অভিজ্ঞতা
                 </span>
               </div>
               <div className="flex flex-col gap-[4.34px]">
@@ -327,17 +324,18 @@ export function Showcase({ className }: { className?: string }) {
             </div>
 
             <p className="mt-12 text-[12px] text-neutral-400">
-              Feb 02, 2026
+              ০২ ফেব্রুয়ারি, ২০২৬
             </p>
-            <blockquote className="mt-2 max-w-[420px] text-[18px] font-medium leading-[1.3] tracking-tight">
+            <blockquote className="mt-2 max-w-[420px] text-[18px] font-medium leading-[1.4] tracking-tight">
               <AnimatedWords
-                text="They converted 40% more leads"
+                text="প্রহর ডিপ্লয় ব্যবহারের পর আমাদের ই-কমার্সের"
                 className="text-white"
                 delayStart={3.6}
                 stagger={0.04}
               />
+              {" "}
               <AnimatedWords
-                text="than our sales team — and never missed a follow-up."
+                text="লোডিং স্পিড বহুগুণ বেড়েছে এবং সেলস বেড়েছে ৬০%।"
                 className="text-neutral-400"
                 delayStart={3.75}
                 stagger={0.04}
@@ -345,38 +343,19 @@ export function Showcase({ className }: { className?: string }) {
             </blockquote>
 
             <div className="mt-auto pt-6 flex items-center justify-between">
-              <img
-                src="https://qclay.design/lovable/nixole/nutanix-avatar.svg"
-                alt="Nutanix"
-                className="h-[24px]"
-              />
+              <span className="text-xs font-semibold tracking-wide text-neutral-300">
+                ঢাকা স্টার্টআপ হাব
+              </span>
               <div className="flex items-center gap-0.5">
-                {[1, 2, 3, 4].map((i) => (
-                  <svg
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star
                     key={i}
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    className="fill-current text-white"
-                  >
-                    <path d="M12 2.5l2.95 6.2 6.8.78-5.05 4.66 1.4 6.66L12 17.6l-6.1 3.2 1.4-6.66L2.25 9.48l6.8-.78L12 2.5z" />
-                  </svg>
-                ))}
-                <svg width="14" height="14" viewBox="0 0 24 24">
-                  <defs>
-                    <linearGradient id="half-star" x1="0" x2="1" y1="0" y2="0">
-                      <stop offset="50%" stopColor="#ffffff" />
-                      <stop
-                        offset="50%"
-                        stopColor="rgba(255,255,255,0.2)"
-                      />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M12 2.5l2.95 6.2 6.8.78-5.05 4.66 1.4 6.66L12 17.6l-6.1 3.2 1.4-6.66L2.25 9.48l6.8-.78L12 2.5z"
-                    fill="url(#half-star)"
+                    size={14}
+                    weight="Filled"
+                    color="#ffffff"
+                    className="text-white"
                   />
-                </svg>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -384,10 +363,10 @@ export function Showcase({ className }: { className?: string }) {
 
         {/* TRUSTED-BY ROW */}
         <div className="mt-7 px-1 flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-0">
-          <p className="max-w-md text-[12px] leading-[1.5] text-neutral-400">
-            Trusted by industry leaders in X who don&apos;t just follow trends,
+          <p className="max-w-md text-[13px] leading-[1.6] text-neutral-300">
+            বাংলাদেশের শীর্ষস্থানীয় উদ্ভাবক, স্টার্টআপ এবং সফটওয়্যার টিমসমূহের বিশ্বস্ত সঙ্গী —
             <br />
-            but define how the industry moves forward.
+            ডিজিটাল বাংলাদেশের রূপান্তরে এক নির্ভরযোগ্য প্ল্যাটফর্ম।
           </p>
           <div className="w-full md:max-w-[60%] md:ml-auto overflow-hidden">
             <div

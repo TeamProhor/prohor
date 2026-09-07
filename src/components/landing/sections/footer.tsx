@@ -2,9 +2,6 @@
 
 import * as motion from "motion/react-client";
 
-const ICONS = "https://qclay.design/lovable/codeba/icons/";
-const logoUrl = ICONS + "Logo.svg";
-
 export function Footer({
   className,
 }: {
@@ -16,19 +13,16 @@ export function Footer({
     >
       <div className="max-w-6xl mx-auto px-5 py-12 flex flex-col gap-16">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          <div className="md:col-span-4 flex items-center gap-3">
+          <div className="md:col-span-4 flex items-center">
             <img
-              src={logoUrl}
-              alt="E-Endless"
-              className="size-8"
+              src="/prohor.webp"
+              alt="প্রহর"
+              className="h-8 w-auto object-contain"
             />
-            <span className="text-lg sm:text-xl font-medium text-neutral-100" aria-label="E-Endless">
-              E-Endless
-            </span>
           </div>
-          <nav aria-label="Company links" className="md:col-span-4 flex flex-col gap-3">
+          <nav aria-label="কোম্পানি লিংক" className="md:col-span-4 flex flex-col gap-3">
             <div>
-              {["About", "Privacy policy", "Terms and conditions", "Contact us"].map((l) => (
+              {["আমাদের সম্পর্কে", "প্রাইভেসি পলিসি", "শর্তাবলী ও নীতিমালা", "যোগাযোগ"].map((l) => (
                 <a
                   key={l}
                   className="text-xs sm:text-sm font-medium text-neutral-100 cursor-pointer hover:opacity-70 transition-opacity block"
@@ -38,9 +32,9 @@ export function Footer({
               ))}
             </div>
           </nav>
-          <nav aria-label="Social links" className="md:col-span-4 flex flex-col gap-3">
+          <nav aria-label="সোশ্যাল লিংক" className="md:col-span-4 flex flex-col gap-3">
             <div>
-              {["Twitter/X", "LinkedIn", "Instagram"].map((l) => (
+              {["টুইটার / X", "লিঙ্কডইন", "ইনস্টাগ্রাম"].map((l) => (
                 <a
                   key={l}
                   className="text-xs sm:text-sm font-medium text-neutral-100 cursor-pointer hover:opacity-70 transition-opacity block"
@@ -54,12 +48,12 @@ export function Footer({
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
           <div className="md:col-span-4">
             <p className="text-xs font-medium text-neutral-100">
-              E-Endless- 2024
+              প্রহর - ২০২৬
             </p>
           </div>
           <div className="md:col-span-8">
             <p className="text-xs font-normal text-neutral-100 opacity-70 leading-5 max-w-[760px]">
-              Our AI design tool is committed to protecting your privacy and data security. We collect only necessary information to enhance your user experience and provide personalized services. Your data is encrypted and securely stored, accessible only to authorized personnel. We do not share your information with third parties without your consent. Rest assured, your privacy is our top priority, and we adhere to strict privacy standards and regulations. For more details on how we handle your data, please refer to our comprehensive privacy policy.
+              প্রহর আপনার গোপনীয়তা ও ডেটা সুরক্ষায় প্রতিশ্রুতিবদ্ধ। আমাদের ক্লাউড অবকাঠামো, S3-কম্প্যাটিবল স্টোরেজ ও বিকাশ/নগদ পেমেন্ট গেটওয়ে কঠোর এনক্রিপশন মানদণ্ড মেনে পরিচালিত হয়। আপনার ডেটা এনক্রিপ্ট করা থাকে এবং গ্রাহকের অনুমতি ছাড়া কোনো তথ্য তৃতীয় পক্ষের সাথে শেয়ার করা হয় না।
             </p>
           </div>
         </div>

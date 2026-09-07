@@ -3,19 +3,17 @@
 import { useState } from "react";
 import * as motion from "motion/react-client";
 
-const ICONS = "https://qclay.design/lovable/codeba/icons/";
-const logoUrl = ICONS + "Logo.svg";
-
 interface NavItem {
   label: string;
   active?: boolean;
 }
 
 const defaultNavItems: NavItem[] = [
-  { label: "Product", active: true },
-  { label: "Our story" },
-  { label: "Pricing" },
-  { label: "Career" },
+  { label: "ইকোসিস্টেম", active: true },
+  { label: "ডিজাইন ও স্টুডিও" },
+  { label: "ক্লাউড ও ডিপ্লয়" },
+  { label: "মূল্যতালিকা" },
+  { label: "মার্কেটপ্লেস" },
 ];
 
 export function Navbar({
@@ -33,15 +31,15 @@ export function Navbar({
     <>
       <header className={`sticky top-4 z-50 px-4 ${className ?? ""}`}>
         <div className="mx-auto max-w-6xl backdrop-blur-xl bg-white/[0.03] border border-white/[0.06] rounded-2xl px-5 py-3 flex items-center shadow-lg shadow-black/20">
-          <a href={logoHref} className="shrink-0">
-            <img src={logoUrl} alt="E-Endless" width={28} height={28} />
+          <a href={logoHref} className="shrink-0 flex items-center">
+            <img src="/prohor.webp" alt="প্রহর" className="h-7 w-auto object-contain" />
           </a>
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 mx-auto">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href="#"
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                className={`px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                   item.active
                     ? "text-white bg-white/10"
                     : "text-neutral-400 hover:text-white hover:bg-white/5"
@@ -52,7 +50,7 @@ export function Navbar({
             ))}
           </nav>
           <button className="hidden md:block bg-white text-black text-sm font-medium rounded-lg px-4 py-2 hover:bg-neutral-200 transition-colors cursor-pointer shrink-0">
-            Join beta
+            শুরু করুন
           </button>
           <button
             aria-label="Open menu"
@@ -77,7 +75,9 @@ export function Navbar({
           aria-label="Mobile navigation"
         >
           <div className="flex items-center justify-between">
-            <img src={logoUrl} alt="E-Endless" width={28} height={28} />
+            <div className="flex items-center">
+              <img src="/prohor.webp" alt="প্রহর" className="h-7 w-auto object-contain" />
+            </div>
             <button
               aria-label="Close menu"
               onClick={() => setMenuOpen(false)}
@@ -101,7 +101,7 @@ export function Navbar({
             ))}
           </nav>
           <button className="mt-auto bg-white text-black rounded-xl py-3 text-sm font-medium">
-            Join beta
+            শুরু করুন
           </button>
         </motion.div>
       )}
