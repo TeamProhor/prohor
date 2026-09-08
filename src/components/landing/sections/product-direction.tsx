@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { ChevronRight, Check, Document, User, Target, Globe, Chart, Flag, AlertTriangle } from "reicon-react";
 import { PRODUCT_DIRECTION_CONTENT, ASSETS } from "@/lib/ui";
 
@@ -15,7 +16,7 @@ export function ProductDirectionSection({ className }: { className?: string }) {
       />
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground mb-6 sm:mb-8 max-w-3xl flex items-center gap-3 flex-wrap">
-          <img src={ASSETS.logo} alt="প্রহর" className="h-8 md:h-11 w-auto object-contain inline-block" />
+          <Image src={ASSETS.logo} alt="প্রহর" width={200} height={200} unoptimized className="h-8 md:h-11 w-auto inline-block" />
           <span>{PRODUCT_DIRECTION_CONTENT.title}</span>
         </h2>
         <p className="text-muted-foreground text-base sm:text-lg max-w-lg mb-10 sm:mb-16 leading-relaxed">
@@ -26,7 +27,7 @@ export function ProductDirectionSection({ className }: { className?: string }) {
         <div className="relative w-full mb-16 overflow-x-auto aurora-no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0" style={{ perspective: "1200px" }}>
           <div className="min-w-[560px] sm:min-w-0">
             <div
-              className="relative"
+              className="relative will-change-transform transform-gpu"
               style={{
                 transform: "rotateX(42deg) rotateZ(-28deg)",
                 transformStyle: "preserve-3d",

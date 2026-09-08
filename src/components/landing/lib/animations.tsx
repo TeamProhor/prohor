@@ -36,7 +36,7 @@ export function WordsReveal({
     >
       {words.map((w, i) => (
         <motion.span
-          key={i}
+          key={w}
           className="inline-block"
           variants={{
             hidden: { opacity: 0, y: 18 },
@@ -71,7 +71,7 @@ export function StaggeredWords({
         const group = Math.floor(i / groupSize);
         return (
           <span
-            key={i}
+            key={w}
             className="inline-block"
             style={{
               opacity: 0,
@@ -90,11 +90,13 @@ export function StaggeredWords({
 const toBengaliDigits = (val: number | string) =>
   String(val).replace(/[0-9]/g, (d) => "০১২৩৪৫৬৭৮৯"[Number(d)]);
 
+const defaultFormat = (n: number) => toBengaliDigits(n.toLocaleString("en-US"));
+
 export function CountUp({
   end,
   duration = 1500,
   active,
-  format = (n: number) => toBengaliDigits(n.toLocaleString("en-US")),
+  format = defaultFormat,
 }: {
   end: number;
   duration?: number;
@@ -201,6 +203,7 @@ export function TypingPlaceholderInput({
     <input
       type="text"
       readOnly
+      aria-label={placeholder}
       value={done ? placeholder : shown}
       className="flex-1 min-w-0 bg-transparent text-sm text-neutral-100 placeholder:text-transparent sm:placeholder:text-neutral-400 outline-none"
     />

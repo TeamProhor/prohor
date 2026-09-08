@@ -10,7 +10,7 @@ export function AuroraShowcase({ className }: { className?: string }) {
   return (
     <section
       id="showcase"
-      className={`relative px-6 lg:px-10 py-24 lg:py-32 bg-background aurora-glow-strong ${className ?? ""}`}
+      className={`relative px-4 sm:px-6 lg:px-10 py-16 sm:py-24 lg:py-32 bg-background aurora-glow-strong ${className ?? ""}`}
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeader
@@ -18,7 +18,7 @@ export function AuroraShowcase({ className }: { className?: string }) {
           subtitle={AURORA_SHOWCASE_CONTENT.subtitle}
         />
 
-        <div className="mt-16">
+        <div className="mt-12 sm:mt-16">
           <Card className="p-3 lg:p-4 border-border bg-card">
             {/* Window chrome */}
             <div className="flex items-center justify-between px-2 pb-3">
@@ -103,9 +103,9 @@ export function AuroraShowcase({ className }: { className?: string }) {
                         strokeDasharray="3 4"
                       />
                     </svg>
-                    {AURORA_SHOWCASE_CONTENT.nodes.map((n, i) => (
+                    {AURORA_SHOWCASE_CONTENT.nodes.map((n) => (
                       <div
-                        key={i}
+                        key={n.t}
                         style={{ left: n.x, top: n.y }}
                         className="absolute w-44"
                       >

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import * as motion from "motion/react-client";
 import { Copy, Plus, Cursor } from "reicon-react";
 import { MAD_FOR_DESIGNER_CONTENT, ASSETS } from "@/lib/ui";
@@ -43,9 +44,9 @@ export function MadForDesigner({
                 <Cursor key="cursor" size={14} className="text-white" />,
                 <Copy key="copy" size={14} className="text-white" />,
                 <Plus key="plus" size={14} className="text-white" />,
-              ].map((icon, i) => (
+              ].map((icon) => (
                 <motion.div
-                  key={i}
+                  key={icon.key}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
                     visible: { opacity: 1, y: 0 },
@@ -62,8 +63,8 @@ export function MadForDesigner({
             </button>
           </div>
 
-          <div className="mx-3 my-3 relative rounded-xl overflow-hidden">
-            <img src={ASSETS.bg} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" />
+          <div className="mx-0 sm:mx-3 my-0 sm:my-3 relative rounded-none sm:rounded-xl overflow-hidden">
+            <Image src={ASSETS.bg} alt="" width={800} height={600} unoptimized className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/85" />
             <div className="relative p-4 sm:p-6">
               <div className="flex justify-between items-start gap-3">
@@ -77,7 +78,7 @@ export function MadForDesigner({
                   <Copy size={13} />
                 </button>
               </div>
-              <pre className="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed whitespace-pre-wrap font-mono bg-black/40 p-3 rounded-lg border border-white/5">
+              <pre className="mt-4 text-xs sm:text-sm text-neutral-300 leading-relaxed whitespace-pre-wrap font-mono bg-black/40 p-3 rounded-lg border-0 sm:border border-white/5">
 {MAD_FOR_DESIGNER_CONTENT.codeSnippet}
               </pre>
             </div>

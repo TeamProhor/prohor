@@ -1,6 +1,7 @@
 "use client";
 
 import * as motion from "motion/react-client";
+import Image from "next/image";
 import {
   ChevronRight,
   Check,
@@ -27,13 +28,13 @@ export function AISection({ className }: { className?: string }) {
           background: "linear-gradient(to bottom, rgba(255,255,255,0.03) 0%, transparent 100%)",
         }}
       />
-      <div className="w-full flex justify-center px-6">
+      <div className="w-full flex justify-center px-4 sm:px-6">
         <div className="w-full max-w-5xl">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-5xl font-medium tracking-tight text-foreground max-w-3xl mb-8 leading-tight"
+            className="text-2xl sm:text-3xl md:text-5xl font-medium tracking-tight text-foreground max-w-3xl mb-6 sm:mb-8 leading-tight"
           >
             {AI_SECTION_CONTENT.title}
           </motion.h2>
@@ -42,10 +43,10 @@ export function AISection({ className }: { className?: string }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-muted-foreground max-w-lg mb-8 leading-relaxed"
+            className="text-muted-foreground max-w-lg mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base"
           >
             <span className="text-foreground font-medium inline-flex items-center gap-1.5 align-middle">
-              <img src={ASSETS.logo} alt="প্রহর" className="h-5 w-auto object-contain inline-block" />
+              <Image src={ASSETS.logo} alt="প্রহর" width={200} height={200} unoptimized className="h-5 w-auto inline-block align-middle" />
               <span>{AI_SECTION_CONTENT.subtitleHighlight}</span>
             </span>{" "}
             {AI_SECTION_CONTENT.subtitle}
@@ -55,7 +56,7 @@ export function AISection({ className }: { className?: string }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="px-5 py-2.5 bg-card text-foreground rounded-xl border border-border hover:bg-muted/80 transition-colors text-sm flex items-center gap-2 mb-16 cursor-pointer"
+            className="px-5 py-2.5 bg-card text-foreground rounded-xl border border-border hover:bg-muted/80 transition-colors text-sm flex items-center gap-2 mb-12 sm:mb-16 cursor-pointer"
           >
             {AI_SECTION_CONTENT.ctaText} <ChevronRight className="w-4 h-4" />
           </motion.button>
@@ -73,9 +74,8 @@ export function AISection({ className }: { className?: string }) {
               }}
             >
               <div
-                className="scale-[0.92] xs:scale-100 sm:scale-[1.08] md:scale-[1.12] origin-top"
+                className="scale-[0.92] xs:scale-100 sm:scale-[1.08] md:scale-[1.12] origin-top will-change-transform transform-gpu"
                 style={{
-                  willChange: "transform",
                   transform: "translateY(0%) rotateX(20deg)",
                   position: "relative",
                 }}
@@ -116,10 +116,13 @@ export function AISection({ className }: { className?: string }) {
                         className="flex items-center justify-between h-full px-3 sm:px-6 gap-2 sm:gap-3"
                       >
                         <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-                          <img
+                          <Image
                             src={ASSETS.logo}
                             alt="প্রহর"
-                            className="h-3.5 sm:h-4 w-auto object-contain shrink-0 inline-block"
+                            width={200}
+                            height={200}
+                            unoptimized
+                            className="h-3.5 sm:h-4 w-auto shrink-0 inline-block"
                           />
                           <span className={`truncate text-xs sm:text-sm ${agent.selected ? "text-foreground font-medium" : "text-muted-foreground"}`}>
                             {agent.name}
@@ -141,53 +144,53 @@ export function AISection({ className }: { className?: string }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-16"
+            className="mt-12 sm:mt-16"
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="border-t border-b border-border border-r-0 md:border-r pt-12 pr-0 md:pr-12 pb-16">
+              <div className="border-t border-b border-border border-r-0 md:border-r pt-8 sm:pt-12 pr-0 md:pr-12 pb-12 sm:pb-16">
                 <h3 className="text-foreground font-medium text-xl mb-3">{AI_SECTION_CONTENT.operations.title}</h3>
-                <p className="text-muted-foreground text-base mb-8 leading-relaxed">
+                <p className="text-muted-foreground text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
                   {AI_SECTION_CONTENT.operations.description}
                 </p>
-                <div className="bg-card/50 border border-border rounded-2xl p-5">
-                  <div className="flex items-center gap-2 mb-5">
+                <div className="bg-card/50 border border-border rounded-2xl p-4 sm:p-5">
+                  <div className="flex items-center gap-2 mb-4 sm:mb-5">
                     <Sparkle size={16} className="text-accent" />
                     <span className="text-muted-foreground text-sm">
                       <span className="text-foreground font-medium">{AI_SECTION_CONTENT.operations.smartTriage}</span>
                     </span>
                   </div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-muted-foreground text-sm w-20">পরামর্শ</span>
+                    <span className="text-muted-foreground text-xs sm:text-sm w-16 sm:w-20">পরামর্শ</span>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-sm bg-accent text-accent-foreground font-medium shadow-xs">
+                      <span className="flex items-center gap-1.5 rounded-lg px-2.5 py-1 text-xs sm:text-sm bg-accent text-accent-foreground font-medium shadow-xs">
                         <Cpu size={14} className="shrink-0 text-white" />
                         <span>কোর ইঞ্জিন</span>
                       </span>
-                      <span className="flex items-center gap-1.5 bg-muted/60 border border-border rounded-lg px-2.5 py-1 text-sm text-muted-foreground">
+                      <span className="flex items-center gap-1.5 bg-muted/60 border border-border rounded-lg px-2.5 py-1 text-xs sm:text-sm text-muted-foreground">
                         <Mobile size={14} className="shrink-0 text-muted-foreground" />
                         <span>মোবাইল সাইট অপ্টিমাইজেশন</span>
                       </span>
-                      <span className="flex items-center gap-1.5 text-sm text-muted-foreground px-1.5 py-1">
+                      <span className="flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground px-1.5 py-1">
                         <Bell size={14} className="shrink-0 text-muted-foreground" />
                         <span>নোটিফিকেশন</span>
                       </span>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 mb-3">
-                    <span className="text-muted-foreground text-sm w-20">স্ট্যাটাস</span>
+                    <span className="text-muted-foreground text-xs sm:text-sm w-16 sm:w-20">স্ট্যাটাস</span>
                     <span className="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-medium bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 rounded-md">
                       <CheckCircle size={13} className="shrink-0 text-emerald-400" />
                       যাচাইকৃত সমাধান
                     </span>
                   </div>
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="text-muted-foreground text-sm w-20">সংযুক্ত</span>
+                    <span className="text-muted-foreground text-xs sm:text-sm w-16 sm:w-20">সংযুক্ত</span>
                     <span className="inline-flex items-center gap-1.5 text-xs text-neutral-300 bg-muted/50 border border-border px-2 py-0.5 rounded-md">
                       <Link size={13} className="shrink-0 text-muted-foreground" />
                       ক্লাউড ডিপ্লয়মেন্ট পাইপলাইন
                     </span>
                   </div>
-                  <div className="bg-card border border-border/80 rounded-xl p-4 ml-0 md:ml-4">
+                  <div className="bg-card border-0 sm:border border-border/80 rounded-xl p-3 sm:p-4 ml-0 md:ml-4">
                     <div className="flex items-center gap-2.5 mb-3">
                       <div className="w-6 h-6 rounded-full bg-accent/15 border border-accent/30 flex items-center justify-center text-accent">
                         <User size={13} />
@@ -195,13 +198,13 @@ export function AISection({ className }: { className?: string }) {
                       <span className="text-foreground text-sm font-medium">{AI_SECTION_CONTENT.operations.leadName}</span>
                     </div>
                     <p className="text-muted-foreground text-xs mb-1.5 font-medium">পরামর্শের যুক্তি</p>
-                    <p className="text-neutral-300 text-sm mb-4 leading-relaxed bg-muted/30 p-3 rounded-lg border border-border/50">
+                    <p className="text-neutral-300 text-xs sm:text-sm mb-4 leading-relaxed bg-muted/30 p-2.5 sm:p-3 rounded-lg border-0 sm:border border-border/50">
                       {AI_SECTION_CONTENT.operations.reasoning}
                     </p>
                     <p className="text-muted-foreground text-xs mb-2 font-medium">বিকল্প ডেভেলপার</p>
                     <div className="flex items-center gap-2 mb-4 flex-wrap">
                       {AI_SECTION_CONTENT.operations.backupDevelopers.map((dev) => (
-                        <span key={dev} className="flex items-center gap-1.5 bg-muted/80 border border-border rounded-md px-2.5 py-1 text-sm text-foreground">
+                        <span key={dev} className="flex items-center gap-1.5 bg-muted/80 border border-border rounded-md px-2.5 py-1 text-xs sm:text-sm text-foreground">
                           <User size={13} className="text-muted-foreground" />
                           <span>{dev}</span>
                         </span>
@@ -214,17 +217,17 @@ export function AISection({ className }: { className?: string }) {
                 </div>
               </div>
 
-              <div className="md:border-t border-b border-border pt-12 pl-0 md:pl-12 pb-16">
+              <div className="md:border-t border-b border-border pt-8 sm:pt-12 pl-0 md:pl-12 pb-12 sm:pb-16">
                 <h3 className="text-foreground font-medium text-xl mb-3 flex items-center gap-2">
-                  <img src={ASSETS.logo} alt="প্রহর" className="h-5 w-auto object-contain" />
+                  <Image src={ASSETS.logo} alt="প্রহর" width={200} height={200} unoptimized className="h-5 w-auto" />
                   <span>{AI_SECTION_CONTENT.mcp.title}</span>
                 </h3>
-                <p className="text-muted-foreground text-base mb-8 leading-relaxed">
+                <p className="text-muted-foreground text-sm sm:text-base mb-6 sm:mb-8 leading-relaxed">
                   {AI_SECTION_CONTENT.mcp.description}
                 </p>
-                <div className="bg-card/50 border border-border rounded-2xl p-5 text-sm">
-                  <p className="font-mono text-muted-foreground/60 mb-3">{AI_SECTION_CONTENT.mcp.endpoint}</p>
-                  <div className="space-y-1 mb-6 font-mono">
+                <div className="bg-card/50 border border-border rounded-2xl p-4 sm:p-5 text-sm">
+                  <p className="font-mono text-muted-foreground/60 mb-3 text-xs sm:text-sm">{AI_SECTION_CONTENT.mcp.endpoint}</p>
+                  <div className="space-y-1 mb-6 font-mono text-xs sm:text-sm">
                     <p>
                       <span className="text-secondary">&quot;mcpServers&quot;</span>
                       <span className="text-muted-foreground">: {"{"}</span>
@@ -239,19 +242,19 @@ export function AISection({ className }: { className?: string }) {
                       <span className="text-accent">&quot;npx prohor-mcp&quot;</span>
                     </p>
                   </div>
-                  <div className="bg-card border border-border/80 rounded-xl p-4 font-sans">
+                  <div className="bg-card border-0 sm:border border-border/80 rounded-xl p-3 sm:p-4 font-sans">
                     <div className="flex items-center gap-2 mb-4">
                       <span className="w-0.5 h-5 bg-muted-foreground/50" />
-                      <span className="text-muted-foreground">{AI_SECTION_CONTENT.mcp.placeholderInput}</span>
+                      <span className="text-muted-foreground text-xs sm:text-sm">{AI_SECTION_CONTENT.mcp.placeholderInput}</span>
                     </div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <button className="flex items-center gap-1.5 border border-border text-muted-foreground text-sm px-3 py-1.5 rounded-full hover:bg-muted/60 hover:text-foreground transition-colors cursor-pointer">
+                      <button className="flex items-center gap-1.5 border border-border text-muted-foreground text-xs sm:text-sm px-3 py-1.5 rounded-full hover:bg-muted/60 hover:text-foreground transition-colors cursor-pointer">
                         <Paperclip className="w-3.5 h-3.5" /> ফাইল যুক্ত করুন
                       </button>
-                      <button className="flex items-center gap-1.5 border border-border text-muted-foreground text-sm px-3 py-1.5 rounded-full hover:bg-muted/60 hover:text-foreground transition-colors cursor-pointer">
+                      <button className="flex items-center gap-1.5 border border-border text-muted-foreground text-xs sm:text-sm px-3 py-1.5 rounded-full hover:bg-muted/60 hover:text-foreground transition-colors cursor-pointer">
                         <Globe className="w-3.5 h-3.5" /> কোড সার্চ
                       </button>
-                      <button className="flex items-center gap-1.5 border border-border text-muted-foreground text-sm px-3 py-1.5 rounded-full hover:bg-muted/60 hover:text-foreground transition-colors cursor-pointer">
+                      <button className="flex items-center gap-1.5 border border-border text-muted-foreground text-xs sm:text-sm px-3 py-1.5 rounded-full hover:bg-muted/60 hover:text-foreground transition-colors cursor-pointer">
                         <Lightbulb className="w-3.5 h-3.5" /> এআই বিশ্লেষণ
                       </button>
                     </div>

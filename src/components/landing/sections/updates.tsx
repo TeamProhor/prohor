@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import * as motion from "motion/react-client";
 import { ArrowUpRight, Sparkle, Server } from "reicon-react";
 import { UPDATES_CONTENT, ASSETS } from "@/lib/ui";
@@ -15,7 +16,7 @@ export function Updates({
         <header className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4">
           <div className="flex flex-col gap-4 max-w-2xl">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl text-neutral-100 leading-tight flex items-center gap-2.5 flex-wrap">
-              <img src={ASSETS.logo} alt="প্রহর" className="h-7 sm:h-9 w-auto object-contain" />
+              <Image src={ASSETS.logo} alt="প্রহর" width={200} height={200} unoptimized className="h-7 sm:h-9 w-auto" />
               <span>{UPDATES_CONTENT.headerTitle}</span>
             </h2>
             <p className="text-sm sm:text-base opacity-60 text-neutral-100 leading-6">
@@ -33,7 +34,7 @@ export function Updates({
         <article className="flex flex-col lg:flex-row gap-8 lg:gap-12 relative">
           <div className="w-full lg:w-[35%] shrink-0">
             <div className="rounded-2xl overflow-hidden bg-neutral-900">
-              <img src={ASSETS.card} alt="প্রহর ক্লাউড ঘোষণা" className="w-full h-auto block" />
+              <Image src={ASSETS.card} alt="প্রহর ক্লাউড ঘোষণা" width={400} height={300} unoptimized className="w-full h-auto block" />
             </div>
           </div>
 
@@ -43,7 +44,7 @@ export function Updates({
               <ArrowUpRight size={20} className="text-neutral-300 hover:text-white transition-colors" />
             </div>
             {UPDATES_CONTENT.paragraphs.map((p, i) => (
-              <p key={i} className={`text-sm sm:text-base text-neutral-100 ${i === 2 ? "opacity-40" : "opacity-60"} leading-6 mb-3`}>
+              <p key={`update-${i}`} className={`text-sm sm:text-base text-neutral-100 ${i === 2 ? "opacity-40" : "opacity-60"} leading-6 mb-3`}>
                 {p}
               </p>
             ))}

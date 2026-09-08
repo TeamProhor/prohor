@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type ReactNode } from "react";
+import Image from "next/image";
 import * as motion from "motion/react-client";
 import { Text, ImagePlus, CursorSquare, MoreH } from "reicon-react";
 import { CountUp } from "../lib/animations";
@@ -49,7 +50,7 @@ function SectionHeader() {
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.15 }}
         className="hidden md:flex items-center gap-2 text-base text-neutral-400 text-right shrink-0"
       >
-        <img src={ASSETS.logo} alt="প্রহর" className="h-5 w-auto object-contain" />
+        <Image src={ASSETS.logo} alt="প্রহর" width={200} height={200} unoptimized className="h-5 w-auto" />
         <span>{FEATURES_CONTENT.tagline}</span>
       </motion.p>
     </header>
@@ -188,9 +189,12 @@ function FeatureCards() {
           transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
           style={{ x: "-50%" }}
         >
-          <img
+          <Image
             src={ASSETS.woman}
             alt="AI generated preview"
+            width={600}
+            height={400}
+            unoptimized
             className="w-full h-full object-cover object-top rounded-t-2xl"
           />
           <button
@@ -221,9 +225,9 @@ function FeatureCards() {
           animate="visible"
           transition={{ staggerChildren: 0.1, delayChildren: 0.7 }}
         >
-          {["33%", "16%", "72%", "36%", "88%", "22%"].map((h, i) => (
+          {["33%", "16%", "72%", "36%", "88%", "22%"].map((h) => (
             <motion.div
-              key={i}
+              key={h}
               className="relative w-full flex items-end"
               style={{ height: h }}
               variants={{ hidden: {}, visible: {} }}
@@ -240,18 +244,12 @@ function FeatureCards() {
               >
                 <div className="w-full h-1 bg-black shrink-0 z-20" />
                 <div className="relative w-full flex-1 overflow-hidden">
-                  <motion.div
-                    className="absolute inset-0 w-full z-0"
+                  <div
+                    className="absolute inset-0 w-full z-0 opacity-80"
                     style={{
                       backgroundImage:
                         "repeating-linear-gradient(-45deg, rgba(0,0,0,0.06) 0, rgba(0,0,0,0.06) 8px, rgba(0,0,0,0.12) 8px, rgba(0,0,0,0.12) 16px)",
                       backgroundSize: "22.63px 22.63px",
-                    }}
-                    animate={{ backgroundPosition: ["0px 0px", "22.63px 0px"] }}
-                    transition={{
-                      repeat: Infinity,
-                      ease: "linear",
-                      duration: 1.5,
                     }}
                   />
                   <motion.div

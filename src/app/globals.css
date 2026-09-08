@@ -150,6 +150,17 @@
   display: inline-block;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .eyebrow-bg {
   background: rgba(192, 192, 192, 0.17);
 }
@@ -168,7 +179,12 @@
     linear-gradient(180deg, #131114 0%, #0a090a 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
   background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 200% 200%;
-  animation: meshFlow 14s ease-in-out infinite, meshDrift 18s ease-in-out infinite;
+}
+
+@media (min-width: 768px) {
+  .mesh-showcase {
+    animation: meshFlow 14s ease-in-out infinite, meshDrift 18s ease-in-out infinite;
+  }
 }
 
 .mesh-showcase::before {
@@ -184,8 +200,13 @@
   );
   background-size: 200% 200%;
   mix-blend-mode: overlay;
-  animation: shimmerSweep 9s linear infinite;
   border-radius: inherit;
+}
+
+@media (min-width: 768px) {
+  .mesh-showcase::before {
+    animation: shimmerSweep 9s linear infinite;
+  }
 }
 
 .mesh-showcase > * {
@@ -237,6 +258,7 @@
   display: flex;
   width: max-content;
   animation: marquee 28s linear infinite;
+  will-change: transform;
 }
 
 @keyframes dotPop {
@@ -263,8 +285,16 @@
 
 .glass-node {
   background: linear-gradient(164deg, rgba(255, 255, 255, 0.04) 14.62%, rgba(255, 255, 255, 0.40) 85.2%);
-  backdrop-filter: blur(214.5px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.34);
+}
+
+@media (min-width: 768px) {
+  .glass-node {
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+  }
 }
 
 /* Marquee animation */

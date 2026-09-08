@@ -36,7 +36,7 @@ export function Hero({
   return (
     <section aria-label="Hero" className={`relative ${className ?? ""}`}>
       <div
-        className="relative mx-2 sm:mx-4 rounded-2xl overflow-hidden bg-card-dark"
+        className="relative mx-0 sm:mx-4 rounded-none sm:rounded-2xl overflow-hidden bg-card-dark"
       >
         <div className="relative">
           <div className="flex items-center px-4 py-4 sm:py-6">
@@ -45,7 +45,7 @@ export function Hero({
             </div>
           </div>
 
-          <div className="relative overflow-hidden mx-1.5 sm:mx-3 mb-0 border border-white/10 rounded-2xl flex flex-col items-center text-center pt-12 sm:pt-16 px-4 sm:px-6 pb-0">
+          <div className="relative overflow-hidden mx-0 sm:mx-3 mb-0 border-0 sm:border border-white/10 rounded-none sm:rounded-2xl flex flex-col items-center text-center pt-12 sm:pt-16 px-4 sm:px-6 pb-0">
             {/* Background Ambient Glow & Grid */}
             <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/60 via-black to-black pointer-events-none z-0" />
             <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-blue-600/15 via-purple-600/10 to-transparent blur-3xl rounded-full pointer-events-none z-0" />
@@ -146,7 +146,7 @@ function DashboardPreview({ heroReady }: { heroReady: boolean }) {
             </div>,
           ].map((node, i) => (
             <motion.div
-              key={i}
+              key={node.key}
               initial={{ opacity: 0, y: 20 }}
               animate={heroReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{

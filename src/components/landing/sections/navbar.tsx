@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import * as motion from "motion/react-client";
 
@@ -21,7 +22,7 @@ export function Navbar({
       <header className={`sticky top-4 z-[100] px-4 ${className ?? ""}`}>
         <div className="mx-auto max-w-6xl backdrop-blur-2xl bg-black/60 border border-white/10 rounded-2xl px-5 py-3 flex items-center shadow-lg shadow-black/40">
           <a href={logoHref} className="shrink-0 flex items-center">
-            <img src="/prohor.webp" alt="প্রহর" className="h-7 w-auto object-contain" />
+              <Image src="/prohor.webp" alt="প্রহর" width={200} height={200} unoptimized className="h-7 w-auto" />
           </a>
           <nav aria-label="Main navigation" className="hidden md:flex items-center gap-1 mx-auto">
             {navItems.map((item) => (
@@ -68,7 +69,7 @@ export function Navbar({
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <img src="/prohor.webp" alt="প্রহর" className="h-7 w-auto object-contain" />
+              <Image src="/prohor.webp" alt="প্রহর" width={200} height={200} unoptimized className="h-7 w-auto" />
             </div>
             <button
               aria-label="Close menu"

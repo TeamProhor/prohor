@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import * as motion from "motion/react-client";
 import { useEffect, useRef, useState } from "react";
 import { Sparkle, Star, User } from "reicon-react";
@@ -20,7 +21,7 @@ function AnimatedWords({
   return (
     <span className={className}>
       {words.map((word, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom leading-[1.15] pb-[0.2em]">
+        <span key={word} className="inline-block overflow-hidden align-bottom leading-[1.15] pb-[0.2em]">
           <motion.span
             className="inline-block"
             initial={{ y: "110%", opacity: 0 }}
@@ -93,9 +94,9 @@ import { MESH_SHOWCASE_CONTENT, ASSETS } from "@/lib/ui";
 
 export function Showcase({ className }: { className?: string }) {
   return (
-    <section className={`mx-auto max-w-[1400px] px-6 md:px-10 mt-16 ${className ?? ""}`}>
+    <section className={`mx-auto max-w-[1400px] px-4 sm:px-6 md:px-10 mt-16 ${className ?? ""}`}>
       <motion.div
-        className="mesh-showcase rounded-[28px] overflow-hidden p-5 md:p-7"
+        className="mesh-showcase rounded-[24px] sm:rounded-[28px] overflow-hidden p-3 sm:p-5 md:p-7"
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -104,10 +105,10 @@ export function Showcase({ className }: { className?: string }) {
           delay: 3.0,
         }}
       >
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-5">
           {/* LEFT INNER CARD */}
           <motion.div
-            className="relative min-h-[360px] rounded-[22px] p-6 md:p-7 text-white flex flex-col bg-card-dark border border-white/10"
+            className="relative min-h-[360px] rounded-[20px] sm:rounded-[22px] p-5 sm:p-6 md:p-7 text-white flex flex-col bg-card-dark border-0 md:border md:border-white/10"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -127,7 +128,7 @@ export function Showcase({ className }: { className?: string }) {
                   delay: 3.45,
                 }}
               >
-                <img src={ASSETS.logo} alt="প্রহর" className="h-3.5 w-auto object-contain inline-block" />
+                <Image src={ASSETS.logo} alt="প্রহর" width={200} height={200} unoptimized className="h-3.5 w-auto inline-block" />
                 <span>{MESH_SHOWCASE_CONTENT.badge}</span>
               </motion.div>
             </div>
@@ -156,9 +157,12 @@ export function Showcase({ className }: { className?: string }) {
 
             {/* Browser mockup — md+ only */}
             <div className="hidden md:block absolute bottom-0 right-0 w-[330px]">
-              <img
+              <Image
                 src={ASSETS.browserMockup}
                 alt="Medical.AI browser"
+                width={330}
+                height={220}
+                unoptimized
                 className="w-full"
                 style={{ filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.45))" }}
               />
@@ -264,7 +268,7 @@ export function Showcase({ className }: { className?: string }) {
 
           {/* RIGHT INNER CARD */}
           <motion.div
-            className="relative min-h-[360px] rounded-[22px] p-6 md:p-7 border border-white/10 text-white flex flex-col bg-card-dark"
+            className="relative min-h-[360px] rounded-[20px] sm:rounded-[22px] p-5 sm:p-6 md:p-7 border-0 md:border md:border-white/10 text-white flex flex-col bg-card-dark"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{
@@ -274,9 +278,12 @@ export function Showcase({ className }: { className?: string }) {
             }}
           >
             <div className="flex items-start justify-between gap-4">
-              <img
+              <Image
                 src={ASSETS.frame207}
                 alt="Customers"
+                width={36}
+                height={36}
+                unoptimized
                 className="h-[36px]"
               />
               <div className="flex flex-col gap-[4.34px]">
