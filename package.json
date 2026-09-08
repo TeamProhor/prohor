@@ -26,7 +26,6 @@
     "@types/react-dom": "^19.2.7",
     "babel-plugin-react-compiler": "1.0.0",
     "knip": "^6.34.0",
-    "react-doctor": "^0.9.13",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2"
   },

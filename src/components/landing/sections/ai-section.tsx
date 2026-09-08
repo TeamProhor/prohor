@@ -74,7 +74,7 @@ export function AISection({ className }: { className?: string }) {
               }}
             >
               <div
-                className="scale-[0.92] xs:scale-100 sm:scale-[1.08] md:scale-[1.12] origin-top will-change-transform transform-gpu"
+                className="scale-[0.92] xs:scale-100 sm:scale-[1.08] md:scale-[1.12] origin-top transform-gpu"
                 style={{
                   transform: "translateY(0%) rotateX(20deg)",
                   position: "relative",

@@ -69,7 +69,7 @@ function AnimatedDottedFrame({ startDelay = 4200 }: { startDelay?: number }) {
     >
       <path
         ref={pathRef}
-        d="M140.75 3.75H5.75C2.98857 3.75 0.75 5.98858 0.75 8.75V95.75C0.75 98.5114 2.98858 100.75 5.75 100.75H40"
+        d="M140.8 3.8H5.8C3 3.8 0.8 6 0.8 8.8V95.8C0.8 98.5 3 100.8 5.8 100.8H40"
         style={{ stroke: "none", fill: "none" }}
       />
       {dots.map((dot, i) => (

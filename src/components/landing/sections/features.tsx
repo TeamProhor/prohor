@@ -51,7 +51,7 @@ function SectionHeader() {
         className="hidden md:flex items-center gap-2 text-base text-neutral-400 text-right shrink-0"
       >
         <Image src={ASSETS.logo} alt="প্রহর" width={200} height={200} unoptimized className="h-5 w-auto" />
-        <span>{FEATURES_CONTENT.tagline}</span>
+        <span>{FEATURES_CONTENT.badgeText}</span>
       </motion.p>
     </header>
   );
@@ -99,10 +99,11 @@ function FeatureCards() {
   });
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Card 1: ডিজাইন ও ইউআই */}
       <motion.article
         {...cardAnim(0.1)}
-        className="relative h-[380px] rounded-2xl overflow-hidden bg-neutral-950 flex flex-col items-center text-center pt-8 px-5"
+        className="relative h-[380px] rounded-2xl overflow-hidden bg-neutral-950 flex flex-col items-center text-center pt-8 px-6 border border-white/5"
         style={{
           backgroundImage:
             "radial-gradient(ellipse at 31% -7%, rgba(255,255,255,0.05), transparent)",
@@ -111,11 +112,11 @@ function FeatureCards() {
         <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight font-medium">
           {FEATURES_CONTENT.card1.title}
         </h3>
-        <p className="mt-4 text-xs sm:text-sm opacity-70 text-neutral-200 max-w-[280px] leading-relaxed">
+        <p className="mt-4 text-xs sm:text-sm opacity-70 text-neutral-200 max-w-[340px] leading-relaxed">
           {FEATURES_CONTENT.card1.description}
         </p>
         <motion.div
-          className="absolute bottom-0 left-4 right-4 bg-white/5 border border-white/5 rounded-t-2xl p-2.5 pt-5 flex flex-col gap-1"
+          className="absolute bottom-0 left-6 right-6 bg-white/5 border border-white/5 rounded-t-2xl p-3 pt-5 flex flex-col gap-1.5"
           initial="hidden"
           animate="visible"
           variants={{
@@ -152,66 +153,13 @@ function FeatureCards() {
         </motion.div>
       </motion.article>
 
+      {/* Card 3: অ্যানালিটিক্স ও এসইও */}
       <motion.article
         {...cardAnim(0.3)}
-        className="relative h-[380px] rounded-2xl overflow-hidden bg-neutral-900 flex flex-col items-center text-center pt-8 px-5"
-      >
-        <h3 className="text-xl sm:text-2xl text-neutral-100 leading-tight font-medium">
-          {FEATURES_CONTENT.card2.title}
-        </h3>
-        <p className="mt-4 text-xs sm:text-sm opacity-70 text-neutral-200 max-w-[300px] leading-relaxed">
-          {FEATURES_CONTENT.card2.description}
-        </p>
-        <motion.div
-          className="mt-3 flex justify-center gap-1.5"
-          initial="hidden"
-          animate="visible"
-          transition={{ staggerChildren: 0.12, delayChildren: 1.0 }}
-        >
-          {FEATURES_CONTENT.card2.techStack.map((t) => (
-            <motion.span
-              key={t}
-              variants={{
-                hidden: { opacity: 0, y: 18 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-              className="bg-white/10 text-neutral-100 text-[10px] opacity-70 rounded-md px-2 py-0.5"
-            >
-              {t}
-            </motion.span>
-          ))}
-        </motion.div>
-        <motion.div
-          className="absolute bottom-0 w-1/2 left-1/2 h-[180px]"
-          initial={{ opacity: 0, y: 80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: "easeOut", delay: 0.5 }}
-          style={{ x: "-50%" }}
-        >
-          <Image
-            src={ASSETS.woman}
-            alt="AI generated preview"
-            width={600}
-            height={400}
-            unoptimized
-            className="w-full h-full object-cover object-top rounded-t-2xl"
-          />
-          <button
-            className="absolute top-6 -right-5 bg-white text-black text-xs font-medium rounded-lg px-2.5 py-1 shadow-lg cursor-pointer"
-            aria-label="Regenerate code"
-          >
-            {FEATURES_CONTENT.card2.regenerateCta}
-          </button>
-        </motion.div>
-      </motion.article>
-
-      <motion.article
-        {...cardAnim(0.5)}
         onViewportEnter={() => setCountActive(true)}
         className="relative h-[380px] rounded-2xl overflow-hidden bg-card-warm text-card-warm-foreground"
       >
-        <div className="flex items-start justify-between p-5 pb-0">
+        <div className="flex items-start justify-between p-6 pb-0">
           <div>
             <h3 className="mt-0.5 text-neutral-900 leading-tight text-xl sm:text-2xl font-medium">
               {FEATURES_CONTENT.card3.title}
@@ -220,7 +168,7 @@ function FeatureCards() {
           <MoreH size={20} className="mt-2 shrink-0 text-neutral-800" />
         </div>
         <motion.div
-          className="absolute bottom-14 left-0 w-full h-[140px] px-5 flex items-end justify-between gap-2 overflow-hidden"
+          className="absolute bottom-14 left-0 w-full h-[140px] px-6 flex items-end justify-between gap-2.5 overflow-hidden"
           initial="hidden"
           animate="visible"
           transition={{ staggerChildren: 0.1, delayChildren: 0.7 }}
@@ -271,7 +219,7 @@ function FeatureCards() {
             </motion.div>
           ))}
         </motion.div>
-        <div className="absolute bottom-0 left-0 w-full h-14 flex items-end pb-3 px-5 gap-2">
+        <div className="absolute bottom-0 left-0 w-full h-14 flex items-end pb-4 px-6 gap-2">
           <span className="text-2xl sm:text-3xl text-neutral-900 font-bold leading-none">
             <CountUp end={FEATURES_CONTENT.card3.visitorCount} duration={3200} active={countActive} />+
           </span>

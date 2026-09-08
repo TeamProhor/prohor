@@ -58,21 +58,21 @@ export function Stats({
           </p>
         </motion.div>
 
-        <article className="relative bg-neutral-900 rounded-2xl p-6 sm:p-8 w-full max-w-[480px] overflow-hidden">
+        <article className="relative bg-neutral-900 rounded-2xl p-5 sm:p-8 w-full max-w-[480px] overflow-hidden">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
           >
-            <p className="text-xl sm:text-2xl md:text-3xl text-white leading-snug">
+            <p className="text-lg sm:text-2xl md:text-3xl text-white leading-relaxed sm:leading-snug">
               {STATS_CONTENT.banner.prefix}
-              <span className="relative inline-block align-baseline px-1.5 py-0.5">
+              <span className="relative inline-block align-baseline px-1.5 py-0.5 whitespace-nowrap">
                 <motion.span
                   aria-hidden
                   className="absolute inset-0 bg-white rounded-sm origin-left"
                   initial={{ scaleX: 0 }}
                   animate={inView ? { scaleX: 1 } : { scaleX: 0 }}
-                  transition={{ duration: 0.91, delay: 1.55, ease: "linear" }}
+                  transition={{ duration: 0.91, delay: 1.2, ease: "linear" }}
                   style={{ transformOrigin: "left center" }}
                 />
                 <span className="relative font-medium text-white">{STATS_CONTENT.banner.highlight}</span>
@@ -81,25 +81,24 @@ export function Stats({
                   className="absolute inset-0 px-1.5 py-0.5 font-medium text-stone-950 whitespace-nowrap"
                   initial={{ clipPath: "inset(0 100% 0 0)" }}
                   animate={inView ? { clipPath: "inset(0 0% 0 0)" } : { clipPath: "inset(0 100% 0 0)" }}
-                  transition={{ duration: 0.91, delay: 1.55, ease: "linear" }}
+                  transition={{ duration: 0.91, delay: 1.2, ease: "linear" }}
                 >
                   {STATS_CONTENT.banner.highlight}
+                </motion.span>
+                <motion.span
+                  className="absolute left-full -bottom-1 pointer-events-none z-20"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.4, delay: 2.1, ease: "easeOut" }}
+                >
+                  <Cursor size={18} className="text-blue-500 fill-blue-500 -rotate-12 translate-y-1" />
+                  <span className="absolute top-4 left-3 whitespace-nowrap bg-blue-500 text-white text-[9px] sm:text-[10px] font-medium px-1.5 py-0.5 rounded-tr-md rounded-bl-md rounded-br-md shadow-md">
+                    {STATS_CONTENT.banner.roleBadge}
+                  </span>
                 </motion.span>
               </span>
               {STATS_CONTENT.banner.suffix}
             </p>
-            <motion.div
-              className="absolute pointer-events-none"
-              style={{ top: "40%", left: "55%" }}
-              initial={{ opacity: 0, x: 100, y: 100 }}
-              animate={inView ? cursorKeyframes : { opacity: 0, x: 100, y: 100 }}
-              transition={cursorTransition}
-            >
-              <Cursor size={22} className="text-blue-500 fill-blue-500" />
-              <span className="absolute top-[18px] left-[14px] whitespace-nowrap bg-blue-500 text-white text-[10px] font-medium px-1.5 py-0.5 rounded-tr-md rounded-bl-md rounded-br-md">
-                {STATS_CONTENT.banner.roleBadge}
-              </span>
-            </motion.div>
           </motion.div>
         </article>
       </div>

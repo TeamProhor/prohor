@@ -33,7 +33,7 @@ const PILL_ITEMS: {
     delay: 0.4,
   },
   {
-    label: "বিকাশ ও নগদ পেমেন্ট গেটওয়ে",
+    label: "Prohor Pay পেমেন্ট গেটওয়ে",
     icon: <CreditCard size={15} />,
     bgClass: "bg-card-lavender text-card-lavender-foreground",
     iconBg: "bg-black/10 text-neutral-900",

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronRight, Check, Document, User, Target, Globe, Chart, Flag, AlertTriangle } from "reicon-react";
+import { ChevronRight, Check, Document, User, Flag, AlertTriangle } from "reicon-react";
 import { PRODUCT_DIRECTION_CONTENT, ASSETS } from "@/lib/ui";
 
 export function ProductDirectionSection({ className }: { className?: string }) {
@@ -27,7 +27,7 @@ export function ProductDirectionSection({ className }: { className?: string }) {
         <div className="relative w-full mb-16 overflow-x-auto aurora-no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0" style={{ perspective: "1200px" }}>
           <div className="min-w-[560px] sm:min-w-0">
             <div
-              className="relative will-change-transform transform-gpu"
+              className="relative transform-gpu"
               style={{
                 transform: "rotateX(42deg) rotateZ(-28deg)",
                 transformStyle: "preserve-3d",
@@ -283,36 +283,6 @@ export function ProductDirectionSection({ className }: { className?: string }) {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-16">
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Target size={20} className="text-muted-foreground" />
-              <span className="text-foreground font-medium">কৌশলগত উদ্যোগ</span>
-            </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">প্রতিষ্ঠানের গুরুত্বপূর্ণ লক্ষ্যগুলোর সমন্বয় করুন।</p>
-          </div>
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Globe size={20} className="text-muted-foreground" />
-              <span className="text-foreground font-medium">ক্রস-টিম প্রজেক্ট</span>
-            </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">ডিজাইনার, ডেভেলপার ও ব্যবসায়ীদের মাঝে সহজ যোগাযোগ।</p>
-          </div>
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-4 h-4 rotate-45 bg-muted-foreground" />
-              <span className="text-foreground font-medium">নির্দিষ্ট মাইলস্টোন</span>
-            </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">বড় প্রজেক্টকে সহজ ধাপে ভাগ করে সফল সমাপ্তি।</p>
-          </div>
-          <div>
-            <div className="flex items-center gap-2 mb-3">
-              <Chart size={20} className="text-muted-foreground" />
-              <span className="text-foreground font-medium">অগ্রগতি বিশ্লেষণ</span>
-            </div>
-            <p className="text-muted-foreground text-sm leading-relaxed">কাজের গতি ও ফলাফল নিখুঁতভাবে পর্যবেক্ষণ করুন।</p>
-          </div>
-        </div>
       </div>
     </section>
   );

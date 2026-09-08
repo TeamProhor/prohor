@@ -55,20 +55,9 @@ export function AuroraShowcase({ className }: { className?: string }) {
               <div className="col-span-12 lg:col-span-7 rounded-2xl bg-background border border-border p-5 min-h-[460px] relative overflow-hidden">
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-xs text-muted-foreground/70 uppercase tracking-widest">
-                      {AURORA_SHOWCASE_CONTENT.workflowBadge}
-                    </div>
-                    <div className="mt-1 text-xl font-medium tracking-tight text-foreground">
+                    <div className="text-xl font-medium tracking-tight text-foreground">
                       {AURORA_SHOWCASE_CONTENT.workflowTitle}
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <button className="h-8 px-3 rounded-lg bg-card border border-border text-xs text-muted-foreground hover:text-foreground hover:bg-muted/60 transition-colors cursor-pointer">
-                      প্রিভিউ
-                    </button>
-                    <button className="h-8 px-3 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:opacity-90 transition-opacity cursor-pointer">
-                      ডিপ্লয়
-                    </button>
                   </div>
                 </div>
 
@@ -128,13 +117,8 @@ export function AuroraShowcase({ className }: { className?: string }) {
                   </div>
                 </div>
 
-                <div className="mt-4 flex items-center justify-between text-[11px] text-muted-foreground">
-                  <span>{AURORA_SHOWCASE_CONTENT.footerSummary}</span>
+                <div className="mt-4 flex items-center justify-center text-[11px] text-muted-foreground">
                   <span className="sm:hidden text-[10px] text-muted-foreground/60">← স্ক্রল করে ক্যানভাস দেখুন →</span>
-                  <span className="inline-flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-success" />
-                    <span className="text-foreground font-medium">{AURORA_SHOWCASE_CONTENT.footerStatus}</span>
-                  </span>
                 </div>
               </div>
 

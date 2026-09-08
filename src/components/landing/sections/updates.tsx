@@ -44,7 +44,7 @@ export function Updates({
               <ArrowUpRight size={20} className="text-neutral-300 hover:text-white transition-colors" />
             </div>
             {UPDATES_CONTENT.paragraphs.map((p, i) => (
-              <p key={`update-${i}`} className={`text-sm sm:text-base text-neutral-100 ${i === 2 ? "opacity-40" : "opacity-60"} leading-6 mb-3`}>
+              <p key={p.slice(0, 20)} className={`text-sm sm:text-base text-neutral-100 ${i === 2 ? "opacity-40" : "opacity-60"} leading-6 mb-3`}>
                 {p}
               </p>
             ))}

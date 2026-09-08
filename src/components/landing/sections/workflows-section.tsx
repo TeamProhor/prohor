@@ -199,11 +199,6 @@ export function WorkflowsSection({ className }: { className?: string }) {
       <div className="max-w-7xl mx-auto px-5 sm:px-6">
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 mb-12 sm:mb-16">
           <div className="lg:max-w-xl">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-2 h-2 rounded-full bg-secondary" />
-              <span className="text-sm text-muted-foreground">{WORKFLOWS_CONTENT.badge}</span>
-              <ChevronRight className="w-4 h-4 text-muted-foreground/60" />
-            </div>
             <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-foreground whitespace-pre-line">
               {WORKFLOWS_CONTENT.title}
             </h2>
